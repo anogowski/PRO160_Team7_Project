@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SandBox", "SandBox\SandBox\SandBox.csproj", "{36FEFDA6-34D4-4E76-9778-73D2A934C922}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "SandBoxContent", "SandBox\SandBoxContent\SandBoxContent.contentproj", "{7012C3C8-883A-42B2-8EC1-92319BA24AC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36FEFDA6-34D4-4E76-9778-73D2A934C922}.Debug|x86.ActiveCfg = Debug|x86
+		{36FEFDA6-34D4-4E76-9778-73D2A934C922}.Debug|x86.Build.0 = Debug|x86
+		{36FEFDA6-34D4-4E76-9778-73D2A934C922}.Release|x86.ActiveCfg = Release|x86
+		{36FEFDA6-34D4-4E76-9778-73D2A934C922}.Release|x86.Build.0 = Release|x86
+		{7012C3C8-883A-42B2-8EC1-92319BA24AC0}.Debug|x86.ActiveCfg = Debug|x86
+		{7012C3C8-883A-42B2-8EC1-92319BA24AC0}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
