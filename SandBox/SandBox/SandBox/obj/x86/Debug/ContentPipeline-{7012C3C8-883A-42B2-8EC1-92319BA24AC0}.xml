@@ -100,6 +100,24 @@
       <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\gamecursor.xnb</Output>
       <Time>2014-02-18T10:36:27.2058047-07:00</Time>
     </Item>
+    <Item>
+      <Source>gravLabel.png</Source>
+      <Name>gravLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\gravLabel.xnb</Output>
+      <Time>2014-02-19T09:01:52.0453581-07:00</Time>
+    </Item>
+    <Item>
+      <Source>weightLabel.png</Source>
+      <Name>weightLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\weightLabel.xnb</Output>
+      <Time>2014-02-19T09:09:39.1544524-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{7012C3C8-883A-42B2-8EC1-92319BA24AC0}</ContentProjectGUID>

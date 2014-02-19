@@ -5,7 +5,7 @@ using System.Text;
 using PhysicsSandbox.Shapes;
 using MathNet.Numerics.LinearAlgebra.Double;
 
-namespace PhysicsSandbox.Physics
+namespace Sandbox
 {
     public class Collision
     {

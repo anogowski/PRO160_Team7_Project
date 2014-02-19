@@ -32,3 +32,11 @@ C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\San
 C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\buttonDown.xnb
 C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\circle.xnb
 C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\gamecursor.xnb
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\gravLabel.xnb
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\weightLabel.xnb
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.dll
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.FSharp.dll
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.IO.dll
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.xml
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.FSharp.xml
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.IO.xml

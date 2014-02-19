@@ -33,12 +33,18 @@ namespace SandBox
         Sprite buttonSprite3;
         Texture2D buttonTexture;
         Texture2D buttonDownTexture;
-        Sprite plusButton;
-        Sprite minusButton;
+        Sprite gravLabel;
+        Sprite gravUpBtn;
+        Sprite gravDownBtn;
+        Sprite weightUpBtn;
+        Sprite weightDownBtn;
+        Texture2D gravTexture;
         Texture2D plusBtnTexture;
         Texture2D plusBtnDownTexture;
         Texture2D minusBtnTexture;
         Texture2D minusBtnDownTexture;
+        Sprite weightLabel;
+        Texture2D weightTexture;
         
         MouseState mMouseState;
         MouseState oldMouseState;
@@ -74,16 +80,19 @@ namespace SandBox
             triTexture = Content.Load<Texture2D>("triangle");
             buttonTexture = Content.Load<Texture2D>("button");
             buttonDownTexture = Content.Load<Texture2D>("buttonDown");
+            gravTexture = Content.Load<Texture2D>("gravLabel");
             plusBtnTexture = Content.Load<Texture2D>("plusButton");
             plusBtnDownTexture = Content.Load<Texture2D>("plusButtonDown");
             minusBtnTexture = Content.Load<Texture2D>("minusButton");
             minusBtnDownTexture = Content.Load<Texture2D>("minusButtonDown");
+            weightTexture = Content.Load<Texture2D>("weightLabel");
 
             CreateStartupSprites();
 
             base.Initialize();
         }
-
+        
+        // Sets up the options menu at the bottom of the screen
         public void CreateStartupSprites()
         {
             mMouseCursor = new Sprite();
@@ -116,6 +125,16 @@ namespace SandBox
             triLabel.Texture = triTexture;
             triLabel.X = 30;
             triLabel.Y = 890;
+
+            gravLabel = new Sprite();
+            gravLabel.Texture = gravTexture;
+            gravLabel.X = 200;
+            gravLabel.Y = 711;
+
+            weightLabel = new Sprite();
+            weightLabel.Texture = weightTexture;
+            weightLabel.X = 310;
+            weightLabel.Y = 711;
         }
 
         private void CreateButtons()
@@ -135,15 +154,26 @@ namespace SandBox
             buttonSprite3.X = 70;
             buttonSprite3.Y = 925;
 
-            plusButton = new Sprite();
-            plusButton.Texture = plusBtnTexture;
-            plusButton.X = 220;
-            plusButton.Y = 745;
+            gravUpBtn = new Sprite();
+            gravUpBtn.Texture = plusBtnTexture;
+            gravUpBtn.X = 200;
+            gravUpBtn.Y = 745;
 
-            minusButton = new Sprite();
-            minusButton.Texture = minusBtnTexture;
-            minusButton.X = 220;
-            minusButton.Y = 785;
+            gravDownBtn = new Sprite();
+            gravDownBtn.Texture = minusBtnTexture;
+            gravDownBtn.X = 200;
+            gravDownBtn.Y = 785;
+
+            weightUpBtn = new Sprite();
+            weightUpBtn.Texture = plusBtnTexture;
+            weightUpBtn.X = 310;
+            weightUpBtn.Y = 745;
+
+            weightDownBtn = new Sprite();
+            weightDownBtn.Texture = minusBtnTexture;
+            weightDownBtn.X = 310;
+            weightDownBtn.Y = 785;
+
         }
 
         /// <summary>
@@ -185,8 +215,10 @@ namespace SandBox
             CheckButtonOnePressed();
             CheckButtonTwoPressed();
             CheckButtonThreePressed();
-            CheckPlusBtnPressed();
-            CheckMinusBtnPressed();
+            CheckGravUpBtnPressed();
+            CheckGravDownBtnPressed();
+            CheckWeightUpBtnPressed();
+            CheckWeightDownBtnPressed();
 
             oldMouseState = Mouse.GetState();
            
@@ -265,17 +297,17 @@ namespace SandBox
             }
         }
 
-        private void CheckPlusBtnPressed()
+        private void CheckGravUpBtnPressed()
         {
             if (mMouseState.LeftButton == ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released)
             {
-                if (mMouseCursor.X > plusButton.X && mMouseCursor.X < plusButton.X + plusButton.Texture.Width
-                    && mMouseCursor.Y > plusButton.Y && mMouseCursor.Y < plusButton.Y + plusButton.Texture.Height)
+                if (mMouseCursor.X > gravUpBtn.X && mMouseCursor.X < gravUpBtn.X + gravUpBtn.Texture.Width
+                    && mMouseCursor.Y > gravUpBtn.Y && mMouseCursor.Y < gravUpBtn.Y + gravUpBtn.Texture.Height)
                 {
                     if (mMouseState.LeftButton == ButtonState.Pressed)
                     {
-                        plusButton.Texture = plusBtnDownTexture;
-                        Console.WriteLine("Plus Button Pressed");
+                        gravUpBtn.Texture = plusBtnDownTexture;
+                        Console.WriteLine("Gravity Up");
                     }
                 }
             }
@@ -283,22 +315,22 @@ namespace SandBox
             {
                 if (mMouseState.LeftButton == ButtonState.Released)
                 {
-                    plusButton.Texture = plusBtnTexture;
+                    gravUpBtn.Texture = plusBtnTexture;
                 }
             }
         }
 
-        private void CheckMinusBtnPressed()
+        private void CheckGravDownBtnPressed()
         {
             if (mMouseState.LeftButton == ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released)
             {
-                if (mMouseCursor.X > minusButton.X && mMouseCursor.X < minusButton.X + minusButton.Texture.Width
-                    && mMouseCursor.Y > minusButton.Y && mMouseCursor.Y < minusButton.Y + minusButton.Texture.Height)
+                if (mMouseCursor.X > gravDownBtn.X && mMouseCursor.X < gravDownBtn.X + gravDownBtn.Texture.Width
+                    && mMouseCursor.Y > gravDownBtn.Y && mMouseCursor.Y < gravDownBtn.Y + gravDownBtn.Texture.Height)
                 {
                     if (mMouseState.LeftButton == ButtonState.Pressed)
                     {
-                        minusButton.Texture = minusBtnDownTexture;
-                        Console.WriteLine("Minus Button Pressed");
+                        gravDownBtn.Texture = minusBtnDownTexture;
+                        Console.WriteLine("Gravity Down");
                     }
                 }
             }
@@ -306,7 +338,53 @@ namespace SandBox
             {
                 if (mMouseState.LeftButton == ButtonState.Released)
                 {
-                    minusButton.Texture = minusBtnTexture;
+                    gravDownBtn.Texture = minusBtnTexture;
+                }
+            }
+        }
+
+        private void CheckWeightUpBtnPressed()
+        {
+            if (mMouseState.LeftButton == ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released)
+            {
+                if (mMouseCursor.X > weightUpBtn.X && mMouseCursor.X < weightUpBtn.X + weightUpBtn.Texture.Width
+                    && mMouseCursor.Y > weightUpBtn.Y && mMouseCursor.Y < weightUpBtn.Y + weightUpBtn.Texture.Height)
+                {
+                    if (mMouseState.LeftButton == ButtonState.Pressed)
+                    {
+                        weightUpBtn.Texture = plusBtnDownTexture;
+                        Console.WriteLine("Weight Up");
+                    }
+                }
+            }
+            if (mMouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed)
+            {
+                if (mMouseState.LeftButton == ButtonState.Released)
+                {
+                    weightUpBtn.Texture = plusBtnTexture;
+                }
+            }
+        }
+
+        private void CheckWeightDownBtnPressed()
+        {
+            if (mMouseState.LeftButton == ButtonState.Pressed && oldMouseState.LeftButton == ButtonState.Released)
+            {
+                if (mMouseCursor.X > weightDownBtn.X && mMouseCursor.X < weightDownBtn.X + weightDownBtn.Texture.Width
+                    && mMouseCursor.Y > weightDownBtn.Y && mMouseCursor.Y < weightDownBtn.Y + weightDownBtn.Texture.Height)
+                {
+                    if (mMouseState.LeftButton == ButtonState.Pressed)
+                    {
+                        weightDownBtn.Texture = minusBtnDownTexture;
+                        Console.WriteLine("weightDown Down");
+                    }
+                }
+            }
+            if (mMouseState.LeftButton == ButtonState.Released && oldMouseState.LeftButton == ButtonState.Pressed)
+            {
+                if (mMouseState.LeftButton == ButtonState.Released)
+                {
+                    weightDownBtn.Texture = minusBtnTexture;
                 }
             }
         }
@@ -318,7 +396,6 @@ namespace SandBox
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-
             spriteBatch.Begin();
 
             optionsBackground.Draw(spriteBatch);
@@ -328,8 +405,12 @@ namespace SandBox
             buttonSprite1.Draw(spriteBatch);
             buttonSprite2.Draw(spriteBatch);
             buttonSprite3.Draw(spriteBatch);
-            plusButton.Draw(spriteBatch);
-            minusButton.Draw(spriteBatch);
+            gravLabel.Draw(spriteBatch);
+            gravUpBtn.Draw(spriteBatch);
+            gravDownBtn.Draw(spriteBatch);
+            weightLabel.Draw(spriteBatch);
+            weightUpBtn.Draw(spriteBatch);
+            weightDownBtn.Draw(spriteBatch);
             mMouseCursor.Draw(spriteBatch);
 
             spriteBatch.End();

@@ -9,11 +9,6 @@ namespace Sandbox
 {
     class Sprite
     {
-        public Sprite()
-        {
-            
-        }
-
         public float X
         {
             get;
@@ -61,12 +56,6 @@ namespace Sandbox
             get;
             set;
         }
-
-        public void Update()
-        {
-
-        }
-
 
         public void Draw(SpriteBatch spriteBatch)
         {
