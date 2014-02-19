@@ -19,6 +19,8 @@ namespace SandBox
     {  
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        
+        #region(Variable Declarations)
         Sprite optionsBackground;
         Texture2D optionsTexture;
 
@@ -28,30 +30,38 @@ namespace SandBox
         Texture2D rectTexture;
         Texture2D circTexture;
         Texture2D triTexture;
+
         Sprite buttonSprite1;
         Sprite buttonSprite2;
         Sprite buttonSprite3;
         Texture2D buttonTexture;
         Texture2D buttonDownTexture;
+
         Sprite gravLabel;
         Sprite gravUpBtn;
         Sprite gravDownBtn;
+        Texture2D gravTexture;
+        Sprite displayGravity;
+
         Sprite weightUpBtn;
         Sprite weightDownBtn;
-        Texture2D gravTexture;
+
+        Sprite weightLabel;
+        Texture2D weightTexture;
+        
         Texture2D plusBtnTexture;
         Texture2D plusBtnDownTexture;
         Texture2D minusBtnTexture;
         Texture2D minusBtnDownTexture;
-        Sprite weightLabel;
-        Texture2D weightTexture;
-        
+
         MouseState mMouseState;
         MouseState oldMouseState;
         Sprite mMouseCursor;
         Texture2D mMouseTexture;
 
         int selectedShape;
+        int initialGravity;
+        #endregion
 
         public Game1()
         {
@@ -72,6 +82,8 @@ namespace SandBox
 
             graphics.ApplyChanges();
 
+            initialGravity = 2;
+
             optionsTexture = Content.Load<Texture2D>("background");
             mMouseTexture = Content.Load<Texture2D>("gamecursor");
 
@@ -91,11 +103,6 @@ namespace SandBox
 
             base.Initialize();
         }
-
-        public void testCollision()
-        {
-
-        }
         
         // Sets up the options menu at the bottom of the screen
         public void CreateStartupSprites()
@@ -114,6 +121,7 @@ namespace SandBox
             CreateButtons();
         }
 
+        // Read the method name
         private void CreateButtonLabels()
         {
             rectLabel = new Sprite();
@@ -140,8 +148,13 @@ namespace SandBox
             weightLabel.Texture = weightTexture;
             weightLabel.X = 310;
             weightLabel.Y = 711;
+
+            displayGravity = new Sprite();
+            displayGravity.X = 235;
+            displayGravity.Y = 745;
         }
 
+        // Read the method name
         private void CreateButtons()
         {
             buttonSprite1 = new Sprite();
@@ -181,10 +194,6 @@ namespace SandBox
 
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -193,10 +202,6 @@ namespace SandBox
             // TODO: use this.Content to load your game content here
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
         protected override void UnloadContent()
         {
             // TODO: Unload any non ContentManager content here
@@ -224,12 +229,61 @@ namespace SandBox
             CheckGravDownBtnPressed();
             CheckWeightUpBtnPressed();
             CheckWeightDownBtnPressed();
+            CheckGravity();
 
             oldMouseState = Mouse.GetState();
-
-            if(Collision.RectangleRectangleCollision())
            
             base.Update(gameTime);
+        }
+
+        // Checks what the amount of gravity is and displays it accordingly
+        private void CheckGravity()
+        {
+            switch (initialGravity)
+            {
+                case 0:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav0");
+                    break;
+                case 1:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav1");
+                    break;
+                case 2:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav2");
+                    break;
+                case 3:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav3");
+                    break;
+                case 4:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav4");
+                    break;
+                case 5:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav5");
+                    break;
+                case 6:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav6");
+                    break;
+                case 7:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav7");
+                    break;
+                case 8:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav8");
+                    break;
+                case 9:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav9");
+                    break;
+                case 10:
+                    displayGravity.Texture = Content.Load<Texture2D>("grav10");
+                    break;
+            }
+
+            if (initialGravity < 0)
+            {
+                initialGravity = 0;
+            }
+            else if (initialGravity > 10)
+            {
+                initialGravity = 10;
+            }
         }
 
         private void CheckButtonOnePressed()
@@ -314,7 +368,7 @@ namespace SandBox
                     if (mMouseState.LeftButton == ButtonState.Pressed)
                     {
                         gravUpBtn.Texture = plusBtnDownTexture;
-                        Console.WriteLine("Gravity Up");
+                        initialGravity++;
                     }
                 }
             }
@@ -337,7 +391,7 @@ namespace SandBox
                     if (mMouseState.LeftButton == ButtonState.Pressed)
                     {
                         gravDownBtn.Texture = minusBtnDownTexture;
-                        Console.WriteLine("Gravity Down");
+                        initialGravity--;
                     }
                 }
             }
@@ -396,10 +450,6 @@ namespace SandBox
             }
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
@@ -415,6 +465,7 @@ namespace SandBox
             gravLabel.Draw(spriteBatch);
             gravUpBtn.Draw(spriteBatch);
             gravDownBtn.Draw(spriteBatch);
+            displayGravity.Draw(spriteBatch);
             weightLabel.Draw(spriteBatch);
             weightUpBtn.Draw(spriteBatch);
             weightDownBtn.Draw(spriteBatch);
