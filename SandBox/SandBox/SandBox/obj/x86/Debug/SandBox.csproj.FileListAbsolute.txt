@@ -40,3 +40,5 @@ C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\San
 C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.xml
 C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.FSharp.xml
 C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\MathNet.Numerics.IO.xml
+C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\obj\x86\Debug\SandBox.csprojResolveAssemblyReference.cache
+C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt

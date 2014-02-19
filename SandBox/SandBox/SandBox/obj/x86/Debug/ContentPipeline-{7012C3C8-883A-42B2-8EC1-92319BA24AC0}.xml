@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\minusButton.xnb</Output>
-      <Time>2014-02-18T10:36:20.0817128-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\minusButton.xnb</Output>
+      <Time>2014-02-18T10:00:00.2476078-07:00</Time>
     </Item>
     <Item>
       <Source>minusButtonDown.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\minusButtonDown.xnb</Output>
-      <Time>2014-02-18T10:36:20.082713-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\minusButtonDown.xnb</Output>
+      <Time>2014-02-18T10:00:00.2486079-07:00</Time>
     </Item>
     <Item>
       <Source>plusButton.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\plusButton.xnb</Output>
-      <Time>2014-02-18T10:36:20.0837136-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\plusButton.xnb</Output>
+      <Time>2014-02-18T10:00:00.2516082-07:00</Time>
     </Item>
     <Item>
       <Source>plusButtonDown.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\plusButtonDown.xnb</Output>
-      <Time>2014-02-18T10:36:20.0857148-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\plusButtonDown.xnb</Output>
+      <Time>2014-02-18T10:00:00.2526083-07:00</Time>
     </Item>
     <Item>
       <Source>rectangle.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\rectangle.xnb</Output>
-      <Time>2014-02-18T10:36:20.0787159-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\rectangle.xnb</Output>
+      <Time>2014-02-18T10:00:00.2536084-07:00</Time>
     </Item>
     <Item>
       <Source>triangle.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\triangle.xnb</Output>
-      <Time>2014-02-18T10:36:20.079712-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\triangle.xnb</Output>
+      <Time>2014-02-18T10:00:00.2546085-07:00</Time>
     </Item>
     <Item>
       <Source>background.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2014-02-18T10:36:27.2068086-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2014-02-18T10:00:00.2306061-07:00</Time>
     </Item>
     <Item>
       <Source>button.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\button.xnb</Output>
-      <Time>2014-02-18T10:36:27.1998035-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\button.xnb</Output>
+      <Time>2014-02-18T10:00:00.2426073-07:00</Time>
     </Item>
     <Item>
       <Source>buttonDown.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\buttonDown.xnb</Output>
-      <Time>2014-02-18T10:36:27.2028065-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\buttonDown.xnb</Output>
+      <Time>2014-02-18T10:00:00.2436074-07:00</Time>
     </Item>
     <Item>
       <Source>circle.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\circle.xnb</Output>
-      <Time>2014-02-18T10:36:27.2048045-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\circle.xnb</Output>
+      <Time>2014-02-18T10:00:00.2456076-07:00</Time>
     </Item>
     <Item>
       <Source>gamecursor.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\gamecursor.xnb</Output>
-      <Time>2014-02-18T10:36:27.2058047-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\gamecursor.xnb</Output>
+      <Time>2014-02-18T10:00:00.2466077-07:00</Time>
     </Item>
     <Item>
       <Source>gravLabel.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\gravLabel.xnb</Output>
-      <Time>2014-02-19T09:01:52.0453581-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\gravLabel.xnb</Output>
+      <Time>2014-02-19T09:40:31.1266398-07:00</Time>
     </Item>
     <Item>
       <Source>weightLabel.png</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\weightLabel.xnb</Output>
-      <Time>2014-02-19T09:09:39.1544524-07:00</Time>
+      <Output>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\weightLabel.xnb</Output>
+      <Time>2014-02-19T09:40:31.1496421-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -125,10 +125,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBoxContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBoxContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\kruple\Documents\DotNet\SVN\SandBox\SandBox\SandBox\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -157,7 +157,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-02-11T11:06:25.5117268-07:00</Value>
+        <Value>2014-02-12T09:34:09.2741063-07:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

@@ -12,6 +12,13 @@ namespace Sandbox
         public static bool RectangleRectangleCollision( Rectangle rec1,  Rectangle rec2)
         {
             bool b = false;
+            if (!((rec1.LeftTop.X > rec2.LeftTop.X + rec2.Width - 1) ||
+               (rec1.LeftTop.Y > rec2.LeftTop.Y + rec2.Height - 1) ||
+               (rec2.LeftTop.X > rec1.LeftTop.X + rec1.Width - 1) ||
+               (rec2.LeftTop.Y > rec1.LeftTop.Y + rec1.Height - 1)))
+            {
+                b = true;
+            }
             return b;
         }
 
