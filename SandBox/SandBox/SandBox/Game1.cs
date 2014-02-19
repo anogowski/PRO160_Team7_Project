@@ -91,6 +91,11 @@ namespace SandBox
 
             base.Initialize();
         }
+
+        public void testCollision()
+        {
+
+        }
         
         // Sets up the options menu at the bottom of the screen
         public void CreateStartupSprites()
@@ -221,6 +226,8 @@ namespace SandBox
             CheckWeightDownBtnPressed();
 
             oldMouseState = Mouse.GetState();
+
+            if(Collision.RectangleRectangleCollision())
            
             base.Update(gameTime);
         }
