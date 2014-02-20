@@ -12,6 +12,14 @@ namespace PhysicsSandbox.Physics
         //general forces
         public float Gravity { get; set; }
 
+		/// <summary>
+		/// Air resistance is a value between 0 and 1 that slows down the velocity of an object.
+		/// </summary>
+		public float AirResistance {
+			get;
+			set;
+		}
+
         public Physics(float gravity = 9.8f)
         {
  
@@ -26,5 +34,9 @@ namespace PhysicsSandbox.Physics
         {
             shape.Velocity = new Vector3(shape.Velocity.X, (Gravity * shape.MoveTime * shape.MoveTime) / 2, 0);            
         }
+
+		public void addAirResistance<T>(ref T shape) where T : Shape {
+			shape.Velocity *= AirResistance;
+		}
     }
 }
