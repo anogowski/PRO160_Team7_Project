@@ -15,6 +15,7 @@ namespace PhysicsSandbox.Physics
         public Physics(float gravity = 9.8f)
         {
  
+            Gravity = gravity;
         }
 
         public void addGeneralForces<T>(ref T shape) where T : Shape
