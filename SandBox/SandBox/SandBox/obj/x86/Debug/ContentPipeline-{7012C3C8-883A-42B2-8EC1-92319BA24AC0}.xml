@@ -38,24 +38,6 @@
       <Time>2014-02-19T10:00:32.3570348-07:00</Time>
     </Item>
     <Item>
-      <Source>rectangle.png</Source>
-      <Name>rectangle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\rectangle.xnb</Output>
-      <Time>2014-02-19T10:00:32.506989-07:00</Time>
-    </Item>
-    <Item>
-      <Source>triangle.png</Source>
-      <Name>triangle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\triangle.xnb</Output>
-      <Time>2014-02-19T10:00:32.6398238-07:00</Time>
-    </Item>
-    <Item>
       <Source>background.png</Source>
       <Name>background</Name>
       <Importer>TextureImporter</Importer>
@@ -81,15 +63,6 @@
       <Options>None</Options>
       <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\buttonDown.xnb</Output>
       <Time>2014-02-19T10:00:33.1995176-07:00</Time>
-    </Item>
-    <Item>
-      <Source>circle.png</Source>
-      <Name>circle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\circle.xnb</Output>
-      <Time>2014-02-19T10:00:33.3415469-07:00</Time>
     </Item>
     <Item>
       <Source>gamecursor.png</Source>
@@ -216,6 +189,33 @@
       <Options>None</Options>
       <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\num9.xnb</Output>
       <Time>2014-02-20T08:59:58.1122351-07:00</Time>
+    </Item>
+    <Item>
+      <Source>circleLabel.png</Source>
+      <Name>circleLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\circleLabel.xnb</Output>
+      <Time>2014-02-20T09:48:14.5903315-07:00</Time>
+    </Item>
+    <Item>
+      <Source>rectLabel.png</Source>
+      <Name>rectLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\rectLabel.xnb</Output>
+      <Time>2014-02-20T09:48:14.5873317-07:00</Time>
+    </Item>
+    <Item>
+      <Source>triLabel.png</Source>
+      <Name>triLabel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBox\bin\x86\Debug\Content\triLabel.xnb</Output>
+      <Time>2014-02-20T09:48:14.5893313-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

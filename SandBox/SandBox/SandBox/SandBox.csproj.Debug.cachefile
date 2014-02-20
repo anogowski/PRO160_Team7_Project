@@ -2,12 +2,9 @@ Content\minusButton.xnb
 Content\minusButtonDown.xnb
 Content\plusButton.xnb
 Content\plusButtonDown.xnb
-Content\rectangle.xnb
-Content\triangle.xnb
 Content\background.xnb
 Content\button.xnb
 Content\buttonDown.xnb
-Content\circle.xnb
 Content\gamecursor.xnb
 Content\gravLabel.xnb
 Content\weightLabel.xnb
@@ -22,3 +19,6 @@ Content\num6.xnb
 Content\num7.xnb
 Content\num8.xnb
 Content\num9.xnb
+Content\circleLabel.xnb
+Content\rectLabel.xnb
+Content\triLabel.xnb

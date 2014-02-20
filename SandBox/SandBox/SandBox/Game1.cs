@@ -90,9 +90,9 @@ namespace SandBox
             optionsTexture = Content.Load<Texture2D>("background");
             mMouseTexture = Content.Load<Texture2D>("gamecursor");
 
-            rectTexture = Content.Load<Texture2D>("rectangle");
-            circTexture = Content.Load<Texture2D>("circle");
-            triTexture = Content.Load<Texture2D>("triangle");
+            rectTexture = Content.Load<Texture2D>("rectLabel");
+            circTexture = Content.Load<Texture2D>("circleLabel");
+            triTexture = Content.Load<Texture2D>("triLabel");
             buttonTexture = Content.Load<Texture2D>("button");
             buttonDownTexture = Content.Load<Texture2D>("buttonDown");
             gravTexture = Content.Load<Texture2D>("gravLabel");
