@@ -45,6 +45,7 @@ namespace SandBox
 
         Sprite weightUpBtn;
         Sprite weightDownBtn;
+        Sprite displayWeight;
 
         Sprite weightLabel;
         Texture2D weightTexture;
@@ -61,6 +62,7 @@ namespace SandBox
 
         int selectedShape;
         int initialGravity;
+        int initialWeight;
         #endregion
 
         public Game1()
@@ -83,6 +85,7 @@ namespace SandBox
             graphics.ApplyChanges();
 
             initialGravity = 2;
+            initialWeight = 0;
 
             optionsTexture = Content.Load<Texture2D>("background");
             mMouseTexture = Content.Load<Texture2D>("gamecursor");
@@ -152,6 +155,10 @@ namespace SandBox
             displayGravity = new Sprite();
             displayGravity.X = 235;
             displayGravity.Y = 745;
+
+            displayWeight = new Sprite();
+            displayWeight.X = 345;
+            displayWeight.Y = 745;
         }
 
         // Read the method name
@@ -230,6 +237,7 @@ namespace SandBox
             CheckWeightUpBtnPressed();
             CheckWeightDownBtnPressed();
             CheckGravity();
+            CheckWeight();
 
             oldMouseState = Mouse.GetState();
            
@@ -242,37 +250,37 @@ namespace SandBox
             switch (initialGravity)
             {
                 case 0:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav0");
+                    displayGravity.Texture = Content.Load<Texture2D>("num0");
                     break;
                 case 1:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav1");
+                    displayGravity.Texture = Content.Load<Texture2D>("num1");
                     break;
                 case 2:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav2");
+                    displayGravity.Texture = Content.Load<Texture2D>("num2");
                     break;
                 case 3:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav3");
+                    displayGravity.Texture = Content.Load<Texture2D>("num3");
                     break;
                 case 4:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav4");
+                    displayGravity.Texture = Content.Load<Texture2D>("num4");
                     break;
                 case 5:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav5");
+                    displayGravity.Texture = Content.Load<Texture2D>("num5");
                     break;
                 case 6:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav6");
+                    displayGravity.Texture = Content.Load<Texture2D>("num6");
                     break;
                 case 7:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav7");
+                    displayGravity.Texture = Content.Load<Texture2D>("num7");
                     break;
                 case 8:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav8");
+                    displayGravity.Texture = Content.Load<Texture2D>("num8");
                     break;
                 case 9:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav9");
+                    displayGravity.Texture = Content.Load<Texture2D>("num9");
                     break;
                 case 10:
-                    displayGravity.Texture = Content.Load<Texture2D>("grav10");
+                    displayGravity.Texture = Content.Load<Texture2D>("num10");
                     break;
             }
 
@@ -283,6 +291,55 @@ namespace SandBox
             else if (initialGravity > 10)
             {
                 initialGravity = 10;
+            }
+        }
+
+        private void CheckWeight()
+        {
+            switch (initialWeight)
+            {
+                case 0:
+                    displayWeight.Texture = Content.Load<Texture2D>("num0");
+                    break;
+                case 1:
+                    displayWeight.Texture = Content.Load<Texture2D>("num1");
+                    break;
+                case 2:
+                    displayWeight.Texture = Content.Load<Texture2D>("num2");
+                    break;
+                case 3:
+                    displayWeight.Texture = Content.Load<Texture2D>("num3");
+                    break;
+                case 4:
+                    displayWeight.Texture = Content.Load<Texture2D>("num4");
+                    break;
+                case 5:
+                    displayWeight.Texture = Content.Load<Texture2D>("num5");
+                    break;
+                case 6:
+                    displayWeight.Texture = Content.Load<Texture2D>("num6");
+                    break;
+                case 7:
+                    displayWeight.Texture = Content.Load<Texture2D>("num7");
+                    break;
+                case 8:
+                    displayWeight.Texture = Content.Load<Texture2D>("num8");
+                    break;
+                case 9:
+                    displayWeight.Texture = Content.Load<Texture2D>("num9");
+                    break;
+                case 10:
+                    displayWeight.Texture = Content.Load<Texture2D>("num10");
+                    break;
+            }
+
+            if (initialWeight < 0)
+            {
+                initialWeight = 0;
+            }
+            else if (initialWeight > 10)
+            {
+                initialWeight = 10;
             }
         }
 
@@ -414,7 +471,7 @@ namespace SandBox
                     if (mMouseState.LeftButton == ButtonState.Pressed)
                     {
                         weightUpBtn.Texture = plusBtnDownTexture;
-                        Console.WriteLine("Weight Up");
+                        initialWeight++;
                     }
                 }
             }
@@ -437,7 +494,7 @@ namespace SandBox
                     if (mMouseState.LeftButton == ButtonState.Pressed)
                     {
                         weightDownBtn.Texture = minusBtnDownTexture;
-                        Console.WriteLine("weightDown Down");
+                        initialWeight--;
                     }
                 }
             }
@@ -466,6 +523,7 @@ namespace SandBox
             gravUpBtn.Draw(spriteBatch);
             gravDownBtn.Draw(spriteBatch);
             displayGravity.Draw(spriteBatch);
+            displayWeight.Draw(spriteBatch);
             weightLabel.Draw(spriteBatch);
             weightUpBtn.Draw(spriteBatch);
             weightDownBtn.Draw(spriteBatch);

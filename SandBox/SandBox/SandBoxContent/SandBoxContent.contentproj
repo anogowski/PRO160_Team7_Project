@@ -103,60 +103,58 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="grav1.png">
-      <Name>grav1</Name>
+    <Compile Include="num0.png">
+      <Name>num0</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav10.png">
-      <Name>grav10</Name>
+    <Compile Include="num1.png">
+      <Name>num1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav2.png">
-      <Name>grav2</Name>
+    <Compile Include="num10.png">
+      <Name>num10</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav3.png">
-      <Name>grav3</Name>
+    <Compile Include="num2.png">
+      <Name>num2</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav4.png">
-      <Name>grav4</Name>
+    <Compile Include="num3.png">
+      <Name>num3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav5.png">
-      <Name>grav5</Name>
+    <Compile Include="num4.png">
+      <Name>num4</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav6.png">
-      <Name>grav6</Name>
+    <Compile Include="num5.png">
+      <Name>num5</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav7.png">
-      <Name>grav7</Name>
+    <Compile Include="num6.png">
+      <Name>num6</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav8.png">
-      <Name>grav8</Name>
+    <Compile Include="num7.png">
+      <Name>num7</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="grav9.png">
-      <Name>grav9</Name>
+    <Compile Include="num8.png">
+      <Name>num8</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="grav0.png">
-      <Name>grav0</Name>
+    <Compile Include="num9.png">
+      <Name>num9</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
