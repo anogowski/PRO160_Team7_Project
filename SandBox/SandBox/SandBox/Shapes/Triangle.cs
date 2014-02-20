@@ -11,7 +11,11 @@ namespace PhysicsSandbox.Shapes
         public int Width { get; set; }
         public int Height { get; set; }
 
-        public Triangle(Vector2 position, float mass = 1.0f, float momentum = 0.0f, int width = 10, int height = 10)
+        public Vector3 Top { get { return Vector3.Add(Top, Position); } set; }
+        public Vector3 LeftBottom { get { return Vector3.Add(LeftBottom, Position); } set; }
+        public Vector3 RightBottom { get {return  Vector3.Add(RightBottom, Position); } set; }
+
+        public Triangle(Vector3 position, float mass = 1.0f, float momentum = 0.0f, int width = 10, int height = 10)
         {
             this.Position = position;
             this.Mass = mass;
@@ -24,9 +28,9 @@ namespace PhysicsSandbox.Shapes
 
         private void GenTrianglePoints()
         {
-            Vector3 top = new Vector3(Position.X, Position.Y - Height / 2, 0);
-            Vector3 leftBottom = new Vector3(Position.X - Width / 2, Position.Y + Height / 2, 0);
-            Vector3 rightButtom = new Vector3(Position.X + Width / 2, Position.Y + Height / 2, 0);
+            Top = new Vector3(0, -Height / 2, 0);
+            LeftBottom = new Vector3( -Width / 2, Height / 2, 0);
+            RightBottom = new Vector3(Width / 2, Height / 2, 0);
         }
     }
 }

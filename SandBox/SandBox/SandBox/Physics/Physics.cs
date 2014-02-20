@@ -17,14 +17,14 @@ namespace PhysicsSandbox.Physics
  
         }
 
-        public void addGeneralForces(ref Shape shape)
+        public void addGeneralForces<T>(ref T shape) where T : Shape
         {
             addFreeFall(ref shape);
         }
 
-        private void addFreeFall(ref Shape shape)
+        private void addFreeFall<T>(ref T shape) where T : Shape
         {
-            shape.Velocity = new Vector2(shape.Velocity.X, (Gravity * shape.MoveTime * shape.MoveTime) / 2);            
+            shape.Velocity = new Vector3(shape.Velocity.X, (Gravity * shape.MoveTime * shape.MoveTime) / 2, 0);            
         }
     }
 }

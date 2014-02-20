@@ -12,12 +12,12 @@ namespace PhysicsSandbox.Shapes
         public int Width { get; set; }
         public int Height { get; set; }
 
-        public Vector3 LeftTop { get { return Vector3.Add(vecs[0], new Vector3(Position, 0)); } }
-        public Vector3 RightTop { get { return Vector3.Add(vecs[1], new Vector3(Position, 0)); } }
-        public Vector3 RightBottom { get { return Vector3.Add(vecs[2], new Vector3(Position, 0)); } }
-        public Vector3 LeftBottom { get { return Vector3.Add(vecs[3], new Vector3(Position, 0)); } }
+        public Vector3 LeftTop { get { return Vector3.Add(vecs[0], Position); } }
+        public Vector3 RightTop { get { return Vector3.Add(vecs[1], Position); } }
+        public Vector3 RightBottom { get { return Vector3.Add(vecs[2], Position); } }
+        public Vector3 LeftBottom { get { return Vector3.Add(vecs[3], Position); } }
 
-        public Rectangle(Vector2 position, float mass = 1.0f, float momentum = 0.0f, int width = 10, int height = 10)
+        public Rectangle(Vector3 position, float mass = 1.0f, float momentum = 0.0f, int width = 10, int height = 10)
         {
             this.Position = position;
             this.Mass = mass;

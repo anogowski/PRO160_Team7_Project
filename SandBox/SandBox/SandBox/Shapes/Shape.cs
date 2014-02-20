@@ -22,11 +22,11 @@ namespace PhysicsSandbox.Shapes
 
         public float MoveTime { get; set; }        
 
-        public Vector2 Position { get; set; }
-
-        public Vector2 Origin { get; set; }
-
-        public Vector2 Velocity { get; set; }
+        public Vector3 Position { get; set; }
+                     
+        public Vector3 Origin { get; set; }
+                     
+        public Vector3 Velocity { get; set; }
 
         public float Momentum { get; set; }
 
