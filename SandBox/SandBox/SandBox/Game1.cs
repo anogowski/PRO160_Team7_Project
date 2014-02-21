@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Sandbox;
+using SandBox.ListOfShapes;
 
 namespace SandBox
 {
@@ -19,6 +20,7 @@ namespace SandBox
     {  
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        ShapeManager shapeManager = new ShapeManager();
         
         #region(Variable Declarations)
         Sprite optionsBackground;
@@ -242,6 +244,12 @@ namespace SandBox
             oldMouseState = Mouse.GetState();
            
             base.Update(gameTime);
+
+            if (Mouse.GetState().LeftButton.Equals(ButtonState.Pressed))
+            {
+                shapeManager.AddShape(selectedShape, new Vector3(Mouse.GetState().X, Mouse.GetState().Y, 0), 100, 100);
+            }
+
         }
 
         // Checks what the amount of gravity is and displays it accordingly
