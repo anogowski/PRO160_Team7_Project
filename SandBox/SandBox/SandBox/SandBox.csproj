@@ -81,8 +81,8 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Managers\ShapeManager.cs" />
-    <Compile Include="PhysicsSprite.cs" />
+    <Compile Include="Gui.cs" />
+    <Compile Include="GuiInterface.cs" />
     <Compile Include="Physics\Collision.cs" />
     <Compile Include="Physics\CollisionState.cs" />
     <Compile Include="Physics\Physics.cs" />
