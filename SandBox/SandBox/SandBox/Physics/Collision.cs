@@ -11,13 +11,13 @@ namespace Sandbox
     {
         public static bool RectangleRectangleCollision( Rectangle rec1,  Rectangle rec2)
         {
-            bool b = false;
-            if (!((rec1.LeftTop.X > rec2.LeftTop.X + rec2.Width - 1) ||
-               (rec1.LeftTop.Y > rec2.LeftTop.Y + rec2.Height - 1) ||
-               (rec2.LeftTop.X > rec1.LeftTop.X + rec1.Width - 1) ||
-               (rec2.LeftTop.Y > rec1.LeftTop.Y + rec1.Height - 1)))
+            bool b = true;
+            if ((rec1.Position.X > rec2.Position.X + rec2.Width - 1) &&
+               (rec1.Position.Y > rec2.Position.Y + rec2.Height - 1) &&
+               (rec2.Position.X > rec1.Position.X + rec1.Width - 1) &&
+               (rec2.Position.Y > rec1.Position.Y + rec1.Height - 1))
             {
-                b = true;
+                b = false;
             }
             return b;
         }
@@ -54,9 +54,18 @@ namespace Sandbox
         {
 
             bool b = false;
+            float radius1 = cir1.Radius;
+            float readius2 = cir2.Radius;
+
             return b;
-           
         }
 
+        public static double findShapeDistance<T>(T shapeA, T shapeB) where T: Shape
+        {
+            Microsoft.Xna.Framework.Vector3 pointA = shapeA.Position;
+            Microsoft.Xna.Framework.Vector3  pointB = shapeB.Position;
+
+            return Math.Sqrt((int)(pointB.X - pointA.X) ^ 2 + (int)(pointB.Y - pointA.Y) ^ 2);
+        }
     }
 }

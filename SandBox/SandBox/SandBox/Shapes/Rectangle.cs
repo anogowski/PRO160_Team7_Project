@@ -17,13 +17,15 @@ namespace PhysicsSandbox.Shapes
         public Vector3 RightBottom { get { return Vector3.Add(vecs[2], Position); } }
         public Vector3 LeftBottom { get { return Vector3.Add(vecs[3], Position); } }
 
-        public Rectangle(Vector3 position, float mass = 1.0f, float momentum = 0.0f, int width = 10, int height = 10)
+        public Rectangle(Vector3 position, Vector3 velocity, float mass = 1.0f, float momentum = 0.0f, int width = 10, int height = 10)
         {
             this.Position = position;
             this.Mass = mass;
             this.Momentum = momentum;
             Width = width;
             Height = height;
+            Velocity = velocity;
+            MoveTime = 0;
             NumOfPoints = 4;
             GenVectorsForRectangle();
         }

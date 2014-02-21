@@ -19,6 +19,10 @@ namespace SandBox
     {  
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        PhysicsSandbox.Shapes.Rectangle t1;
+        PhysicsSandbox.Shapes.Rectangle t2;
+        PhysicsSandbox.Physics.Physics p = new PhysicsSandbox.Physics.Physics(100.0f);
         
         #region(Variable Declarations)
         Sprite optionsBackground;
@@ -205,7 +209,11 @@ namespace SandBox
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            t1 = new PhysicsSandbox.Shapes.Rectangle(new Vector3(100, 100, 0), new Vector3(0,1,0));
+            t1.Mass = 200.0f;
 
+            t2 = new PhysicsSandbox.Shapes.Rectangle(new Vector3(100, 300, 0), new Vector3(0, -1, 0));
+            t2.Mass = 30.0f;
             // TODO: use this.Content to load your game content here
         }
 
@@ -239,7 +247,23 @@ namespace SandBox
             CheckGravity();
             CheckWeight();
 
+            p.addGeneralForces(ref t1);
+            t1.Position = t1.Position + Vector3.Multiply(t1.Velocity, (float)gameTime.ElapsedGameTime.TotalSeconds);
+            t1.MoveTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+
+            p.addGeneralForces(ref t2);
+            t2.Position = t2.Position + Vector3.Multiply((-t2.Velocity), (float)gameTime.ElapsedGameTime.TotalSeconds);
+            t2.MoveTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
             oldMouseState = Mouse.GetState();
+
+            bool test;
+            double distance;
+            if ((test = Collision.RectangleRectangleCollision(t1, t2)) || (distance = Collision.findShapeDistance(t1, t2)) <= 0)
+            {
+                t1.Velocity *= -1;
+                t2.Velocity *= -1;
+            }
            
             base.Update(gameTime);
         }
@@ -507,6 +531,10 @@ namespace SandBox
             }
         }
 
+        /// <summary>
+        /// Draw Stuff Here
+        /// </summary>
+        /// <param name="gameTime"></param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
@@ -528,6 +556,12 @@ namespace SandBox
             weightUpBtn.Draw(spriteBatch);
             weightDownBtn.Draw(spriteBatch);
             mMouseCursor.Draw(spriteBatch);
+
+            Rectangle temp1 = new Rectangle((int)t1.LeftTop.X, (int)t1.LeftTop.Y, 100, 100);
+            spriteBatch.Draw(optionsTexture, temp1, Color.Blue);
+
+            Rectangle temp2 = new Rectangle((int)t2.LeftTop.X, (int)t2.LeftTop.Y, 100, 100);
+            spriteBatch.Draw(optionsTexture, temp2, Color.Orange);
 
             spriteBatch.End();
 
