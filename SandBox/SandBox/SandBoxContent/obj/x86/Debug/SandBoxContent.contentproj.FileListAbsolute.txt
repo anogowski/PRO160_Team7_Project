@@ -1,2 +1,0 @@
-C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 Project\SandBox\SandBox\SandBoxContent\obj\x86\Debug\SandBoxContent.contentprojResolveAssemblyReference.cache
-C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\SandBox\SandBox\SandBoxContent\obj\x86\Debug\SandBoxContent.contentprojResolveAssemblyReference.cache
