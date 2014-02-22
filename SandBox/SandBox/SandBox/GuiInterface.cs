@@ -10,9 +10,14 @@ namespace SandBox
 {
     class DrawShapesManager
     {
-        //make a container of all rectangles
-        //make a container of all triangles
-        //make a container of all circles
+        //a container of all rectangles
+        List<PhysicsSandbox.Shapes.Rectangle> rectangleList = new List<PhysicsSandbox.Shapes.Rectangle>();
+
+        //a container of all triangles
+        List<Triangle> triangleList = new List<Triangle>();
+
+        //a container of all circles
+        List<Circle> circleList = new List<Circle>();
 
         //a method: addShapes(shape object, shape type);
 
@@ -23,6 +28,7 @@ namespace SandBox
             rect.Position = pos;
             rect.Mass = mass;
             rect.Momentum = momentum;
+            rectangleList.Add(rect);
             return rect;
         }
         private PhysicsSandbox.Shapes.Rectangle DrawRectangle(PhysicsSandbox.Shapes.Rectangle rect, int width, int height, Vector3 pos)
@@ -30,6 +36,7 @@ namespace SandBox
             rect.Width = width;
             rect.Height = height;
             rect.Position = pos;
+            rectangleList.Add(rect);
             return rect;
         }
 
@@ -39,12 +46,14 @@ namespace SandBox
             circ.Mass = mass;
             circ.Momentum = momentum;
             circ.Position = pos;
+            circleList.Add(circ);
             return circ;
         }
         private Circle DrawCircle(Circle circ, int radius, Vector3 pos)
         {
             circ.Radius = radius;
             circ.Position = pos;
+            circleList.Add(circ);
             return circ;
         }
         
@@ -55,6 +64,7 @@ namespace SandBox
             tri.Position = pos;
             tri.Mass = mass;
             tri.Momentum = momentum;
+            triangleList.Add(tri);
             return tri;
         }
         private Triangle DrawTriangle(Triangle tri, int width, int height, Vector3 pos)
@@ -62,6 +72,7 @@ namespace SandBox
             tri.Width = width;
             tri.Height = height;
             tri.Position = pos;
+            triangleList.Add(tri);
             return tri;
         }
 
@@ -88,23 +99,20 @@ namespace SandBox
 
         public void Draw()
         {
-            //iterate all list elemtns
-            //foreach (var item in rectangles)
-            //{
-            //    DrawRectangle(....);
-            //}
+            foreach (var rect in rectangleList)
+            {
+                //rect.Draw somehow
+            }
 
-            // foreach (var item in rectangles)
-            //{
-            //    DrawRectangle(....);
-            //}
-            //}
+             foreach (var circ in circleList)
+            {
+                //circ.draw
+            }
 
-            // foreach (var item in rectangles)
-            //    {
-            //        DrawRectangle(....);
-            //    }
-            //}
+            foreach (var tri in triangleList)
+            {
+                //tri
+            }
         }
     }
 }
