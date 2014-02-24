@@ -15,12 +15,13 @@ namespace SandBox
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game 
+    public class Game1 : Microsoft.Xna.Framework.Game
     {  
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
         Gui gui;
+        DrawShapesManager drawShapeManager;
 
         public Game1()
         {
@@ -50,7 +51,9 @@ namespace SandBox
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             gui = new Gui(ref spriteBatch, ref graphics, Content);
+            drawShapeManager = new DrawShapesManager(ref spriteBatch, ref graphics, Content);
 
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -82,6 +85,7 @@ namespace SandBox
 
             gui.DrawGui(gameTime, GraphicsDevice);
             
+
             spriteBatch.End();
 
             base.Draw(gameTime);

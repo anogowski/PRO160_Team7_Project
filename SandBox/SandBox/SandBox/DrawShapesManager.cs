@@ -5,11 +5,30 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using PhysicsSandbox.Shapes;
 using PhysicsSandbox.Physics;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace SandBox
 {
     class DrawShapesManager
     {
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        ContentManager Content;
+        Texture2D rectTexture;
+        Texture2D circTexture;
+        Texture2D triTexture;
+
+        public DrawShapesManager(ref SpriteBatch batch, ref GraphicsDeviceManager guiGraphics, ContentManager content)
+        {
+            spriteBatch = batch;
+            this.graphics = guiGraphics;
+            Content = content;
+            rectTexture = Content.Load<Texture2D>("rectangle");
+            circTexture = Content.Load<Texture2D>("circle");
+            triTexture = Content.Load<Texture2D>("triangle");
+        }
+
         //a container of all rectangles
         List<PhysicsSandbox.Shapes.Rectangle> rectangleList = new List<PhysicsSandbox.Shapes.Rectangle>();
 
@@ -21,59 +40,52 @@ namespace SandBox
 
         //a method: addShapes(shape object, shape type);
 
-        private PhysicsSandbox.Shapes.Rectangle DrawRectangle(PhysicsSandbox.Shapes.Rectangle rect, int width, int height, Vector3 pos, float mass, float momentum)
+        private void DrawRectangle(PhysicsSandbox.Shapes.Rectangle rect, int width, int height, Vector3 pos, float mass, float momentum)
         {
             rect.Width = width;
             rect.Height = height;
             rect.Position = pos;
             rect.Mass = mass;
             rect.Momentum = momentum;
-            rectangleList.Add(rect);
-            return rect;
+
+
+
+            Vector2 newVector = new Vector2(rect.Position.X, rect.Position.Y);
+            spriteBatch.Draw(rectTexture, newVector, Color.Black);
         }
-        private PhysicsSandbox.Shapes.Rectangle DrawRectangle(PhysicsSandbox.Shapes.Rectangle rect, int width, int height, Vector3 pos)
+        private void DrawRectangle(PhysicsSandbox.Shapes.Rectangle rect, int width, int height, Vector3 pos)
         {
             rect.Width = width;
             rect.Height = height;
             rect.Position = pos;
-            rectangleList.Add(rect);
-            return rect;
         }
 
-        private Circle DrawCircle(Circle circ, float mass, float momentum, int radius, Vector3 pos)
+        private void DrawCircle(Circle circ, float mass, float momentum, int radius, Vector3 pos)
         {
             circ.Radius = radius;
             circ.Mass = mass;
             circ.Momentum = momentum;
             circ.Position = pos;
-            circleList.Add(circ);
-            return circ;
         }
-        private Circle DrawCircle(Circle circ, int radius, Vector3 pos)
+        private void DrawCircle(Circle circ, int radius, Vector3 pos)
         {
             circ.Radius = radius;
             circ.Position = pos;
-            circleList.Add(circ);
-            return circ;
         }
-        
-        private Triangle DrawTriangle(Triangle tri, int width, int height, Vector3 pos, float mass, float momentum)
+
+        private void DrawTriangle(Triangle tri, int width, int height, Vector3 pos, float mass, float momentum)
         {
             tri.Width = width;
             tri.Height = height;
             tri.Position = pos;
             tri.Mass = mass;
             tri.Momentum = momentum;
-            triangleList.Add(tri);
-            return tri;
         }
-        private Triangle DrawTriangle(Triangle tri, int width, int height, Vector3 pos)
+        private void DrawTriangle(Triangle tri, int width, int height, Vector3 pos)
         {
             tri.Width = width;
             tri.Height = height;
             tri.Position = pos;
-            triangleList.Add(tri);
-            return tri;
         }
 
         public void UpdatePhysics(Physics p)
@@ -97,21 +109,24 @@ namespace SandBox
             //}
         }
 
-        public void Draw()
+        public void DrawShapes()
         {
             foreach (var rect in rectangleList)
             {
-                //rect.Draw somehow
+                Vector2 newVector = new Vector2(rect.Position.X, rect.Position.Y);
+                spriteBatch.Draw(rectTexture, newVector, Color.Black);
             }
 
-             foreach (var circ in circleList)
+            foreach (var circ in circleList)
             {
-                //circ.draw
+                Vector2 newVector = new Vector2(circ.Position.X, circ.Position.Y);
+                spriteBatch.Draw(circTexture, newVector, Color.Black);
             }
 
             foreach (var tri in triangleList)
             {
-                //tri
+                Vector2 newVector = new Vector2(tri.Position.X, tri.Position.Y);
+                spriteBatch.Draw(triTexture, newVector, Color.Black);
             }
         }
     }

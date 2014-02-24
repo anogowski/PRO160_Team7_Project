@@ -527,9 +527,6 @@ namespace SandBox
         {
             device.Clear(Color.White);
 
-            RectangleSprite.Draw(spriteBatch);
-            CircleSprite.Draw(spriteBatch);
-            TriangleSprite.Draw(spriteBatch);
             optionsBackground.Draw(spriteBatch);
             rectLabel.Draw(spriteBatch);
             circLabel.Draw(spriteBatch);
