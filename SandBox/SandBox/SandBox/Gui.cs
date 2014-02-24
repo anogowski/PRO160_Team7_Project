@@ -20,6 +20,15 @@ namespace SandBox
         ContentManager Content;
 
         #region(Variable Declarations)
+        Sprite RectangleSprite;
+        Texture2D RectangleTex;
+
+        Sprite CircleSprite;
+        Texture2D CircleTex;
+
+        Sprite TriangleSprite;
+        Texture2D TriangleTex;
+
         Sprite optionsBackground;
         Texture2D optionsTexture;
 
@@ -91,6 +100,10 @@ namespace SandBox
             optionsTexture = Content.Load<Texture2D>("background");
             mMouseTexture = Content.Load<Texture2D>("gamecursor");
 
+            RectangleTex = Content.Load<Texture2D>("rectangle");
+            CircleTex = Content.Load<Texture2D>("circle");
+            TriangleTex = Content.Load<Texture2D>("triangle");
+
             rectTexture = Content.Load<Texture2D>("rectLabel");
             circTexture = Content.Load<Texture2D>("circleLabel");
             triTexture = Content.Load<Texture2D>("triLabel");
@@ -119,6 +132,21 @@ namespace SandBox
             optionsBackground.Texture = optionsTexture;
             optionsBackground.X = 0;
             optionsBackground.Y = 700;
+
+            RectangleSprite = new Sprite();
+            RectangleSprite.Texture = RectangleTex;
+            RectangleSprite.X = 50;
+            RectangleSprite.Y = 250;
+
+            CircleSprite = new Sprite();
+            CircleSprite.Texture = CircleTex;
+            CircleSprite.X = 250;
+            CircleSprite.Y = 250;
+
+            TriangleSprite = new Sprite();
+            TriangleSprite.Texture = TriangleTex;
+            TriangleSprite.X = 450;
+            TriangleSprite.Y = 250;
 
             CreateButtonLabels();
             CreateButtons();
@@ -499,6 +527,9 @@ namespace SandBox
         {
             device.Clear(Color.White);
 
+            RectangleSprite.Draw(spriteBatch);
+            CircleSprite.Draw(spriteBatch);
+            TriangleSprite.Draw(spriteBatch);
             optionsBackground.Draw(spriteBatch);
             rectLabel.Draw(spriteBatch);
             circLabel.Draw(spriteBatch);
