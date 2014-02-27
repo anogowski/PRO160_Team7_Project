@@ -39,18 +39,32 @@ namespace Medical_System
 
         private void loginBtn_Click_1(object sender, RoutedEventArgs e)
         {
-            //code to show GUI after logging in
-            if (userType == 0)
+            if (string.IsNullOrEmpty(usernameTextBox.Text) && string.IsNullOrEmpty(passwordTextBox.Password))
             {
-                // show admin GUI
+                MessageBox.Show("You didn't enter anything!");
+            }
+            else if(string.IsNullOrEmpty(usernameTextBox.Text))
+            {
+                MessageBox.Show("You didn't enter a username.");
+            }
+            else if (string.IsNullOrEmpty(passwordTextBox.Password))
+            {
+                MessageBox.Show("You didn't enter a password.");
             }
             else
             {
-                // show doctor GUI
-            }
+                if (userType == 0)
+                {
+                    // show admin GUI
+                }
+                else
+                {
+                    // show doctor GUI
+                }
 
-            mMain.Close();
-            this.Close();
+                mMain.Close();
+                this.Close();
+            }
         }
 
         private void BackToMainWindow()
