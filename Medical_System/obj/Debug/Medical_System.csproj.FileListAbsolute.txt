@@ -1,0 +1,14 @@
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\bin\Debug\Medical_System.exe.config
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\MainWindow.baml
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\MainWindow.g.cs
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\App.g.cs
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\Medical_System_MarkupCompile.cache
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\Medical_System.g.resources
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\Medical_System.Properties.Resources.resources
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\Medical_System.csproj.GenerateResource.Cache
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\LoginWindow.baml
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\LoginWindow.g.cs
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\bin\Debug\Medical_System.exe
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\bin\Debug\Medical_System.pdb
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\Medical_System.exe
+C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\obj\Debug\Medical_System.pdb

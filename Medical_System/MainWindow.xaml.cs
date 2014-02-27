@@ -24,5 +24,23 @@ namespace Medical_System
         {
             InitializeComponent();
         }
+
+        private void adminBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            ShowLoginWindow();
+            this.Hide();
+        }
+
+        private void doctorBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            ShowLoginWindow();
+            this.Hide();
+        }
+
+        private void ShowLoginWindow()
+        {
+            LoginWindow login = new LoginWindow(this);
+            login.Show();
+        }
     }
 }
