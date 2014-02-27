@@ -55,7 +55,7 @@
     </ApplicationDefinition>
     <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\Doctor.cs" />
-    <Compile Include="Users\Patient.cs" />
+    <Compile Include="Patient.cs" />
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
