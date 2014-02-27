@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Medical_System.Medical
 {
-    public static class Diseases
+    public class Diseases
     {
         ObservableCollection<string> Name = new ObservableCollection<string>();
         
