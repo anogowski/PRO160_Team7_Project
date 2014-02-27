@@ -9,7 +9,13 @@ namespace Medical_System.Medical
 {
     public class Diseases
     {
+        Dictionary<string, string> Info = new Dictionary<string, string>();
         ObservableCollection<string> Name = new ObservableCollection<string>();
+        public Diseases()
+        {
+
+        }
+        
         
     }
 }

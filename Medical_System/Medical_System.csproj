@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Medical\Disorders.cs" />
     <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\Doctor.cs" />
     <Compile Include="Patient.cs" />
