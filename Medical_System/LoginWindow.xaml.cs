@@ -29,7 +29,7 @@ namespace Medical_System
         {
             InitializeComponent();
             mMain = main;
-            userType = user;
+            userType = userInt;
         }
 
         private void backBtn_Click_1(object sender, RoutedEventArgs e)
