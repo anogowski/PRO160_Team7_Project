@@ -20,10 +20,16 @@ namespace Medical_System
     public partial class LoginWindow : Window
     {
         MainWindow mMain;
-        public LoginWindow(MainWindow main)
+
+        // if '0', it is an administrator
+        // if'1', it is a doctor
+        int userType;
+
+        public LoginWindow(MainWindow main, int user)
         {
             InitializeComponent();
             mMain = main;
+            userType = user;
         }
 
         private void backBtn_Click_1(object sender, RoutedEventArgs e)
@@ -34,6 +40,14 @@ namespace Medical_System
         private void loginBtn_Click_1(object sender, RoutedEventArgs e)
         {
             //code to show GUI after logging in
+            if (userType == 0)
+            {
+                // show admin GUI
+            }
+            else
+            {
+                // show doctor GUI
+            }
 
             mMain.Close();
             this.Close();

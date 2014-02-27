@@ -20,6 +20,10 @@ namespace Medical_System
     /// </summary>
     public partial class MainWindow : Window
     {
+        // if '0', it is an administrator
+        // if'1', it is a doctor
+        int userType;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,19 +31,21 @@ namespace Medical_System
 
         private void adminBtn_Click_1(object sender, RoutedEventArgs e)
         {
+            userType = 0;
             ShowLoginWindow();
             this.Hide();
         }
 
         private void doctorBtn_Click_1(object sender, RoutedEventArgs e)
         {
+            userType = 1;
             ShowLoginWindow();
             this.Hide();
         }
 
         private void ShowLoginWindow()
         {
-            LoginWindow login = new LoginWindow(this);
+            LoginWindow login = new LoginWindow(this, userType);
             login.Show();
         }
     }
