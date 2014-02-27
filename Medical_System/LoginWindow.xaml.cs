@@ -21,11 +21,11 @@ namespace Medical_System
     {
         MainWindow mMain;
 
-        // if '0', it is an administrator
-        // if'1', it is a doctor
+        //'0', if it's an administrator
+        //'1' if it's a doctor
         int userType;
 
-        public LoginWindow(MainWindow main, int user)
+        public LoginWindow(MainWindow main, int userInt)
         {
             InitializeComponent();
             mMain = main;
