@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Medical_System.Users;
 
 namespace Medical_System
 {
@@ -19,6 +20,12 @@ namespace Medical_System
     /// </summary>
     public partial class LoginWindow : Window
     {
+        List<Admin> adminList = new List<Admin>();
+        List<Admin> tempAdminList;
+
+        List<Doctor> docList = new List<Doctor>();
+        List<Doctor> tempDocList;
+
         MainWindow mMain;
 
         //'0', if it's an administrator
@@ -71,6 +78,11 @@ namespace Medical_System
         {
             mMain.Show();
             this.Close();
+        }
+
+        private void userComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

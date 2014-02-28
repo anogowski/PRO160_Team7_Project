@@ -8,5 +8,6 @@ namespace Medical_System.Users
 {
     class Admin
     {
+        public string Username { get; set; }
     }
 }
