@@ -1,2 +1,0 @@
-C:\Users\Omar\Documents\Visual Studio 2008\Projects\PROJECTS FOR WEBSITE\PhysicsPlayground\XNAWinForms\obj\Release\Physics Playground.exe
-C:\Users\Omar\Documents\Visual Studio 2008\Projects\PROJECTS FOR WEBSITE\PhysicsPlayground\XNAWinForms\obj\Release\Physics Playground.pdb
