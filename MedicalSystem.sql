@@ -68,6 +68,8 @@ create table Doctor
 	DID int identity(1,1) primary key,
 	FID int constraint fk_fid
 	foreign key (FID) references Fields(FID),
+	UserName char(20) not null,
+	psw char(20) not null,
 	HomeAddress nchar(100), 
 	PhoneNumber nchar(15), 
 )
