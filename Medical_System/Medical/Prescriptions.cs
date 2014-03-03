@@ -13,13 +13,25 @@ namespace Medical_System.Medical
         Dictionary<string, string> Info = new Dictionary<string, string>();
         public Prescriptions()
         {
-
+            AutoFill();
         }
-        
-        public void Populate()
+
+        private void AutoFill()
         {
-            Name.Add("");
+            Name.Add("Medicine 1");
+            Name.Add("Medicine 2");
+            Name.Add("Medicine 3");
+            Name.Add("Medicine 4");
+            Name.Add("Medicine 5");
+        }
+        public void Populate(string name)
+        {
+            Name.Add(name);
         }
 
+        public ObservableCollection<string> getName()
+        {
+            return Name;
+        }
     }
 }
