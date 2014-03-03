@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Medical_System.Users
 {
-    class Admin
+    public class Admin
     {
+        public string Username { get; set; }
     }
 }

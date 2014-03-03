@@ -8,7 +8,7 @@ namespace Medical_System.Models
         public int PERS_ID { get; set; }
         public Nullable<int> DID { get; set; }
         public Nullable<int> PID { get; set; }
-        public Nullable<System.DateTime> DateIssued { get; set; }
+        public System.DateTime DateIssued { get; set; }
         public string Note { get; set; }
         public string Reactions { get; set; }
         public virtual Doctor Doctor { get; set; }

@@ -16,6 +16,8 @@
             <ColumnDefinition Width="331*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <ComboBox Name="userComboBox" Height="50" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="userComboBox_SelectionChanged_1"></ComboBox>
+
         <Label Content="Username" FontSize="20" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10"></Label>
         <TextBox Name="usernameTextBox" FontSize="20" Width="200" Height="30" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.ColumnSpan="2"></TextBox>
 

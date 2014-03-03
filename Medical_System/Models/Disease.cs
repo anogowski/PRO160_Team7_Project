@@ -7,5 +7,7 @@ namespace Medical_System.Models
     {
         public int DEAID { get; set; }
         public string Name { get; set; }
+        public Nullable<int> Disease_type { get; set; }
+        public virtual DiseaseType DiseaseType { get; set; }
     }
 }

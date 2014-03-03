@@ -12,6 +12,7 @@ namespace Medical_System.Models.Mapping
 
             // Properties
             this.Property(t => t.TypeName)
+                .IsRequired()
                 .IsFixedLength()
                 .HasMaxLength(10);
 

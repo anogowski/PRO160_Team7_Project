@@ -6,7 +6,7 @@ use MedicalSystem
 create table BloodType
 (
 	BID int identity(1,1) primary key,
-	TypeName nchar(10) default('A')
+	TypeName nchar(10) default('A') not null, 
 )
 
 create table Medicine
@@ -21,7 +21,7 @@ create table Perscription
 	PERS_ID int identity(1,1) primary key, 
 	DID int,
 	PID int ,
-	DateIssued datetime default(getdate()),
+	DateIssued datetime default(getdate()) not null,
 	Note text null,
 	Reactions text null
 )
@@ -69,13 +69,20 @@ create table Doctor
 	foreign key (FID) references Fields(FID),
 	HomeAddress nchar(100), 
 	PhoneNumber nchar(15), 
-	
+)
+
+create table DiseaseType
+(
+	DTID int identity(1,1) primary key, 
+	Name char(50)
 )
 
 create table Disease
 (
 	DEAID int identity(1,1) primary key, 
 	Name char(50) not null,
+	Disease_type int constraint fk_disease_type 
+		foreign key (Disease_type) references DiseaseType(DTID)
 )
 
 create table Disease_Patient
@@ -104,6 +111,14 @@ create table Doc_Patient
 	DID int constraint fk_doc_patient
 	foreign key (DID) references Doctor(DID),
 )
+
+create table Administrator 
+(
+	ID int identity(1,1) primary key,
+	username char(20)not null,
+	psw char(20) not null
+)
+
 -- need to add fk between patient and perscription
 alter table Perscription
 	add constraint fk_perscription

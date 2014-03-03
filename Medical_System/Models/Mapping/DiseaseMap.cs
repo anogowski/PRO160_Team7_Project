@@ -20,6 +20,13 @@ namespace Medical_System.Models.Mapping
             this.ToTable("Disease");
             this.Property(t => t.DEAID).HasColumnName("DEAID");
             this.Property(t => t.Name).HasColumnName("Name");
+            this.Property(t => t.Disease_type).HasColumnName("Disease_type");
+
+            // Relationships
+            this.HasOptional(t => t.DiseaseType)
+                .WithMany(t => t.Diseases)
+                .HasForeignKey(d => d.Disease_type);
+
         }
     }
 }
