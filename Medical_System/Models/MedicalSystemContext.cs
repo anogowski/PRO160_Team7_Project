@@ -16,6 +16,7 @@ namespace Medical_System.Models
         {
         }
 
+        public DbSet<Administrator> Administrators { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<BloodType> BloodTypes { get; set; }
         public DbSet<Disease> Diseases { get; set; }
@@ -25,10 +26,10 @@ namespace Medical_System.Models
         public DbSet<Medicine> Medicines { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Perscription> Perscriptions { get; set; }
-        public DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new AdministratorMap());
             modelBuilder.Configurations.Add(new AppointmentMap());
             modelBuilder.Configurations.Add(new BloodTypeMap());
             modelBuilder.Configurations.Add(new DiseaseMap());
@@ -38,7 +39,6 @@ namespace Medical_System.Models
             modelBuilder.Configurations.Add(new MedicineMap());
             modelBuilder.Configurations.Add(new PatientMap());
             modelBuilder.Configurations.Add(new PerscriptionMap());
-            modelBuilder.Configurations.Add(new sysdiagramMap());
         }
     }
 }

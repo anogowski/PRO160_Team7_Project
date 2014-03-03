@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Medical_System.Users;
 using System.IO;
 using System.Xml.Serialization;
+using Medical_System.WebMiner;
 
 namespace Medical_System
 {
@@ -26,7 +27,7 @@ namespace Medical_System
         List<Admin> tempAdminList;
         Admin selectedAdmin;
 
-        List<Doctor> docList = new List<Doctor>();
+        List<Doctor> docList;
         List<Doctor> tempDocList;
         Doctor selectedDoc;
 
@@ -60,11 +61,12 @@ namespace Medical_System
             }
             else
             {
-                LoadDocInfoFromXml(docListFile);
-
-                foreach (Doctor d in docList)
+                //LoadDocInfoFromXml(docListFile);
+                DbHelper dbh = new DbHelper();
+                List<Medical_System.Models.Patient> docList = (List<Medical_System.Models.Patient>)dbh.GetDoctors();
+                foreach (Medical_System.Models.Patient d in docList)
                 {
-                    userComboBox.Items.Add(d.Username);
+                    userComboBox.Items.Add(d.PID);
                 }
             }
             

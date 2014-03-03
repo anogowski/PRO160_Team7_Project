@@ -24,6 +24,7 @@ namespace Medical_System.Models.Mapping
             this.Property(t => t.PID).HasColumnName("PID");
             this.Property(t => t.Gender).HasColumnName("Gender");
             this.Property(t => t.DateOfBirth).HasColumnName("DateOfBirth");
+            this.Property(t => t.DateOfDeath).HasColumnName("DateOfDeath");
             this.Property(t => t.BloodType_id).HasColumnName("BloodType_id");
             this.Property(t => t.HomeAddress).HasColumnName("HomeAddress");
             this.Property(t => t.PhoneNumber).HasColumnName("PhoneNumber");
