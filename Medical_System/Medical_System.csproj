@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DbHelper.cs" />
     <Compile Include="Medical\Disorders.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\BloodType.cs" />
