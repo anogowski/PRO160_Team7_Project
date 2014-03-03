@@ -28,11 +28,12 @@ namespace Medical_System
 
         List<Doctor> docList = new List<Doctor>();
         List<Doctor> tempDocList;
+        Doctor selectedDoc;
 
         MainWindow mMain;
-        string mAdminUsername;
         string adminListFile;
         string adminUsername;
+        string docListFile;
         string docUsername;
 
         //'0', if it's an administrator
@@ -45,14 +46,28 @@ namespace Medical_System
             mMain = main;
             userType = userInt;
 
-            adminListFile = "newUserInfo.txt.";
+            adminListFile = "newAdminInfo.txt.";
+            docListFile = "newDocInfo.txt.";
 
-            LoadAdminInfoFromXml(adminListFile);
-
-            foreach (Admin a in adminList)
+            if (userType == 0)
             {
-                userComboBox.Items.Add(a.Username);
+                LoadAdminInfoFromXml(adminListFile);
+
+                foreach (Admin a in adminList)
+                {
+                    userComboBox.Items.Add(a.Username);
+                }
             }
+            else
+            {
+                LoadDocInfoFromXml(docListFile);
+
+                foreach (Doctor d in docList)
+                {
+                    userComboBox.Items.Add(d.Username);
+                }
+            }
+            
         }
 
         private void backBtn_Click_1(object sender, RoutedEventArgs e)
@@ -79,40 +94,73 @@ namespace Medical_System
                 if (userType == 0)
                 {
                     // show admin GUI
-                    Admin newAdmin = new Admin()
-                    {
-                        Username = usernameTextBox.Text
-                    };
-
-                    tempAdminList = new List<Admin>();
-                    bool isChecking = false;
-                    if (adminList.Count == 0)
-                    {
-                        adminList.Add(newAdmin);
-                    }
-                    else
-                    {
-                        isChecking = CheckAdminsInfo(newAdmin, isChecking);
-                    }
-
-                    for (int i = 0; i < tempAdminList.Count; i++)
-                    {
-                        if (!adminList.Contains(tempAdminList[i]))
-                        {
-                            adminList.Add(tempAdminList[i]);
-                        }
-                    }
-                    SaveAdminInfoToXml(adminList);
+                    ShowAdminGui();
                 }
                 else
                 {
                     // show doctor GUI
-
+                    ShowDoctorGui();
                 }
 
                 mMain.Close();
                 this.Close();
             }
+        }
+
+        private void ShowAdminGui()
+        {
+            Admin newAdmin = new Admin()
+            {
+                Username = usernameTextBox.Text
+            };
+
+            tempAdminList = new List<Admin>();
+            bool isChecking = false;
+            if (adminList.Count == 0)
+            {
+                adminList.Add(newAdmin);
+            }
+            else
+            {
+                isChecking = CheckAdminsInfo(newAdmin, isChecking);
+            }
+
+            for (int i = 0; i < tempAdminList.Count; i++)
+            {
+                if (!adminList.Contains(tempAdminList[i]))
+                {
+                    adminList.Add(tempAdminList[i]);
+                }
+            }
+            SaveAdminInfoToXml(adminList);
+        }
+
+        private void ShowDoctorGui()
+        {
+            Doctor newDoc = new Doctor()
+            {
+                Username = usernameTextBox.Text
+            };
+
+            tempDocList = new List<Doctor>();
+            bool isChecking = false;
+            if (docList.Count == 0)
+            {
+                docList.Add(newDoc);
+            }
+            else
+            {
+                isChecking = CheckDocsInfo(newDoc, isChecking);
+            }
+
+            for (int i = 0; i < tempDocList.Count; i++)
+            {
+                if (!docList.Contains(tempDocList[i]))
+                {
+                    docList.Add(tempDocList[i]);
+                }
+            }
+            SaveDocInfoToXml(docList);
         }
 
         private bool CheckAdminsInfo(Admin newAdmin, bool isChecking)
@@ -125,6 +173,23 @@ namespace Medical_System
                     isChecking = true;
                 }
                 else if (newAdmin.Username.Equals(a.Username))
+                {
+                    isChecking = false;
+                }
+            }
+            return isChecking;
+        }
+
+        private bool CheckDocsInfo(Doctor newDoc, bool isChecking)
+        {
+            foreach (Doctor d in docList)
+            {
+                if (!newDoc.Username.Equals(d.Username))
+                {
+                    tempDocList.Add(newDoc);
+                    isChecking = true;
+                }
+                else if (newDoc.Username.Equals(d.Username))
                 {
                     isChecking = false;
                 }
@@ -190,6 +255,51 @@ namespace Medical_System
                 {
                     XmlSerializer serializer = new XmlSerializer(typeof(List<Admin>));
                     serializer.Serialize(adminStream, list);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error while serializing");
+            }
+        }
+
+        public void LoadDocInfoFromXml(string fileName)
+        {
+            try
+            {
+                if (File.Exists(fileName))
+                {
+                    using (Stream openedFile = File.OpenRead(fileName))
+                    {
+                        XmlSerializer serializer = new XmlSerializer(typeof(List<Doctor>));
+                        List<Doctor> deserialize = serializer.Deserialize(openedFile) as List<Doctor>;
+                        docList = deserialize;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error while deserializing");
+            }
+        }
+
+        public void SaveDocInfoToXml(List<Doctor> list)
+        {
+            Stream docStream;
+            try
+            {
+                if (File.Exists(docListFile))
+                {
+                    docStream = File.OpenWrite(docListFile);
+                }
+                else
+                {
+                    docStream = File.Create(docListFile);
+                }
+                using (docStream)
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Doctor>));
+                    serializer.Serialize(docStream, list);
                 }
             }
             catch (Exception)

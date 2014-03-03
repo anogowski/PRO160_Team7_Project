@@ -48,6 +48,7 @@ create table Patient
 	PID int identity(1,1) primary key,
 	Gender bit not null,
 	DateOfBirth datetime default('1900-1-1'),
+	DateOfDeath datetime default(null),
 	BloodType_id int constraint fk_bloodTpe
     foreign key (BloodType_id)
     references BloodType(BID),
