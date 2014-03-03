@@ -13,6 +13,7 @@ namespace Medical_System.Models
         public int PID { get; set; }
         public bool Gender { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public Nullable<System.DateTime> DateOfDeath { get; set; }
         public Nullable<int> BloodType_id { get; set; }
         public string HomeAddress { get; set; }
         public string PhoneNumber { get; set; }

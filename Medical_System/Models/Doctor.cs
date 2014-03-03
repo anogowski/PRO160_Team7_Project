@@ -16,5 +16,6 @@ namespace Medical_System.Models
         public string PhoneNumber { get; set; }
         public virtual Field Field { get; set; }
         public virtual ICollection<Perscription> Perscriptions { get; set; }
+        
     }
 }
