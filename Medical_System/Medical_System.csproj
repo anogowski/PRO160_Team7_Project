@@ -34,7 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.6.1.0-beta1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.1.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +61,27 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Medical\Disorders.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\BloodType.cs" />
+    <Compile Include="Models\Disease.cs" />
+    <Compile Include="Models\DiseaseType.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Field.cs" />
+    <Compile Include="Models\Mapping\AppointmentMap.cs" />
+    <Compile Include="Models\Mapping\BloodTypeMap.cs" />
+    <Compile Include="Models\Mapping\DiseaseMap.cs" />
+    <Compile Include="Models\Mapping\DiseaseTypeMap.cs" />
+    <Compile Include="Models\Mapping\DoctorMap.cs" />
+    <Compile Include="Models\Mapping\FieldMap.cs" />
+    <Compile Include="Models\Mapping\MedicineMap.cs" />
+    <Compile Include="Models\Mapping\PatientMap.cs" />
+    <Compile Include="Models\Mapping\PerscriptionMap.cs" />
+    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
+    <Compile Include="Models\MedicalSystemContext.cs" />
+    <Compile Include="Models\Medicine.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Perscription.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\Doctor.cs" />
     <Compile Include="Patient.cs" />
@@ -97,6 +125,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -111,6 +111,14 @@ create table Doc_Patient
 	DID int constraint fk_doc_patient
 	foreign key (DID) references Doctor(DID),
 )
+
+create table Administrator 
+(
+	ID int identity(1,1) primary key,
+	username char(20)not null,
+	psw char(20) not null
+)
+
 -- need to add fk between patient and perscription
 alter table Perscription
 	add constraint fk_perscription
