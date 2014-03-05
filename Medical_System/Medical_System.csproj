@@ -63,14 +63,12 @@
     </ApplicationDefinition>
     <Compile Include="DbHelper.cs" />
     <Compile Include="Medical\Disorders.cs" />
-    <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\BloodType.cs" />
     <Compile Include="Models\Disease.cs" />
     <Compile Include="Models\DiseaseType.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Field.cs" />
-    <Compile Include="Models\Mapping\AdministratorMap.cs" />
     <Compile Include="Models\Mapping\AppointmentMap.cs" />
     <Compile Include="Models\Mapping\BloodTypeMap.cs" />
     <Compile Include="Models\Mapping\DiseaseMap.cs" />
@@ -88,7 +86,6 @@
     <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\Doctor.cs" />
-    <Compile Include="WebMiner\HelperTester.cs" />
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,7 +137,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="WebMiner\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

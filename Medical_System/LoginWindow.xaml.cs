@@ -14,7 +14,6 @@ using System.Windows.Shapes;
 using Medical_System.Users;
 using System.IO;
 using System.Xml.Serialization;
-using Medical_System.WebMiner;
 
 namespace Medical_System
 {
@@ -99,6 +98,7 @@ namespace Medical_System
                 else
                 {
                     // show doctor GUI
+
                     ShowDoctorGui();
                 }
 
