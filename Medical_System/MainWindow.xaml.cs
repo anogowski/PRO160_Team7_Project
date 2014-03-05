@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//using Medical_System.WebMiner;
 
 namespace Medical_System
 {
@@ -47,6 +48,11 @@ namespace Medical_System
         {
             LoginWindow login = new LoginWindow(this, userType);
             login.Show();
+        }
+
+        private void exitBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
