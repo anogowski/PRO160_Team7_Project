@@ -61,12 +61,10 @@ namespace Medical_System
             }
             else
             {
-                //LoadDocInfoFromXml(docListFile);
-                DbHelper dbh = new DbHelper();
-                List<Medical_System.Models.Patient> docList = (List<Medical_System.Models.Patient>)dbh.GetDoctors();
-                foreach (Medical_System.Models.Patient d in docList)
+                LoadDocInfoFromXml(docListFile);
+                foreach(Doctor d in docList)
                 {
-                    userComboBox.Items.Add(d.PID);
+                    userComboBox.Items.Add(d.Username);
                 }
             }
             
