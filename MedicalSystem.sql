@@ -2,6 +2,7 @@
 go
 create Database MedicalSystem
 go
+
 use MedicalSystem
 create table BloodType
 (
@@ -109,10 +110,12 @@ create table Doc_Patient_appointment
 
 create table Doc_Patient
 (
+	
 	PID int constraint fk_patient_doc
-	foreign key (PID) references Patient(PID),
+	foreign key (PID) references Patient(PID) not null,
 	DID int constraint fk_doc_patient
-	foreign key (DID) references Doctor(DID),
+	foreign key (DID) references Doctor(DID) not null,
+	primary key(PID, DID),
 )
 
 create table Administrator 
