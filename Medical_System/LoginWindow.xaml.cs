@@ -27,7 +27,7 @@ namespace Medical_System
         List<Admin> tempAdminList;
         Admin selectedAdmin;
 
-        List<Doctor> docList;
+        List<Doctor> docList = new List<Doctor>();
         List<Doctor> tempDocList;
         Doctor selectedDoc;
 
@@ -99,7 +99,6 @@ namespace Medical_System
                 else
                 {
                     // show doctor GUI
-
                     ShowDoctorGui();
                 }
 
@@ -208,17 +207,30 @@ namespace Medical_System
         {
             string currentSelection = Convert.ToString(userComboBox.SelectedItem);
 
-            selectedAdmin = new Admin()
+            if (userType == 0)
             {
-                Username = currentSelection
-            };
+                selectedAdmin = new Admin()
+                {
+                    Username = currentSelection
+                };
 
-            adminUsername = selectedAdmin.Username;
+                adminUsername = selectedAdmin.Username;
+                usernameTextBox.Text = adminUsername;
+            }
+            else
+            {
+                selectedDoc = new Doctor()
+                {
+                    Username = currentSelection
+                };
 
-            usernameTextBox.Text = adminUsername;
+                docUsername = selectedDoc.Username;
+                usernameTextBox.Text = docUsername;
+            }
 
         }
 
+        #region(User list serialization)
         public void LoadAdminInfoFromXml(string fileName)
         {
             try
@@ -308,5 +320,6 @@ namespace Medical_System
                 Console.WriteLine("Error while serializing");
             }
         }
+        #endregion
     }
 }
