@@ -47,6 +47,7 @@ create table Appointment
 create table Patient
 (
 	PID int identity(1,1) primary key,
+	SSID char(20) not null,
 	Gender bit not null,
 	DateOfBirth datetime default('1900-1-1'),
 	DateOfDeath datetime default(null),
