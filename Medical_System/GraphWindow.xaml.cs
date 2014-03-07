@@ -15,16 +15,16 @@ using System.Windows.Shapes;
 namespace Medical_System {
 	public partial class GraphWindow : Window {
 		/// <summary>
-		/// Graphs a given list of NUMERIC datatypes
+		/// Graphs a given an Enumerable collection of NUMERIC datatypes
 		/// </summary>
 		/// <typeparam name="T">
 		/// Ensure T is a NUMERIC datatype, do not pass in strings, characters, etc.
 		/// </typeparam>
 		/// <param name="axisY">
-		/// The list of data you wish to lie along the Y axis.
+		/// The Enumerable collection of data you wish to lie along the Y axis.
 		/// The X axis is the amount of elements in the list.
 		/// </param>
-		public void GraphData<T>(List<T> axisY) where T : IComparable<T> {
+		public void GraphData<T>(IEnumerable<T> axisY) where T : IComparable<T> {
 			dynamic maxY = getMax(axisY);
 			dynamic minY = getMin(axisY);
 			int maxX = axisY.Count() - 1;
@@ -51,10 +51,10 @@ namespace Medical_System {
 			for(int i = 0; i < maxX; i++) {
 				dynamic point1_x = ((float)i / (float)maxX) * Canvas_graph.Width;
 				dynamic point2_x = ((float)(i + 1) / (float)maxX) * Canvas_graph.Width;
-				dynamic point1_y = Canvas_graph.Height - ((axisY[i] - minY) / (maxY - minY)) * Canvas_graph.Height;
-				dynamic point2_y = Canvas_graph.Height - ((axisY[i + 1] - minY) / (maxY - minY)) * Canvas_graph.Height;
+				dynamic point1_y = Canvas_graph.Height - ((axisY.ElementAt(i) - minY) / (maxY - minY)) * Canvas_graph.Height;
+				dynamic point2_y = Canvas_graph.Height - ((axisY.ElementAt(i + 1) - minY) / (maxY - minY)) * Canvas_graph.Height;
 
-				double theNumber = (double)((dynamic)axisY[i]);
+				double theNumber = (double)((dynamic)axisY.ElementAt(i));
 
 				Line line = new Line();
 				line.Stroke = Brushes.Navy;
@@ -69,7 +69,7 @@ namespace Medical_System {
 			}
 		}
 
-		private T getMin<T>(List<T> values) where T : IComparable<T> {
+		private T getMin<T>(IEnumerable<T> values) where T : IComparable<T> {
 			T result = default(T);
 
 			foreach(T value in values) {
@@ -81,7 +81,7 @@ namespace Medical_System {
 			return result;
 		}
 
-		private T getMax<T>(List<T> values) where T : IComparable<T> {
+		private T getMax<T>(IEnumerable<T> values) where T : IComparable<T> {
 			T result = default(T);
 
 			foreach(T value in values) {
