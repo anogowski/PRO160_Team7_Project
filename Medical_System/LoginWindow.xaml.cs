@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Medical_System.Users;
+using Medical_System.Models;
 using System.IO;
 using System.Xml.Serialization;
 //using Medical_System.WebMiner;
@@ -23,19 +23,28 @@ namespace Medical_System
     /// </summary>
     public partial class LoginWindow : Window
     {
-        List<Admin> adminList = new List<Admin>();
-        List<Admin> tempAdminList;
-        Admin selectedAdmin;
+        //select username, psw from Administrator
+        //select UserName, psw from Doctor
+
+        List<Administrator> adminList = new List<Administrator>();
+        List<Administrator> tempAdminList;
+        Administrator selectedAdmin;
 
         List<Doctor> docList = new List<Doctor>();
         List<Doctor> tempDocList;
         Doctor selectedDoc;
+
+        List<Doctor> dbDocList;
+
+        DbHelper db = new DbHelper();
 
         MainWindow mMain;
         string adminListFile;
         string adminUsername;
         string docListFile;
         string docUsername;
+        string userName;
+        string password;
 
         //'0', if it's an administrator
         //'1' if it's a doctor
@@ -54,9 +63,9 @@ namespace Medical_System
             {
                 LoadAdminInfoFromXml(adminListFile);
 
-                foreach (Admin a in adminList)
+                foreach (Administrator a in adminList)
                 {
-                    userComboBox.Items.Add(a.Username);
+                    userComboBox.Items.Add(a.username);
                 }
             }
             else
@@ -64,15 +73,20 @@ namespace Medical_System
                 LoadDocInfoFromXml(docListFile);
                 foreach(Doctor d in docList)
                 {
-                    userComboBox.Items.Add(d.Username);
+                    userComboBox.Items.Add(d.UserName);
                 }
             }
-            
         }
 
         private void backBtn_Click_1(object sender, RoutedEventArgs e)
         {
             BackToMainWindow();
+        }
+
+        private void BackToMainWindow()
+        {
+            mMain.Show();
+            this.Close();
         }
 
         private void loginBtn_Click_1(object sender, RoutedEventArgs e)
@@ -91,30 +105,31 @@ namespace Medical_System
             }
             else
             {
+                userName = usernameTextBox.Text;
+                password = passwordTextBox.Password;
+
                 if (userType == 0)
                 {
                     // show admin GUI
-                    ShowAdminGui();
+                    ShowAdminGui(userName, password);
                 }
                 else
                 {
                     // show doctor GUI
-                    ShowDoctorGui();
+                    ShowDoctorGui(userName, password);
                 }
-
-                mMain.Close();
-                this.Close();
             }
         }
 
-        private void ShowAdminGui()
+        private void ShowAdminGui(string user, string pswd)
         {
-            Admin newAdmin = new Admin()
+            #region(Saving Admin Info)
+            Administrator newAdmin = new Administrator()
             {
-                Username = usernameTextBox.Text
+                username = usernameTextBox.Text
             };
 
-            tempAdminList = new List<Admin>();
+            tempAdminList = new List<Administrator>();
             bool isChecking = false;
             if (adminList.Count == 0)
             {
@@ -133,13 +148,26 @@ namespace Medical_System
                 }
             }
             SaveAdminInfoToXml(adminList);
+            #endregion
+
+            Administrator returnAdmin = new Administrator();
+            if (db.CanAdminLogin(user, pswd, out returnAdmin))
+            {
+                mMain.Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Username or password does not exist!");
+            }
         }
 
-        private void ShowDoctorGui()
+        private void ShowDoctorGui(string user, string pswd)
         {
+            #region(Saving Doctor Info)
             Doctor newDoc = new Doctor()
             {
-                Username = usernameTextBox.Text
+                UserName = usernameTextBox.Text
             };
 
             tempDocList = new List<Doctor>();
@@ -161,18 +189,30 @@ namespace Medical_System
                 }
             }
             SaveDocInfoToXml(docList);
+            #endregion
+
+            Doctor returnDoc = new Doctor();
+            if (db.CanDoctorLogin(user, pswd, out returnDoc))
+            {
+                mMain.Close();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Username or password does not exist!");
+            }
         }
 
-        private bool CheckAdminsInfo(Admin newAdmin, bool isChecking)
+        private bool CheckAdminsInfo(Administrator newAdmin, bool isChecking)
         {
-            foreach (Admin a in adminList)
+            foreach (Administrator a in adminList)
             {
-                if (!newAdmin.Username.Equals(a.Username))
+                if (!newAdmin.username.Equals(a.username))
                 {
                     tempAdminList.Add(newAdmin);
                     isChecking = true;
                 }
-                else if (newAdmin.Username.Equals(a.Username))
+                else if (newAdmin.username.Equals(a.username))
                 {
                     isChecking = false;
                 }
@@ -184,12 +224,12 @@ namespace Medical_System
         {
             foreach (Doctor d in docList)
             {
-                if (!newDoc.Username.Equals(d.Username))
+                if (!newDoc.UserName.Equals(d.UserName))
                 {
                     tempDocList.Add(newDoc);
                     isChecking = true;
                 }
-                else if (newDoc.Username.Equals(d.Username))
+                else if (newDoc.UserName.Equals(d.UserName))
                 {
                     isChecking = false;
                 }
@@ -197,34 +237,20 @@ namespace Medical_System
             return isChecking;
         }
 
-        private void BackToMainWindow()
-        {
-            mMain.Show();
-            this.Close();
-        }
-
         private void userComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
             string currentSelection = Convert.ToString(userComboBox.SelectedItem);
 
-            if (userType == 0)
+            if (userType == 0) 
             {
-                selectedAdmin = new Admin()
-                {
-                    Username = currentSelection
-                };
-
-                adminUsername = selectedAdmin.Username;
+                selectedAdmin = new Administrator() { username = currentSelection };
+                adminUsername = selectedAdmin.username;
                 usernameTextBox.Text = adminUsername;
             }
             else
-            {
-                selectedDoc = new Doctor()
-                {
-                    Username = currentSelection
-                };
-
-                docUsername = selectedDoc.Username;
+            {   
+                selectedDoc = new Doctor() { UserName = currentSelection };
+                docUsername = selectedDoc.UserName;
                 usernameTextBox.Text = docUsername;
             }
 
@@ -239,8 +265,8 @@ namespace Medical_System
                 {
                     using (Stream openedFile = File.OpenRead(fileName))
                     {
-                        XmlSerializer serializer = new XmlSerializer(typeof(List<Admin>));
-                        List<Admin> deserialize = serializer.Deserialize(openedFile) as List<Admin>;
+                        XmlSerializer serializer = new XmlSerializer(typeof(List<Administrator>));
+                        List<Administrator> deserialize = serializer.Deserialize(openedFile) as List<Administrator>;
                         adminList = deserialize;
                     }
                 }
@@ -251,7 +277,7 @@ namespace Medical_System
             }
         }
 
-        public void SaveAdminInfoToXml(List<Admin> list)
+        public void SaveAdminInfoToXml(List<Administrator> list)
         {
             Stream adminStream;
             try
@@ -266,7 +292,7 @@ namespace Medical_System
                 }
                 using (adminStream)
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<Admin>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Administrator>));
                     serializer.Serialize(adminStream, list);
                 }
             }
