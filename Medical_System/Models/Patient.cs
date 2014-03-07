@@ -8,6 +8,7 @@ namespace Medical_System.Models
         public Patient()
         {
             this.Perscriptions = new List<Perscription>();
+            this.Doctors = new List<Doctor>();
         }
 
         public int PID { get; set; }
@@ -20,5 +21,6 @@ namespace Medical_System.Models
         public string Syptoms { get; set; }
         public virtual BloodType BloodType { get; set; }
         public virtual ICollection<Perscription> Perscriptions { get; set; }
+        public virtual ICollection<Doctor> Doctors { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace Medical_System.Models
         {
         }
 
-        //public DbSet<Administrator> Administrators { get; set; }
+        public DbSet<Administrator> Administrators { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<BloodType> BloodTypes { get; set; }
         public DbSet<Disease> Diseases { get; set; }
@@ -29,7 +29,7 @@ namespace Medical_System.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //modelBuilder.Configurations.Add(new AdministratorMap());
+            modelBuilder.Configurations.Add(new AdministratorMap());
             modelBuilder.Configurations.Add(new AppointmentMap());
             modelBuilder.Configurations.Add(new BloodTypeMap());
             modelBuilder.Configurations.Add(new DiseaseMap());
