@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 namespace Medical_System {
 	public partial class GraphWindow : Window {
 		/// <summary>
-		/// Graphs a given an Enumerable collection of NUMERIC datatypes
+		/// Graphs a given Enumerable collection of NUMERIC datatypes
 		/// </summary>
 		/// <typeparam name="T">
 		/// Ensure T is a NUMERIC datatype, do not pass in strings, characters, etc.
@@ -25,36 +25,34 @@ namespace Medical_System {
 		/// The X axis is the amount of elements in the list.
 		/// </param>
 		public void GraphData<T>(IEnumerable<T> axisY) where T : IComparable<T> {
-			dynamic maxY = getMax(axisY);
-			dynamic minY = getMin(axisY);
-			int maxX = axisY.Count() - 1;
-			dynamic horizonHeight = Canvas_graph.Height + (minY / (maxY - minY)) * Canvas_graph.Height;
+			dynamic yMax = getMax(axisY);
+			dynamic yMin = getMin(axisY);
+			int xMax = axisY.Count() - 1;
+			dynamic horizonY = Canvas_graph.Height + (yMin / (yMax - yMin)) * Canvas_graph.Height;
 			float textPosition_x = (float)(Canvas_y_axis.Width / 2 - 5);
 
-			drawHorizontalLine((float)horizonHeight, 2, Colors.Black);
-			drawText_yAxis(textPosition_x, (float)horizonHeight, (float)horizonHeight, "0", ref Canvas_y_axis);
+			drawHorizontalLine((float)horizonY, 2, Colors.Black);
+			drawText_yAxis(textPosition_x, (float)horizonY, (float)horizonY, "0", ref Canvas_y_axis);
 
-			for(int i = (int)minY; i <= maxY; i++) {
-				dynamic y = Canvas_graph.Height - ((i - minY) / (maxY - minY)) * Canvas_graph.Height;
+			for(int i = (int)yMin; i <= yMax; i++) {
+				dynamic y = Canvas_graph.Height - ((i - yMin) / (yMax - yMin)) * Canvas_graph.Height;
 
-				drawText_yAxis(textPosition_x, (float)y, (float)horizonHeight, i.ToString(), ref Canvas_y_axis);
+				drawText_yAxis(textPosition_x, (float)y, (float)horizonY, i.ToString(), ref Canvas_y_axis);
 				drawHorizontalLine((float)y, 0.5f, Colors.Gray);
 			}
 
-			for(int i = 0; i <= maxX; i += ((int)maxX / 10)) {
-				dynamic x = ((float)i / (float)maxX) * Canvas_graph.Width;
+			for(int i = 0; i <= xMax; i += ((int)xMax / 10)) {
+				dynamic x = ((float)i / (float)xMax) * Canvas_graph.Width;
 
-				drawText_xAxis((float)x, (float)Canvas_x_axis.Height / 2, (float)maxX, i.ToString(), ref Canvas_x_axis);
+				drawText_xAxis((float)x, (float)Canvas_x_axis.Height / 2, (float)xMax, i.ToString(), ref Canvas_x_axis);
 				drawVerticalLine((float)x, 0.5f, Colors.Gray);
 			}
 
-			for(int i = 0; i < maxX; i++) {
-				dynamic point1_x = ((float)i / (float)maxX) * Canvas_graph.Width;
-				dynamic point2_x = ((float)(i + 1) / (float)maxX) * Canvas_graph.Width;
-				dynamic point1_y = Canvas_graph.Height - ((axisY.ElementAt(i) - minY) / (maxY - minY)) * Canvas_graph.Height;
-				dynamic point2_y = Canvas_graph.Height - ((axisY.ElementAt(i + 1) - minY) / (maxY - minY)) * Canvas_graph.Height;
-
-				double theNumber = (double)((dynamic)axisY.ElementAt(i));
+			for(int i = 0; i < xMax; i++) {
+				dynamic point1_x = ((float)i / (float)xMax) * Canvas_graph.Width;
+				dynamic point2_x = ((float)(i + 1) / (float)xMax) * Canvas_graph.Width;
+				dynamic point1_y = Canvas_graph.Height - ((axisY.ElementAt(i) - yMin) / (yMax - yMin)) * Canvas_graph.Height;
+				dynamic point2_y = Canvas_graph.Height - ((axisY.ElementAt(i + 1) - yMin) / (yMax - yMin)) * Canvas_graph.Height;
 
 				Line line = new Line();
 				line.Stroke = Brushes.Navy;
@@ -129,10 +127,10 @@ namespace Medical_System {
 			canvas.Children.Add(textBlock);
 		}
 
-		private void drawText_yAxis(float x, float y, float horizon_y, string text, ref Canvas canvas) {
+		private void drawText_yAxis(float x, float y, float horizonY, string text, ref Canvas canvas) {
 			TextBlock textBlock = new TextBlock();
 
-			float yOffset = (y > horizon_y) ? 15 : (y < horizon_y) ? 0 : 7.5f;
+			float yOffset = (y > horizonY) ? 15 : (y < horizonY) ? 0 : 7.5f;
 
 			textBlock.Text = text;
 			textBlock.Foreground = new SolidColorBrush(Colors.Black);
