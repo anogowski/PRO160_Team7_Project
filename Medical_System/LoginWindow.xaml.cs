@@ -35,8 +35,6 @@ namespace Medical_System
         List<Doctor> tempDocList;
         Doctor selectedDoc;
 
-        List<Doctor> dbDocList;
-
         DbHelper db = new DbHelper();
 
         MainWindow mMain;
@@ -63,6 +61,7 @@ namespace Medical_System
 
             if (userType == 0)
             {
+                loginLabel.Content = "Administrator";
                 LoadAdminInfoFromXml(adminListFile);
 
                 foreach (Administrator a in adminList)
@@ -72,6 +71,7 @@ namespace Medical_System
             }
             else
             {
+                loginLabel.Content = "Doctor";
                 LoadDocInfoFromXml(docListFile);
                 foreach(Doctor d in docList)
                 {
