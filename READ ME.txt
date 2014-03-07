@@ -1,0 +1,6 @@
+SQL DB SETUP
+	1. Execute MedicalSystem.sql
+	2. Execute Info.sql
+
+BUGS
+	1. It seems that inserting more values into Patient overwrites them and starts the id at 2 after that you can keep inserting new patients
