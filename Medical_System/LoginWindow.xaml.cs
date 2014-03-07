@@ -26,6 +26,7 @@ namespace Medical_System
         //select username, psw from Administrator
         //select UserName, psw from Doctor
 
+        #region(Variables)
         List<Administrator> adminList = new List<Administrator>();
         List<Administrator> tempAdminList;
         Administrator selectedAdmin;
@@ -49,6 +50,7 @@ namespace Medical_System
         //'0', if it's an administrator
         //'1' if it's a doctor
         int userType;
+        #endregion
 
         public LoginWindow(MainWindow main, int userInt)
         {
@@ -78,6 +80,7 @@ namespace Medical_System
             }
         }
 
+        #region(GUI Logic)
         private void backBtn_Click_1(object sender, RoutedEventArgs e)
         {
             BackToMainWindow();
@@ -255,6 +258,7 @@ namespace Medical_System
             }
 
         }
+        #endregion
 
         #region(User list serialization)
         public void LoadAdminInfoFromXml(string fileName)
