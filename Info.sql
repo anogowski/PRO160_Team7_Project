@@ -419,10 +419,11 @@ Go
 Insert Into Patient (SSID, Gender,DateOfBirth, DateOfDeath, BloodType_id, HomeAddress, PhoneNumber, Syptoms)
 Values
 
-('123456789',0, '12-01-1990', null, 1, '1 Main St', '1234567890', 'Fever, Headache'),
-('098765432',0, '12-11-95', null, 1, '100 North', '1234567890', 'Headache, Fatiuge'),
-('143258765',1, '01-01-00', null, 8, '321 Main St', '0987654321', 'Fever, Stomach Ache, Cramps')
+('123456789',1, '12-01-1990', null, 1, '1 Main St', '1234567890', 'Fever, Headache'),
+('098765432',1, '12-11-95', null, 2, '100 North', '1234567890', 'Headache, Fatiuge'),
+('143258765',0, '01-01-00', null, 8, '321 Main St', '0987654321', 'Fever, Stomach Ache, Cramps')
 Go
+
 
 --Insert Into Doc_Patient (DID, PID)
 --Values
@@ -430,3 +431,15 @@ Go
 --(1,2),
 --(2,3)
 --Go
+
+--Select * from DiseaseType
+
+--Select * from Disease
+
+--Select * from Fields
+
+--Select * from Doctor
+
+--Select * from BloodType
+
+--Select * from Patient
