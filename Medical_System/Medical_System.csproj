@@ -62,35 +62,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DbHelper.cs" />
+    <Compile Include="EditPrescription.xaml.cs">
+      <DependentUpon>EditPrescription.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GraphWindow.xaml.cs">
       <DependentUpon>GraphWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Medical\Disorders.cs" />
-    <Compile Include="Models\Administrator.cs" />
-    <Compile Include="Models\Appointment.cs" />
-    <Compile Include="Models\BloodType.cs" />
-    <Compile Include="Models\Disease.cs" />
-    <Compile Include="Models\DiseaseType.cs" />
-    <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\Field.cs" />
-    <Compile Include="Models\Mapping\AdministratorMap.cs" />
-    <Compile Include="Models\Mapping\AppointmentMap.cs" />
-    <Compile Include="Models\Mapping\BloodTypeMap.cs" />
-    <Compile Include="Models\Mapping\DiseaseMap.cs" />
-    <Compile Include="Models\Mapping\DiseaseTypeMap.cs" />
-    <Compile Include="Models\Mapping\DoctorMap.cs" />
-    <Compile Include="Models\Mapping\FieldMap.cs" />
-    <Compile Include="Models\Mapping\MedicineMap.cs" />
-    <Compile Include="Models\Mapping\PatientMap.cs" />
-    <Compile Include="Models\Mapping\PerscriptionMap.cs" />
-    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
-    <Compile Include="Models\MedicalSystemContext.cs" />
-    <Compile Include="Models\Medicine.cs" />
-    <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Perscription.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
-    <Compile Include="Users\Admin.cs" />
-    <Compile Include="Users\Doctor.cs" />
+    <Page Include="EditPrescription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GraphWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,8 +97,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Medical\Diseases.cs" />
-    <Compile Include="Medical\Prescriptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
