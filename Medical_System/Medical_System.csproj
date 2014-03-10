@@ -35,16 +35,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.0-beta1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -93,8 +92,8 @@
       <DependentUpon>GraphWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="EditPrescription.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="GraphWindow.xaml">
       <SubType>Designer</SubType>
@@ -121,17 +120,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MedicalSystemModels.Context.cs">
+    <Compile Include="MedicalSystemModels.Context1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalSystemModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedicalSystemModels.cs">
+    <Compile Include="MedicalSystemModels.cs" />
+    <Compile Include="MedicalSystemModels.Designer.cs">
+      <DependentUpon>MedicalSystemModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalSystemModels1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedicalSystemModels.Designer.cs">
+    <Compile Include="MedicalSystemModels1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
@@ -163,22 +166,20 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Fakes Include="Fakes\EntityFramework.fakes" />
-    <EntityDeploy Include="MedicalSystemModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MedicalSystemModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="MedicalSystemModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
-      <LastGenOutput>MedicalSystemModels.Context.cs</LastGenOutput>
+      <LastGenOutput>MedicalSystemModels.Context1.cs</LastGenOutput>
     </None>
+    <EntityDeploy Include="MedicalSystemModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MedicalSystemModels1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="MedicalSystemModels.edmx.diagram">
       <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
     </None>
     <None Include="MedicalSystemModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
-      <LastGenOutput>MedicalSystemModels.cs</LastGenOutput>
+      <LastGenOutput>MedicalSystemModels1.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
