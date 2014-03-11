@@ -4,48 +4,83 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MedicalSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MedicalSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MedicalSystemModelStoreContainer">
+          <EntitySet Name="Administrator" EntityType="MedicalSystemModel.Store.Administrator" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Appointment" EntityType="MedicalSystemModel.Store.Appointment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BloodType" EntityType="MedicalSystemModel.Store.BloodType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Disease" EntityType="MedicalSystemModel.Store.Disease" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DiseaseType" EntityType="MedicalSystemModel.Store.DiseaseType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Doc_Patient" EntityType="MedicalSystemModel.Store.Doc_Patient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Doctor" EntityType="MedicalSystemModel.Store.Doctor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Fields" EntityType="MedicalSystemModel.Store.Fields" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Medicine" EntityType="MedicalSystemModel.Store.Medicine" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Patient" EntityType="MedicalSystemModel.Store.Patient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Perscription" EntityType="MedicalSystemModel.Store.Perscription" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fk_bloodTpe" Association="MedicalSystemModel.Store.fk_bloodTpe">
+            <End Role="BloodType" EntitySet="BloodType" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="fk_disease_type" Association="MedicalSystemModel.Store.fk_disease_type">
+            <End Role="DiseaseType" EntitySet="DiseaseType" />
+            <End Role="Disease" EntitySet="Disease" />
+          </AssociationSet>
+          <AssociationSet Name="fk_doc_patient" Association="MedicalSystemModel.Store.fk_doc_patient">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Doc_Patient" EntitySet="Doc_Patient" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fid" Association="MedicalSystemModel.Store.fk_fid">
+            <End Role="Fields" EntitySet="Fields" />
+            <End Role="Doctor" EntitySet="Doctor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_issued_by" Association="MedicalSystemModel.Store.fk_issued_by">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Perscription" EntitySet="Perscription" />
+          </AssociationSet>
+          <AssociationSet Name="fk_patient_doc" Association="MedicalSystemModel.Store.fk_patient_doc">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Doc_Patient" EntitySet="Doc_Patient" />
+          </AssociationSet>
+          <AssociationSet Name="fk_perscription" Association="MedicalSystemModel.Store.fk_perscription">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Perscription" EntitySet="Perscription" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Administrator">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="psw" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="psw" Type="char" Nullable="false" MaxLength="20" />
         </EntityType>
         <EntityType Name="Appointment">
           <Key>
             <PropertyRef Name="AID" />
           </Key>
-          <Property Name="AID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DateIssued" Type="datetime" />
         </EntityType>
         <EntityType Name="BloodType">
           <Key>
             <PropertyRef Name="BID" />
           </Key>
-          <Property Name="BID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TypeName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="BID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="nchar" Nullable="false" MaxLength="10" />
         </EntityType>
         <EntityType Name="Disease">
           <Key>
             <PropertyRef Name="DEAID" />
           </Key>
-          <Property Name="DEAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="DEAID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="char" Nullable="false" MaxLength="50" />
           <Property Name="Disease_type" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'MedicalSystem.dbo.Disease_Patient' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Disease_Patient">
-          <Property Name="PID" Type="int" />
-          <Property Name="DEAID" Type="int" />
-        </EntityType>-->
         <EntityType Name="DiseaseType">
           <Key>
             <PropertyRef Name="DTID" />
           </Key>
-          <Property Name="DTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DTID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="char" MaxLength="50" />
         </EntityType>
         <EntityType Name="Doc_Patient">
@@ -56,21 +91,14 @@ warning 6013: The table/view 'MedicalSystem.dbo.Disease_Patient' does not have a
           <Property Name="PID" Type="int" Nullable="false" />
           <Property Name="DID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'MedicalSystem.dbo.Doc_Patient_appointment' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Doc_Patient_appointment">
-          <Property Name="PID" Type="int" />
-          <Property Name="DID" Type="int" />
-          <Property Name="AID" Type="int" />
-        </EntityType>-->
         <EntityType Name="Doctor">
           <Key>
             <PropertyRef Name="DID" />
           </Key>
-          <Property Name="DID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="FID" Type="int" />
-          <Property Name="UserName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="psw" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="UserName" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="psw" Type="char" Nullable="false" MaxLength="20" />
           <Property Name="HomeAddress" Type="nchar" MaxLength="100" />
           <Property Name="PhoneNumber" Type="nchar" MaxLength="15" />
         </EntityType>
@@ -78,25 +106,25 @@ warning 6013: The table/view 'MedicalSystem.dbo.Doc_Patient_appointment' does no
           <Key>
             <PropertyRef Name="FID" />
           </Key>
-          <Property Name="FID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="FID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="char" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="Medicine">
           <Key>
             <PropertyRef Name="MID" />
           </Key>
-          <Property Name="MID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="MID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nchar" Nullable="false" MaxLength="100" />
           <Property Name="Note" Type="text" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
             <PropertyRef Name="PID" />
           </Key>
-          <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="SSID" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="FirstName" Type="char" MaxLength="50" Nullable="false" />
-          <Property Name="LastName" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="PID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SSID" Type="char" Nullable="false" MaxLength="20" />
+          <Property Name="FirstName" Type="char" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="char" Nullable="false" MaxLength="50" />
           <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="DateOfBirth" Type="datetime" />
           <Property Name="DateOfDeath" Type="datetime" />
@@ -109,25 +137,16 @@ warning 6013: The table/view 'MedicalSystem.dbo.Doc_Patient_appointment' does no
           <Key>
             <PropertyRef Name="PERS_ID" />
           </Key>
-          <Property Name="PERS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERS_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DID" Type="int" />
           <Property Name="PID" Type="int" />
           <Property Name="DateIssued" Type="datetime" Nullable="false" />
           <Property Name="Note" Type="text" />
           <Property Name="Reactions" Type="text" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'MedicalSystem.dbo.Perscription_Medicine' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Perscription_Medicine">
-          <Property Name="PERS_ID" Type="int" />
-          <Property Name="MID" Type="int" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_aid" />-->
         <Association Name="fk_bloodTpe">
-          <End Role="BloodType" Type="Self.BloodType" Multiplicity="0..1" />
-          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <End Role="BloodType" Type="MedicalSystemModel.Store.BloodType" Multiplicity="0..1" />
+          <End Role="Patient" Type="MedicalSystemModel.Store.Patient" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BloodType">
               <PropertyRef Name="BID" />
@@ -137,15 +156,9 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'MedicalSystem.dbo.Disease_Patient' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_deaid" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_did" />-->
         <Association Name="fk_disease_type">
-          <End Role="DiseaseType" Type="Self.DiseaseType" Multiplicity="0..1" />
-          <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+          <End Role="DiseaseType" Type="MedicalSystemModel.Store.DiseaseType" Multiplicity="0..1" />
+          <End Role="Disease" Type="MedicalSystemModel.Store.Disease" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DiseaseType">
               <PropertyRef Name="DTID" />
@@ -156,8 +169,8 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_doc_patient">
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="1" />
-          <End Role="Doc_Patient" Type="Self.Doc_Patient" Multiplicity="*" />
+          <End Role="Doctor" Type="MedicalSystemModel.Store.Doctor" Multiplicity="1" />
+          <End Role="Doc_Patient" Type="MedicalSystemModel.Store.Doc_Patient" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Doctor">
               <PropertyRef Name="DID" />
@@ -168,8 +181,8 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_fid">
-          <End Role="Fields" Type="Self.Fields" Multiplicity="0..1" />
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <End Role="Fields" Type="MedicalSystemModel.Store.Fields" Multiplicity="0..1" />
+          <End Role="Doctor" Type="MedicalSystemModel.Store.Doctor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Fields">
               <PropertyRef Name="FID" />
@@ -180,8 +193,8 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_issued_by">
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
-          <End Role="Perscription" Type="Self.Perscription" Multiplicity="*" />
+          <End Role="Doctor" Type="MedicalSystemModel.Store.Doctor" Multiplicity="0..1" />
+          <End Role="Perscription" Type="MedicalSystemModel.Store.Perscription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Doctor">
               <PropertyRef Name="DID" />
@@ -191,15 +204,9 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'MedicalSystem.dbo.Perscription_Medicine' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_medicine" />-->
-        <!--Errors Found During Generation:
-error 6004: The table 'MedicalSystem.dbo.Disease_Patient' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_patient_disease" />-->
         <Association Name="fk_patient_doc">
-          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
-          <End Role="Doc_Patient" Type="Self.Doc_Patient" Multiplicity="*" />
+          <End Role="Patient" Type="MedicalSystemModel.Store.Patient" Multiplicity="1" />
+          <End Role="Doc_Patient" Type="MedicalSystemModel.Store.Doc_Patient" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Patient">
               <PropertyRef Name="PID" />
@@ -209,12 +216,9 @@ error 6004: The table 'MedicalSystem.dbo.Disease_Patient' is referenced by a rel
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-error 6004: The table 'MedicalSystem.dbo.Perscription_Medicine' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_pers_id" />-->
         <Association Name="fk_perscription">
-          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
-          <End Role="Perscription" Type="Self.Perscription" Multiplicity="*" />
+          <End Role="Patient" Type="MedicalSystemModel.Store.Patient" Multiplicity="0..1" />
+          <End Role="Perscription" Type="MedicalSystemModel.Store.Perscription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Patient">
               <PropertyRef Name="PID" />
@@ -225,159 +229,173 @@ error 6004: The table 'MedicalSystem.dbo.Perscription_Medicine' is referenced by
           </ReferentialConstraint>
         </Association>
         <!--Errors Found During Generation:
-error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced by a relationship, but cannot be found.
-        <Association Name="fk_pid" />-->
-        <EntityContainer Name="MedicalSystemModelStoreContainer">
-          <EntitySet Name="Administrator" EntityType="Self.Administrator" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BloodType" EntityType="Self.BloodType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Disease" EntityType="Self.Disease" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DiseaseType" EntityType="Self.DiseaseType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Doc_Patient" EntityType="Self.Doc_Patient" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Fields" EntityType="Self.Fields" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Medicine" EntityType="Self.Medicine" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Perscription" EntityType="Self.Perscription" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="fk_bloodTpe" Association="Self.fk_bloodTpe">
-            <End Role="BloodType" EntitySet="BloodType" />
-            <End Role="Patient" EntitySet="Patient" />
-          </AssociationSet>
-          <AssociationSet Name="fk_disease_type" Association="Self.fk_disease_type">
-            <End Role="DiseaseType" EntitySet="DiseaseType" />
-            <End Role="Disease" EntitySet="Disease" />
-          </AssociationSet>
-          <AssociationSet Name="fk_doc_patient" Association="Self.fk_doc_patient">
-            <End Role="Doctor" EntitySet="Doctor" />
-            <End Role="Doc_Patient" EntitySet="Doc_Patient" />
-          </AssociationSet>
-          <AssociationSet Name="fk_fid" Association="Self.fk_fid">
-            <End Role="Fields" EntitySet="Fields" />
-            <End Role="Doctor" EntitySet="Doctor" />
-          </AssociationSet>
-          <AssociationSet Name="fk_issued_by" Association="Self.fk_issued_by">
-            <End Role="Doctor" EntitySet="Doctor" />
-            <End Role="Perscription" EntitySet="Perscription" />
-          </AssociationSet>
-          <AssociationSet Name="fk_patient_doc" Association="Self.fk_patient_doc">
-            <End Role="Patient" EntitySet="Patient" />
-            <End Role="Doc_Patient" EntitySet="Doc_Patient" />
-          </AssociationSet>
-          <AssociationSet Name="fk_perscription" Association="Self.fk_perscription">
-            <End Role="Patient" EntitySet="Patient" />
-            <End Role="Perscription" EntitySet="Perscription" />
-          </AssociationSet>
-        </EntityContainer>
+      warning 6013: The table/view 'MedicalSystem.dbo.Disease_Patient' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Disease_Patient">
+        <Property Name="PID" Type="int" />
+        <Property Name="DEAID" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'MedicalSystem.dbo.Doc_Patient_appointment' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Doc_Patient_appointment">
+        <Property Name="PID" Type="int" />
+        <Property Name="DID" Type="int" />
+        <Property Name="AID" Type="int" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'MedicalSystem.dbo.Perscription_Medicine' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="Perscription_Medicine">
+        <Property Name="PERS_ID" Type="int" />
+        <Property Name="MID" Type="int" />
+      </EntityType>-->
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MedicalSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MedicalSystemModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MedicalSystemEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrators" EntityType="MedicalSystemModel.Administrator" />
+          <EntitySet Name="Appointments" EntityType="MedicalSystemModel.Appointment" />
+          <EntitySet Name="BloodTypes" EntityType="MedicalSystemModel.BloodType" />
+          <EntitySet Name="Diseases" EntityType="MedicalSystemModel.Disease" />
+          <EntitySet Name="DiseaseTypes" EntityType="MedicalSystemModel.DiseaseType" />
+          <EntitySet Name="Doctors" EntityType="MedicalSystemModel.Doctor" />
+          <EntitySet Name="Fields" EntityType="MedicalSystemModel.Field" />
+          <EntitySet Name="Medicines" EntityType="MedicalSystemModel.Medicine" />
+          <EntitySet Name="Patients" EntityType="MedicalSystemModel.Patient" />
+          <EntitySet Name="Perscriptions" EntityType="MedicalSystemModel.Perscription" />
+          <AssociationSet Name="fk_bloodTpe" Association="MedicalSystemModel.fk_bloodTpe">
+            <End Role="BloodType" EntitySet="BloodTypes" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="fk_disease_type" Association="MedicalSystemModel.fk_disease_type">
+            <End Role="DiseaseType" EntitySet="DiseaseTypes" />
+            <End Role="Disease" EntitySet="Diseases" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fid" Association="MedicalSystemModel.fk_fid">
+            <End Role="Fields" EntitySet="Fields" />
+            <End Role="Doctor" EntitySet="Doctors" />
+          </AssociationSet>
+          <AssociationSet Name="fk_issued_by" Association="MedicalSystemModel.fk_issued_by">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Perscription" EntitySet="Perscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_perscription" Association="MedicalSystemModel.fk_perscription">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Perscription" EntitySet="Perscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="Doc_Patient" Association="MedicalSystemModel.Doc_Patient">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Administrator">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="psw" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="psw" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
         </EntityType>
         <EntityType Name="Appointment">
           <Key>
             <PropertyRef Name="AID" />
           </Key>
-          <Property Name="AID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="DateIssued" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="BloodType">
           <Key>
             <PropertyRef Name="BID" />
           </Key>
-          <Property Name="BID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TypeName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Patients" Relationship="Self.fk_bloodTpe" FromRole="BloodType" ToRole="Patient" />
+          <Property Name="BID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Patients" Relationship="MedicalSystemModel.fk_bloodTpe" FromRole="BloodType" ToRole="Patient" />
         </EntityType>
         <EntityType Name="Disease">
           <Key>
             <PropertyRef Name="DEAID" />
           </Key>
-          <Property Name="DEAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DEAID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
           <Property Name="Disease_type" Type="Int32" />
-          <NavigationProperty Name="DiseaseType" Relationship="Self.fk_disease_type" FromRole="Disease" ToRole="DiseaseType" />
+          <NavigationProperty Name="DiseaseType" Relationship="MedicalSystemModel.fk_disease_type" FromRole="Disease" ToRole="DiseaseType" />
         </EntityType>
         <EntityType Name="DiseaseType">
           <Key>
             <PropertyRef Name="DTID" />
           </Key>
-          <Property Name="DTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Diseases" Relationship="Self.fk_disease_type" FromRole="DiseaseType" ToRole="Disease" />
+          <Property Name="DTID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="Diseases" Relationship="MedicalSystemModel.fk_disease_type" FromRole="DiseaseType" ToRole="Disease" />
         </EntityType>
         <EntityType Name="Doctor">
           <Key>
             <PropertyRef Name="DID" />
           </Key>
-          <Property Name="DID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="FID" Type="Int32" />
-          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="psw" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="HomeAddress" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Field" Relationship="Self.fk_fid" FromRole="Doctor" ToRole="Fields" />
-          <NavigationProperty Name="Perscriptions" Relationship="Self.fk_issued_by" FromRole="Doctor" ToRole="Perscription" />
-          <NavigationProperty Name="Patients" Relationship="Self.Doc_Patient" FromRole="Doctor" ToRole="Patient" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="psw" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="HomeAddress" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Field" Relationship="MedicalSystemModel.fk_fid" FromRole="Doctor" ToRole="Fields" />
+          <NavigationProperty Name="Perscriptions" Relationship="MedicalSystemModel.fk_issued_by" FromRole="Doctor" ToRole="Perscription" />
+          <NavigationProperty Name="Patients" Relationship="MedicalSystemModel.Doc_Patient" FromRole="Doctor" ToRole="Patient" />
         </EntityType>
         <EntityType Name="Field">
           <Key>
             <PropertyRef Name="FID" />
           </Key>
-          <Property Name="FID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Doctors" Relationship="Self.fk_fid" FromRole="Fields" ToRole="Doctor" />
+          <Property Name="FID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
+          <NavigationProperty Name="Doctors" Relationship="MedicalSystemModel.fk_fid" FromRole="Fields" ToRole="Doctor" />
         </EntityType>
         <EntityType Name="Medicine">
           <Key>
             <PropertyRef Name="MID" />
           </Key>
-          <Property Name="MID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="Patient">
           <Key>
             <PropertyRef Name="PID" />
           </Key>
-          <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SSID" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SSID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
           <Property Name="Gender" Type="Boolean" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
           <Property Name="DateOfDeath" Type="DateTime" Precision="3" />
           <Property Name="BloodType_id" Type="Int32" />
-          <Property Name="HomeAddress" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Name="Syptoms" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="BloodType" Relationship="Self.fk_bloodTpe" FromRole="Patient" ToRole="BloodType" />
-          <NavigationProperty Name="Perscriptions" Relationship="Self.fk_perscription" FromRole="Patient" ToRole="Perscription" />
-          <NavigationProperty Name="Doctors" Relationship="Self.Doc_Patient" FromRole="Patient" ToRole="Doctor" />
+          <Property Name="HomeAddress" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" Unicode="true" FixedLength="true" />
+          <Property Name="Syptoms" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="BloodType" Relationship="MedicalSystemModel.fk_bloodTpe" FromRole="Patient" ToRole="BloodType" />
+          <NavigationProperty Name="Perscriptions" Relationship="MedicalSystemModel.fk_perscription" FromRole="Patient" ToRole="Perscription" />
+          <NavigationProperty Name="Doctors" Relationship="MedicalSystemModel.Doc_Patient" FromRole="Patient" ToRole="Doctor" />
         </EntityType>
         <EntityType Name="Perscription">
           <Key>
             <PropertyRef Name="PERS_ID" />
           </Key>
-          <Property Name="PERS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERS_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="DID" Type="Int32" />
           <Property Name="PID" Type="Int32" />
           <Property Name="DateIssued" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Reactions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Doctor" Relationship="Self.fk_issued_by" FromRole="Perscription" ToRole="Doctor" />
-          <NavigationProperty Name="Patient" Relationship="Self.fk_perscription" FromRole="Perscription" ToRole="Patient" />
+          <Property Name="Note" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Reactions" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Doctor" Relationship="MedicalSystemModel.fk_issued_by" FromRole="Perscription" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="MedicalSystemModel.fk_perscription" FromRole="Perscription" ToRole="Patient" />
         </EntityType>
         <Association Name="fk_bloodTpe">
-          <End Role="BloodType" Type="Self.BloodType" Multiplicity="0..1" />
-          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <End Role="BloodType" Type="MedicalSystemModel.BloodType" Multiplicity="0..1" />
+          <End Role="Patient" Type="MedicalSystemModel.Patient" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BloodType">
               <PropertyRef Name="BID" />
@@ -388,8 +406,8 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_disease_type">
-          <End Role="DiseaseType" Type="Self.DiseaseType" Multiplicity="0..1" />
-          <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+          <End Role="DiseaseType" Type="MedicalSystemModel.DiseaseType" Multiplicity="0..1" />
+          <End Role="Disease" Type="MedicalSystemModel.Disease" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DiseaseType">
               <PropertyRef Name="DTID" />
@@ -400,8 +418,8 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_fid">
-          <End Role="Fields" Type="Self.Field" Multiplicity="0..1" />
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+          <End Role="Fields" Type="MedicalSystemModel.Field" Multiplicity="0..1" />
+          <End Role="Doctor" Type="MedicalSystemModel.Doctor" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Fields">
               <PropertyRef Name="FID" />
@@ -412,8 +430,8 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_issued_by">
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
-          <End Role="Perscription" Type="Self.Perscription" Multiplicity="*" />
+          <End Role="Doctor" Type="MedicalSystemModel.Doctor" Multiplicity="0..1" />
+          <End Role="Perscription" Type="MedicalSystemModel.Perscription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Doctor">
               <PropertyRef Name="DID" />
@@ -424,8 +442,8 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
           </ReferentialConstraint>
         </Association>
         <Association Name="fk_perscription">
-          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
-          <End Role="Perscription" Type="Self.Perscription" Multiplicity="*" />
+          <End Role="Patient" Type="MedicalSystemModel.Patient" Multiplicity="0..1" />
+          <End Role="Perscription" Type="MedicalSystemModel.Perscription" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Patient">
               <PropertyRef Name="PID" />
@@ -436,45 +454,9 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
           </ReferentialConstraint>
         </Association>
         <Association Name="Doc_Patient">
-          <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
-          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <End Role="Doctor" Type="MedicalSystemModel.Doctor" Multiplicity="*" />
+          <End Role="Patient" Type="MedicalSystemModel.Patient" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="MedicalSystemEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Administrators" EntityType="Self.Administrator" />
-          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
-          <EntitySet Name="BloodTypes" EntityType="Self.BloodType" />
-          <EntitySet Name="Diseases" EntityType="Self.Disease" />
-          <EntitySet Name="DiseaseTypes" EntityType="Self.DiseaseType" />
-          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
-          <EntitySet Name="Fields" EntityType="Self.Field" />
-          <EntitySet Name="Medicines" EntityType="Self.Medicine" />
-          <EntitySet Name="Patients" EntityType="Self.Patient" />
-          <EntitySet Name="Perscriptions" EntityType="Self.Perscription" />
-          <AssociationSet Name="fk_bloodTpe" Association="Self.fk_bloodTpe">
-            <End Role="BloodType" EntitySet="BloodTypes" />
-            <End Role="Patient" EntitySet="Patients" />
-          </AssociationSet>
-          <AssociationSet Name="fk_disease_type" Association="Self.fk_disease_type">
-            <End Role="DiseaseType" EntitySet="DiseaseTypes" />
-            <End Role="Disease" EntitySet="Diseases" />
-          </AssociationSet>
-          <AssociationSet Name="fk_fid" Association="Self.fk_fid">
-            <End Role="Fields" EntitySet="Fields" />
-            <End Role="Doctor" EntitySet="Doctors" />
-          </AssociationSet>
-          <AssociationSet Name="fk_issued_by" Association="Self.fk_issued_by">
-            <End Role="Doctor" EntitySet="Doctors" />
-            <End Role="Perscription" EntitySet="Perscriptions" />
-          </AssociationSet>
-          <AssociationSet Name="fk_perscription" Association="Self.fk_perscription">
-            <End Role="Patient" EntitySet="Patients" />
-            <End Role="Perscription" EntitySet="Perscriptions" />
-          </AssociationSet>
-          <AssociationSet Name="Doc_Patient" Association="Self.Doc_Patient">
-            <End Role="Doctor" EntitySet="Doctors" />
-            <End Role="Patient" EntitySet="Patients" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -603,9 +585,8 @@ error 6004: The table 'MedicalSystem.dbo.Doc_Patient_appointment' is referenced 
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

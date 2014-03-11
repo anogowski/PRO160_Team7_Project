@@ -9,7 +9,7 @@
 
         <TextBox x:Name="PrescriptionInfo" Height="100" Margin="5" Text="Prescription Info"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="UpdateButton" Margin="5" >Update</Button>
+            <Button x:Name="ApplyButton" Margin="5" >Apply</Button>
             <Button x:Name="CancelButton" Margin="5">Cancel</Button>
         </StackPanel>
         

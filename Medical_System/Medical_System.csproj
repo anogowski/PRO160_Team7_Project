@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -97,12 +98,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalSystemModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedicalSystemModels1.cs">
+    <Compile Include="MedicalSystemModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="MedicalSystemModels1.Designer.cs">
+    <Compile Include="MedicalSystemModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
@@ -148,10 +149,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MedicalSystemModels.cs" />
-    <Compile Include="MedicalSystemModels.Designer.cs">
-      <DependentUpon>MedicalSystemModels.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -169,10 +166,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Fakes Include="Fakes\EntityFramework.fakes" />
     <EntityDeploy Include="MedicalSystemModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MedicalSystemModels1.Designer.cs</LastGenOutput>
+      <LastGenOutput>MedicalSystemModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="MedicalSystemModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -185,7 +181,7 @@
     <None Include="MedicalSystemModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
-      <LastGenOutput>MedicalSystemModels1.cs</LastGenOutput>
+      <LastGenOutput>MedicalSystemModels.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -195,11 +191,11 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WebMiner\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
