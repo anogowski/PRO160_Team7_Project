@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Program Files\Neumont University\PRO160_Team7_Project\Medical_System\MedicalSystemModels.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Ashtinh\Documents\Quarter 7\.NET Lab\Team 7 MIM\Medical_System\MedicalSystemModels.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
