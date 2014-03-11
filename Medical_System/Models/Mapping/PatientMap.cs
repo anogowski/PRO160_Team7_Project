@@ -11,6 +11,11 @@ namespace Medical_System.Models.Mapping
             this.HasKey(t => t.PID);
 
             // Properties
+            this.Property(t => t.SSID)
+                .IsRequired()
+                .IsFixedLength()
+                .HasMaxLength(20);
+
             this.Property(t => t.HomeAddress)
                 .IsFixedLength()
                 .HasMaxLength(100);
@@ -22,6 +27,7 @@ namespace Medical_System.Models.Mapping
             // Table & Column Mappings
             this.ToTable("Patient");
             this.Property(t => t.PID).HasColumnName("PID");
+            this.Property(t => t.SSID).HasColumnName("SSID");
             this.Property(t => t.Gender).HasColumnName("Gender");
             this.Property(t => t.DateOfBirth).HasColumnName("DateOfBirth");
             this.Property(t => t.DateOfDeath).HasColumnName("DateOfDeath");

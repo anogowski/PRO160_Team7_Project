@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Medical_System.Models;
 using System.IO;
 using System.Xml.Serialization;
 //using Medical_System.WebMiner;
@@ -73,7 +72,7 @@ namespace Medical_System
             {
                 loginLabel.Content = "Doctor";
                 LoadDocInfoFromXml(docListFile);
-                foreach(Doctor d in docList)
+                foreach (Doctor d in docList)
                 {
                     userComboBox.Items.Add(d.UserName);
                 }
@@ -98,7 +97,7 @@ namespace Medical_System
             {
                 MessageBox.Show("You didn't enter anything!");
             }
-            else if(string.IsNullOrEmpty(usernameTextBox.Text))
+            else if (string.IsNullOrEmpty(usernameTextBox.Text))
             {
                 MessageBox.Show("You didn't enter a username.");
             }
@@ -150,18 +149,18 @@ namespace Medical_System
                     adminList.Add(tempAdminList[i]);
                 }
             }
-            SaveAdminInfoToXml(adminList);
             #endregion
 
             Administrator returnAdmin = new Administrator();
             if (db.CanAdminLogin(user, pswd, out returnAdmin))
             {
+                SaveAdminInfoToXml(adminList);
                 mMain.Close();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Username or password does not exist!");
+                MessageBox.Show("Username or Password is incorrect!");
             }
         }
 
@@ -191,18 +190,18 @@ namespace Medical_System
                     docList.Add(tempDocList[i]);
                 }
             }
-            SaveDocInfoToXml(docList);
             #endregion
 
             Doctor returnDoc = new Doctor();
             if (db.CanDoctorLogin(user, pswd, out returnDoc))
             {
+                SaveDocInfoToXml(docList);
                 mMain.Close();
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Username or password does not exist!");
+                MessageBox.Show("Username or Password is incorrect!");
             }
         }
 
@@ -244,14 +243,14 @@ namespace Medical_System
         {
             string currentSelection = Convert.ToString(userComboBox.SelectedItem);
 
-            if (userType == 0) 
+            if (userType == 0)
             {
                 selectedAdmin = new Administrator() { username = currentSelection };
                 adminUsername = selectedAdmin.username;
                 usernameTextBox.Text = adminUsername;
             }
             else
-            {   
+            {
                 selectedDoc = new Doctor() { UserName = currentSelection };
                 docUsername = selectedDoc.UserName;
                 usernameTextBox.Text = docUsername;

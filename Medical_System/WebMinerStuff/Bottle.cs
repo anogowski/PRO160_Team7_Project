@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Medical_System.Users
+namespace Medical_System.WebMinerStuff
 {
-    public class Doctor
+    class Bottle
     {
-        public string Username { get; set; }
+        public List<WebDrug> data { get; set; }
     }
 }
