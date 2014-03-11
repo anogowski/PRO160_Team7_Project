@@ -16,7 +16,6 @@ namespace Medical_System
                 var list = context.Patients.ToList<Patient>();
                 return list;
             }
-
         }
 
         public List<Doctor> GetDoctors()

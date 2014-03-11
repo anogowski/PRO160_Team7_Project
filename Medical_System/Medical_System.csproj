@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -66,31 +67,11 @@
       <DependentUpon>GraphWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Medical\Disorders.cs" />
-    <Compile Include="Models\Administrator.cs" />
-    <Compile Include="Models\Appointment.cs" />
-    <Compile Include="Models\BloodType.cs" />
-    <Compile Include="Models\Disease.cs" />
-    <Compile Include="Models\DiseaseType.cs" />
-    <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\Field.cs" />
-    <Compile Include="Models\Mapping\AdministratorMap.cs" />
-    <Compile Include="Models\Mapping\AppointmentMap.cs" />
-    <Compile Include="Models\Mapping\BloodTypeMap.cs" />
-    <Compile Include="Models\Mapping\DiseaseMap.cs" />
-    <Compile Include="Models\Mapping\DiseaseTypeMap.cs" />
-    <Compile Include="Models\Mapping\DoctorMap.cs" />
-    <Compile Include="Models\Mapping\FieldMap.cs" />
-    <Compile Include="Models\Mapping\MedicineMap.cs" />
-    <Compile Include="Models\Mapping\PatientMap.cs" />
-    <Compile Include="Models\Mapping\PerscriptionMap.cs" />
-    <Compile Include="Models\Mapping\sysdiagramMap.cs" />
-    <Compile Include="Models\MedicalSystemContext.cs" />
-    <Compile Include="Models\Medicine.cs" />
-    <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Perscription.cs" />
-    <Compile Include="Models\sysdiagram.cs" />
     <Compile Include="Users\Admin.cs" />
     <Compile Include="Users\Doctor.cs" />
+    <Compile Include="WebMinerStuff\Bottle.cs" />
+    <Compile Include="WebMinerStuff\WebDrug.cs" />
+    <Compile Include="WebMinerStuff\WebMiner.cs" />
     <Page Include="GraphWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -146,9 +127,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WebMiner\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
