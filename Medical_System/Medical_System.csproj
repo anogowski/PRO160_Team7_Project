@@ -48,6 +48,7 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -170,6 +171,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MedicalSystemModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.config" />
     <None Include="MedicalSystemModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
@@ -189,11 +191,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
