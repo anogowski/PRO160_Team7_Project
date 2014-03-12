@@ -13,8 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Xml.Serialization;
-using Medical_System.Views;
-using Medical_System.WebMinerStuff;
+//using Medical_System.WebMiner;
 
 namespace Medical_System
 {
@@ -31,8 +30,8 @@ namespace Medical_System
         List<Administrator> tempAdminList;
         Administrator selectedAdmin;
 
-        List<string> docList = new List<string>();
-        List<string> tempDocList;
+        List<Doctor> docList = new List<Doctor>();
+        List<Doctor> tempDocList;
         Doctor selectedDoc;
 
         DbHelper db = new DbHelper();
@@ -56,8 +55,8 @@ namespace Medical_System
             mMain = main;
             userType = userInt;
 
-            adminListFile = "newAdminInfo.txt";
-            docListFile = "newDocInfo.txt";
+            adminListFile = "newAdminInfo.txt.";
+            docListFile = "newDocInfo.txt.";
 
             if (userType == 0)
             {
@@ -73,9 +72,9 @@ namespace Medical_System
             {
                 loginLabel.Content = "Doctor";
                 LoadDocInfoFromXml(docListFile);
-                foreach (string doc in docList)
+                foreach (Doctor d in docList)
                 {
-                    userComboBox.Items.Add(doc);
+                    userComboBox.Items.Add(d.UserName);
                 }
             }
         }
@@ -92,20 +91,7 @@ namespace Medical_System
             this.Close();
         }
 
-        private void passwordTextBox_KeyDown_1(object sender, KeyEventArgs e)
-        {
-            if (Keyboard.IsKeyDown(Key.Enter))
-            {
-                Login();
-            }
-        }
-
         private void loginBtn_Click_1(object sender, RoutedEventArgs e)
-        {
-            Login();
-        }
-
-        private void Login()
         {
             if (string.IsNullOrEmpty(usernameTextBox.Text) && string.IsNullOrEmpty(passwordTextBox.Password))
             {
@@ -181,9 +167,12 @@ namespace Medical_System
         private void ShowDoctorGui(string user, string pswd)
         {
             #region(Saving Doctor Info)
-            string newDoc = usernameTextBox.Text;
+            Doctor newDoc = new Doctor()
+            {
+                UserName = usernameTextBox.Text
+            };
 
-            tempDocList = new List<string>();
+            tempDocList = new List<Doctor>();
             bool isChecking = false;
             if (docList.Count == 0)
             {
@@ -201,14 +190,12 @@ namespace Medical_System
                     docList.Add(tempDocList[i]);
                 }
             }
-            SaveDocInfoToXml(docList);
             #endregion
 
             Doctor returnDoc = new Doctor();
             if (db.CanDoctorLogin(user, pswd, out returnDoc))
             {
-                DoctorWindow window = new DoctorWindow();
-                window.Show();
+                SaveDocInfoToXml(docList);
                 mMain.Close();
                 this.Close();
             }
@@ -235,16 +222,16 @@ namespace Medical_System
             return isChecking;
         }
 
-        private bool CheckDocsInfo(string newDoc, bool isChecking)
+        private bool CheckDocsInfo(Doctor newDoc, bool isChecking)
         {
-            foreach (string doc in docList)
+            foreach (Doctor d in docList)
             {
-                if (!newDoc.Equals(doc))
+                if (!newDoc.UserName.Equals(d.UserName))
                 {
                     tempDocList.Add(newDoc);
                     isChecking = true;
                 }
-                else if (newDoc.Equals(doc))
+                else if (newDoc.UserName.Equals(d.UserName))
                 {
                     isChecking = false;
                 }
@@ -326,19 +313,19 @@ namespace Medical_System
                 {
                     using (Stream openedFile = File.OpenRead(fileName))
                     {
-                        XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
-                        List<string> deserialize = serializer.Deserialize(openedFile) as List<string>;
+                        XmlSerializer serializer = new XmlSerializer(typeof(List<Doctor>));
+                        List<Doctor> deserialize = serializer.Deserialize(openedFile) as List<Doctor>;
                         docList = deserialize;
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.WriteLine("Error while deserializing");
             }
         }
 
-        public void SaveDocInfoToXml(List<string> list)
+        public void SaveDocInfoToXml(List<Doctor> list)
         {
             Stream docStream;
             try
@@ -353,7 +340,7 @@ namespace Medical_System
                 }
                 using (docStream)
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Doctor>));
                     serializer.Serialize(docStream, list);
                 }
             }
@@ -363,6 +350,5 @@ namespace Medical_System
             }
         }
         #endregion
-
     }
 }
