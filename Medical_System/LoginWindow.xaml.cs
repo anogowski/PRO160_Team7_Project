@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Xml.Serialization;
+using Medical_System.Views;
 //using Medical_System.WebMiner;
 
 namespace Medical_System
@@ -193,6 +194,8 @@ namespace Medical_System
             Doctor returnDoc = new Doctor();
             if (db.CanDoctorLogin(user, pswd, out returnDoc))
             {
+                DoctorWindow window = new DoctorWindow();
+                window.Show();
                 mMain.Close();
                 this.Close();
             }
