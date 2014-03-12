@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Xml.Serialization;
 using Medical_System.Views;
-//using Medical_System.WebMiner;
+using Medical_System.WebMinerStuff;
 
 namespace Medical_System
 {
@@ -92,7 +92,20 @@ namespace Medical_System
             this.Close();
         }
 
+        private void passwordTextBox_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.Enter))
+            {
+                Login();
+            }
+        }
+
         private void loginBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            Login();
+        }
+
+        private void Login()
         {
             if (string.IsNullOrEmpty(usernameTextBox.Text) && string.IsNullOrEmpty(passwordTextBox.Password))
             {
@@ -350,5 +363,6 @@ namespace Medical_System
             }
         }
         #endregion
+
     }
 }
