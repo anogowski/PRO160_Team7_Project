@@ -24,7 +24,7 @@
         <TextBox Name="usernameTextBox" FontSize="20" Width="200" Height="30" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10" Grid.ColumnSpan="2"></TextBox>
 
         <Label Content="Password" FontSize="20" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"></Label>
-        <PasswordBox Name="passwordTextBox" FontSize="20" PasswordChar="*" Width="200" Height="30" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Grid.ColumnSpan="2"></PasswordBox>
+        <PasswordBox Name="passwordTextBox" KeyDown="passwordTextBox_KeyDown_1" FontSize="20" PasswordChar="*" Width="200" Height="30" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0" Grid.ColumnSpan="2"></PasswordBox>
 
         <Button Name="loginBtn" Content="Login" Width="70" Height="30" Click="loginBtn_Click_1" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,30,10,0"></Button>
         <Button Name="backBtn" Content="Back" Width="70" Height="30" Click="backBtn_Click_1" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,30,0,0"></Button>
