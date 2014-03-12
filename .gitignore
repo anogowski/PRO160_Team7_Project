@@ -155,3 +155,13 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 Medical_System/App.config
+Medical_System/Administrator.cs
+Medical_System/Appointment.cs
+Medical_System/BloodType.cs
+Medical_System/Disease.cs
+Medical_System/DiseaseType.cs
+Medical_System/Doctor.cs
+Medical_System/Field.cs
+Medical_System/Medicine.cs
+Medical_System/Patient.cs
+Medical_System/Perscription.cs
