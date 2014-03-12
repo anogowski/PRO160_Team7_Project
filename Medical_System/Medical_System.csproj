@@ -34,8 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.1.0-beta1\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>packages\EntityFramework.6.1.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
@@ -44,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -91,6 +93,36 @@
     <Compile Include="GraphWindow.xaml.cs">
       <DependentUpon>GraphWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MedicalSystemModels.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalSystemModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalSystemModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MedicalSystemModels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Medicine.cs">
+      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient.cs">
+      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Perscription.cs">
+      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DoctorWindow.xaml.cs">
+      <DependentUpon>DoctorWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="EditPrescription.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,57 +150,16 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AdminWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DoctorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MedicalSystemModels.Context1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicalSystemModels.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MedicalSystemModels.cs" />
-    <Compile Include="MedicalSystemModels.Designer.cs">
-      <DependentUpon>MedicalSystemModels.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MedicalSystemModels1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MedicalSystemModels1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Medicine.cs">
-      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Administrator.cs" />
-    <Compile Include="Models\Appointment.cs" />
-    <Compile Include="Models\BloodType.cs" />
-    <Compile Include="Models\Disease.cs" />
-    <Compile Include="Models\DiseaseType.cs" />
-    <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\Field.cs" />
-    <Compile Include="Models\Mapping\AdministratorMap.cs" />
-    <Compile Include="Models\Mapping\AppointmentMap.cs" />
-    <Compile Include="Models\Mapping\BloodTypeMap.cs" />
-    <Compile Include="Models\Mapping\DiseaseMap.cs" />
-    <Compile Include="Models\Mapping\DiseaseTypeMap.cs" />
-    <Compile Include="Models\Mapping\DoctorMap.cs" />
-    <Compile Include="Models\Mapping\FieldMap.cs" />
-    <Compile Include="Models\Mapping\MedicineMap.cs" />
-    <Compile Include="Models\Mapping\PatientMap.cs" />
-    <Compile Include="Models\Mapping\PerscriptionMap.cs" />
-    <Compile Include="Models\MedicalSystemContext.cs" />
-    <Compile Include="Models\Medicine.cs" />
-    <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\Perscription.cs" />
-    <Compile Include="Patient.cs">
-      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Perscription.cs">
-      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -186,21 +177,22 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Fakes Include="Fakes\EntityFramework.fakes" />
-    <None Include="MedicalSystemModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MedicalSystemModels.Context1.cs</LastGenOutput>
-    </None>
     <EntityDeploy Include="MedicalSystemModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MedicalSystemModels1.Designer.cs</LastGenOutput>
+      <LastGenOutput>MedicalSystemModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="MedicalSystemModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
+      <LastGenOutput>MedicalSystemModels.Context.cs</LastGenOutput>
+    </None>
     <None Include="MedicalSystemModels.edmx.diagram">
       <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
     </None>
     <None Include="MedicalSystemModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MedicalSystemModels1.cs</LastGenOutput>
+      <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
+      <LastGenOutput>MedicalSystemModels.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
