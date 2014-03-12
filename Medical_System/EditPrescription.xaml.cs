@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,36 @@ namespace Medical_System
     /// </summary>
     public partial class EditPrescription : Window
     {
-        public EditPrescription()
+        int PrescriptionID { get; set; }
+        ObservableCollection<Perscription> Note { get; set; }
+        DbHelper helper = new DbHelper();
+        //Perscription pre = new Perscription();
+        public EditPrescription(int PreID)
+
         {
+            PrescriptionID = PreID;
+           // help.GetPerscriptions
+           // Note.Add();
             InitializeComponent();
+        }
+
+        private void getNote()
+        {
+            //List<Perscription> tempList = helper.GetPerscriptionsByPatient();
+
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+           
+           
+
+            Close();
         }
     }
 }
