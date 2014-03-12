@@ -16,6 +16,7 @@ namespace Medical_System
                 var list = context.Patients.ToList<Patient>();
                 return list;
             }
+
         }
 
         public List<Doctor> GetDoctors()
@@ -132,7 +133,17 @@ namespace Medical_System
             }
         }
 
+        public string GetPerscriptionNoteBySocialSecurityId(string ssid)
+        {
+            using (var context = new MedicalSystemEntities())
+            {
+                var temp = context.Perscriptions.Where(p => p.Patient.SSID == ssid).FirstOrDefault();
+                return temp == null ? null : temp.Note;
+            }
+        }
 
+
+       
     }
 
     public static class DbExtension
