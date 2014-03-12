@@ -30,8 +30,8 @@ namespace Medical_System
         List<Administrator> tempAdminList;
         Administrator selectedAdmin;
 
-        List<Doctor> docList = new List<Doctor>();
-        List<Doctor> tempDocList;
+        List<string> docList = new List<string>();
+        List<string> tempDocList;
         Doctor selectedDoc;
 
         DbHelper db = new DbHelper();
@@ -55,8 +55,8 @@ namespace Medical_System
             mMain = main;
             userType = userInt;
 
-            adminListFile = "newAdminInfo.txt.";
-            docListFile = "newDocInfo.txt.";
+            adminListFile = "newAdminInfo.txt";
+            docListFile = "newDocInfo.txt";
 
             if (userType == 0)
             {
@@ -72,9 +72,9 @@ namespace Medical_System
             {
                 loginLabel.Content = "Doctor";
                 LoadDocInfoFromXml(docListFile);
-                foreach (Doctor d in docList)
+                foreach (string doc in docList)
                 {
-                    userComboBox.Items.Add(d.UserName);
+                    userComboBox.Items.Add(doc);
                 }
             }
         }
@@ -167,12 +167,9 @@ namespace Medical_System
         private void ShowDoctorGui(string user, string pswd)
         {
             #region(Saving Doctor Info)
-            Doctor newDoc = new Doctor()
-            {
-                UserName = usernameTextBox.Text
-            };
+            string newDoc = usernameTextBox.Text;
 
-            tempDocList = new List<Doctor>();
+            tempDocList = new List<string>();
             bool isChecking = false;
             if (docList.Count == 0)
             {
@@ -190,12 +187,12 @@ namespace Medical_System
                     docList.Add(tempDocList[i]);
                 }
             }
+            SaveDocInfoToXml(docList);
             #endregion
 
             Doctor returnDoc = new Doctor();
             if (db.CanDoctorLogin(user, pswd, out returnDoc))
             {
-                SaveDocInfoToXml(docList);
                 mMain.Close();
                 this.Close();
             }
@@ -222,16 +219,16 @@ namespace Medical_System
             return isChecking;
         }
 
-        private bool CheckDocsInfo(Doctor newDoc, bool isChecking)
+        private bool CheckDocsInfo(string newDoc, bool isChecking)
         {
-            foreach (Doctor d in docList)
+            foreach (string doc in docList)
             {
-                if (!newDoc.UserName.Equals(d.UserName))
+                if (!newDoc.Equals(doc))
                 {
                     tempDocList.Add(newDoc);
                     isChecking = true;
                 }
-                else if (newDoc.UserName.Equals(d.UserName))
+                else if (newDoc.Equals(doc))
                 {
                     isChecking = false;
                 }
@@ -313,19 +310,19 @@ namespace Medical_System
                 {
                     using (Stream openedFile = File.OpenRead(fileName))
                     {
-                        XmlSerializer serializer = new XmlSerializer(typeof(List<Doctor>));
-                        List<Doctor> deserialize = serializer.Deserialize(openedFile) as List<Doctor>;
+                        XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
+                        List<string> deserialize = serializer.Deserialize(openedFile) as List<string>;
                         docList = deserialize;
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Console.WriteLine("Error while deserializing");
             }
         }
 
-        public void SaveDocInfoToXml(List<Doctor> list)
+        public void SaveDocInfoToXml(List<string> list)
         {
             Stream docStream;
             try
@@ -340,7 +337,7 @@ namespace Medical_System
                 }
                 using (docStream)
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(List<Doctor>));
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<string>));
                     serializer.Serialize(docStream, list);
                 }
             }
