@@ -133,11 +133,11 @@ namespace Medical_System
             }
         }
 
-        public string GetPerscriptionNoteBySocialSecurityId(string ssid)
+        public string GetPerscriptionNoteBySocialSecurityId(int pid)
         {
             using (var context = new MedicalSystemEntities())
             {
-                var temp = context.Perscriptions.Where(p => p.Patient.SSID == ssid).FirstOrDefault();
+                var temp = context.Perscriptions.Where(p => p.PERS_ID == pid).FirstOrDefault();
                 return temp == null ? null : temp.Note;
             }
         }

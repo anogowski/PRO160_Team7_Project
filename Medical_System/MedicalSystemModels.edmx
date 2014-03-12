@@ -123,8 +123,6 @@
           </Key>
           <Property Name="PID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="SSID" Type="char" Nullable="false" MaxLength="20" />
-          <Property Name="FirstName" Type="char" Nullable="false" MaxLength="50" />
-          <Property Name="LastName" Type="char" Nullable="false" MaxLength="50" />
           <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="DateOfBirth" Type="datetime" />
           <Property Name="DateOfDeath" Type="datetime" />
@@ -367,8 +365,6 @@
           </Key>
           <Property Name="PID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="SSID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="true" />
           <Property Name="Gender" Type="Boolean" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
           <Property Name="DateOfDeath" Type="DateTime" Precision="3" />
@@ -539,8 +535,6 @@
               <MappingFragment StoreEntitySet="Patient">
                 <ScalarProperty Name="PID" ColumnName="PID" />
                 <ScalarProperty Name="SSID" ColumnName="SSID" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="DateOfDeath" ColumnName="DateOfDeath" />
