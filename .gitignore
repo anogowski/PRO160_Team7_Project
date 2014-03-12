@@ -216,3 +216,4 @@ Medical_System/packages/EntityFramework.5.0.0/tools/Redirect.config
 Medical_System/packages/EntityFramework.5.0.0/tools/about_EntityFramework.help.txt
 Medical_System/packages/EntityFramework.5.0.0/tools/init.ps1
 Medical_System/packages/EntityFramework.5.0.0/tools/install.ps1
+Medical_System/packages.config

@@ -11,9 +11,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace Medical_System {
 	public partial class GraphWindow : Window {
+		private Timer timer;
+		private float graphScale;
+		private delegate void graph<T>(IEnumerable<T> data);
+
 		/// <summary>
 		/// Graphs a given Enumerable collection of NUMERIC datatypes
 		/// </summary>
@@ -24,7 +29,7 @@ namespace Medical_System {
 		/// The Enumerable collection of data you wish to lie along the Y axis.
 		/// The X axis is the amount of elements in the list.
 		/// </param>
-		public void GraphData<T>(IEnumerable<T> axisY) where T : IComparable<T> {
+		private void GraphData<T>(IEnumerable<T> axisY, float scale) where T : IComparable<T> {
 			dynamic yMax = getMax(axisY);
 			dynamic yMin = getMin(axisY);
 			int xMax = axisY.Count() - 1;
@@ -41,7 +46,9 @@ namespace Medical_System {
 				drawHorizontalLine((float)y, 0.5f, Colors.Gray);
 			}
 
-			for(int i = 0; i <= xMax; i += ((int)xMax / 10)) {
+			int amountOfVerticalLines = ((int)xMax >= 10) ? 10 : (int)xMax;
+
+			for(int i = 0; i <= xMax; i += ((int)xMax / amountOfVerticalLines)) {
 				dynamic x = ((float)i / (float)xMax) * Canvas_graph.Width;
 
 				drawText_xAxis((float)x, (float)Canvas_x_axis.Height / 2, (float)xMax, i.ToString(), ref Canvas_x_axis);
@@ -51,8 +58,8 @@ namespace Medical_System {
 			for(int i = 0; i < xMax; i++) {
 				dynamic point1_x = ((float)i / (float)xMax) * Canvas_graph.Width;
 				dynamic point2_x = ((float)(i + 1) / (float)xMax) * Canvas_graph.Width;
-				dynamic point1_y = Canvas_graph.Height - ((axisY.ElementAt(i) - yMin) / (yMax - yMin)) * Canvas_graph.Height;
-				dynamic point2_y = Canvas_graph.Height - ((axisY.ElementAt(i + 1) - yMin) / (yMax - yMin)) * Canvas_graph.Height;
+				dynamic point1_y = Canvas_graph.Height - ((((dynamic)axisY.ElementAt(i) * scale) - yMin) / (yMax - yMin)) * Canvas_graph.Height;
+				dynamic point2_y = Canvas_graph.Height - ((((dynamic)axisY.ElementAt(i + 1) * scale) - yMin) / (yMax - yMin)) * Canvas_graph.Height;
 
 				Line line = new Line();
 				line.Stroke = Brushes.Navy;
@@ -64,6 +71,36 @@ namespace Medical_System {
 				line.Y2 = point2_y;
 
 				Canvas_graph.Children.Add(line);
+			}
+		}
+
+		private void startTimer<T>(IEnumerable<T> data) where T : IComparable<T> {
+			timer = new Timer();
+			timer.Tick += new EventHandler((sender, e) => timer_tick(sender, e, data));
+			timer.Interval = 10;
+			timer.Start();
+		}
+
+		public void GraphData<T>(IEnumerable<T> axisY) where T : IComparable<T> {
+			startTimer(axisY);
+		}
+
+		private void timer_tick<T>(object sender, EventArgs e, IEnumerable<T> data) where T : IComparable<T> {
+			timer.Interval = 20 - (int)(10 * Math.Sin(graphScale * 180 * 0.0174532925f));
+
+			if(graphScale < 1) {
+				graphScale += 0.015f;
+
+				if(graphScale > 1) {
+					graphScale = 1;
+				}
+
+				Canvas_graph.Children.Clear();
+				Canvas_x_axis.Children.Clear();
+				Canvas_y_axis.Children.Clear();
+				GraphData(data, graphScale);
+			} else {
+				timer.Stop();
 			}
 		}
 

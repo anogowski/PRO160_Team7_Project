@@ -3,14 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="EditPrescription" Height="210" Width="300">
     <StackPanel>
-        <Label x:Name="PatientName" HorizontalContentAlignment="Center" Margin="5">
-            Patient Name
-        </Label>
+        <!--<Label x:Name="PatientName" HorizontalContentAlignment="Center" Margin="5" Content="{Binding Path=Name}"/>-->
 
         <TextBox x:Name="PrescriptionInfo" Height="100" Margin="5" Text="Prescription Info"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="UpdateButton" Margin="5" >Update</Button>
-            <Button x:Name="CancelButton" Margin="5">Cancel</Button>
+            <Button x:Name="ApplyButton" Margin="5" Click="ApplyButton_Click">Apply</Button>
+            <Button x:Name="CancelButton" Margin="5" Click="CancelButton_Click">Cancel</Button>
         </StackPanel>
         
     </StackPanel>
