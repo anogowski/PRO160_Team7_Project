@@ -13,7 +13,7 @@ namespace Medical_System
         {
             using(var context = new MedicalSystemEntities())
             {
-                var list = context.Patients.ToList<Patient>();
+                var list = context.Patients.Include("BloodType").ToList<Patient>();
                 return list;
             }
 

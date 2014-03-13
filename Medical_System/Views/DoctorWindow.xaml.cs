@@ -26,7 +26,6 @@ namespace Medical_System.Views
         public DoctorWindow()
         {
             InitializeComponent();
-            DataContext = this;
 
             getListOfPatients();
             ListOfPatientsBox.ItemsSource = ListOfPatients;
@@ -35,11 +34,15 @@ namespace Medical_System.Views
 
         private void getListOfPatients()
         {
-            List<Patient> tempList = helper.GetPatients();
-            foreach (Patient p in tempList)
-            {
-                ListOfPatients.Add(p);
-            }
+            ListOfPatients = new ObservableCollection<Patient>(helper.GetPatients());
+            
+        }
+
+        private void UpdateLists(object sender, SelectionChangedEventArgs e)
+        {
+
+            PerscriptionsBox.ItemsSource = helper.GetPrescriptionsByPatient(ListOfPatients[ListOfPatientsBox.SelectedIndex].PID);
+            PerscriptionsBox.Items.Refresh();
         }
     }
 }

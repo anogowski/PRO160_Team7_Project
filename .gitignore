@@ -217,3 +217,9 @@ Medical_System/packages/EntityFramework.5.0.0/tools/about_EntityFramework.help.t
 Medical_System/packages/EntityFramework.5.0.0/tools/init.ps1
 Medical_System/packages/EntityFramework.5.0.0/tools/install.ps1
 Medical_System/packages.config
+Medical_System/packages/EntityFramework.5.0.0/EntityFramework.5.0.0.nuspec
+Medical_System/packages/EntityFramework.5.0.0/lib/net40/EntityFramework.dll
+Medical_System/packages/EntityFramework.5.0.0/lib/net45/EntityFramework.dll
+Medical_System/packages/EntityFramework.5.0.0/tools/EntityFramework.PowerShell.Utility.dll
+Medical_System/packages/EntityFramework.5.0.0/tools/EntityFramework.PowerShell.dll
+Medical_System/packages/EntityFramework.5.0.0/tools/migrate.exe
