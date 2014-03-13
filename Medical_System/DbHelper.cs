@@ -141,10 +141,9 @@ namespace Medical_System
                 return temp == null ? null : temp.Note;
             }
         }
-
-
        
     }
+
 
     public static class DbExtension
     {

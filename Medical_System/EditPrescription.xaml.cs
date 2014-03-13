@@ -21,22 +21,21 @@ namespace Medical_System
     public partial class EditPrescription : Window
     {
         int PrescriptionID { get; set; }
-        ObservableCollection<Perscription> Note { get; set; }
+        ObservableCollection<string> Note { get; set; }
         DbHelper helper = new DbHelper();
         //Perscription pre = new Perscription();
-        public EditPrescription(int PreID)
+        public EditPrescription(int PreID = 1)
 
         {
             PrescriptionID = PreID;
-           // help.GetPerscriptions
-           // Note.Add();
+           
             InitializeComponent();
         }
 
         private void getNote()
         {
-            //List<Perscription> tempList = helper.GetPerscriptionsByPatient();
-
+            string notes = helper.GetPrescriptionNoteByPrescriptionId(PrescriptionID);
+            Note.Add(notes);
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
