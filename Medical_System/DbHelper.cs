@@ -28,7 +28,7 @@ namespace Medical_System
             }
         }
 
-        public List<Perscription> GetPerscriptions()
+        public List<Perscription> GetPrescriptions()
         {
             using (var context = new MedicalSystemEntities())
             {
@@ -73,7 +73,7 @@ namespace Medical_System
             }
         }
 
-        public void AddPerscription(Perscription pers)
+        public void AddPrescription(Perscription pers)
         {
             using (var context = new MedicalSystemEntities())
             {
@@ -125,7 +125,7 @@ namespace Medical_System
             }
         }
 
-        public List<Perscription> GetPerscriptionsByPatient(int pid)
+        public List<Perscription> GetPrescriptionsByPatient(int pid)
         {
             using (var context = new MedicalSystemEntities())
             {
@@ -133,7 +133,7 @@ namespace Medical_System
             }
         }
 
-        public string GetPerscriptionNoteBySocialSecurityId(int pid)
+        public string GetPrescriptionNoteByPrescriptionId(int pid)
         {
             using (var context = new MedicalSystemEntities())
             {
