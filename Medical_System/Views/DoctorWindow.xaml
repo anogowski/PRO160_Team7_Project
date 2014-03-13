@@ -171,6 +171,9 @@
             <UniformGrid>
                 <Button Name="PerscriptionsAddButton"
                         Content="Add"/>
+                <Button Name="PerscriptionsEditButton"
+                        Content="Edit"
+                        Click="ShowPrescriptionsEditMenu"/>
                 <Button Name="PerscriptionsRemoveButton"
                         Content="Remove"/>
             </UniformGrid>

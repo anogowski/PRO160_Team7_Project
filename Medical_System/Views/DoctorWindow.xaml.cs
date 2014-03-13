@@ -44,5 +44,11 @@ namespace Medical_System.Views
             PerscriptionsBox.ItemsSource = helper.GetPrescriptionsByPatient(ListOfPatients[ListOfPatientsBox.SelectedIndex].PID);
             PerscriptionsBox.Items.Refresh();
         }
+
+        private void ShowPrescriptionsEditMenu(object sender, RoutedEventArgs e)
+        {
+            EditPrescription window = new EditPrescription();
+            window.Show();
+        }
     }
 }

@@ -85,7 +85,7 @@
     <Compile Include="Doctor.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="EditPrescription.xaml.cs">
+    <Compile Include="Views\EditPrescription.xaml.cs">
       <DependentUpon>EditPrescription.xaml</DependentUpon>
     </Compile>
     <Compile Include="Field.cs">
@@ -127,7 +127,7 @@
     <Compile Include="WebMinerStuff\Bottle.cs" />
     <Compile Include="WebMinerStuff\WebDrug.cs" />
     <Compile Include="WebMinerStuff\WebMiner.cs" />
-    <Page Include="EditPrescription.xaml">
+    <Page Include="Views\EditPrescription.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
