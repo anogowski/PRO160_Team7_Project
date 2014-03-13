@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,40 +10,57 @@ namespace Medical_System
 {
     public class DbHelper
     {
-        public List<Patient> GetPatients()
+        public List<Patient> GetPatients(string[] fields = null)
         {
             using(var context = new MedicalSystemEntities())
             {
+                var list = context.Patients;
+
+                FillFields(ref list, fields);
+
+                return list.ToList<Patient>();
                 var list = context.Patients.Include("BloodType").ToList<Patient>();
                 return list;
             }
 
         }
 
-        public List<Doctor> GetDoctors()
+        private void FillFields<TEntity>(ref DbSet<TEntity> list, string[] fields = null)
+        {
+            for (int i = 0; fields != null && i < fields.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(fields[i]))
+                    list.Include(fields[i]);
+            }            
+        }
+
+        public List<Doctor> GetDoctors(string[] fields = null)
         {
             using (var context = new MedicalSystemEntities())
             {
-                var list = context.Doctors.ToList<Doctor>();
-                return list;
+                var list = context.Doctors;
+                FillFields(ref list, fields);
+                return list.ToList<Doctor>();
             }
         }
 
-        public List<Perscription> GetPrescriptions()
+        public List<Perscription> GetPerscriptions(string[] fields = null)
         {
             using (var context = new MedicalSystemEntities())
             {
-                var list = context.Perscriptions.ToList<Perscription>();                           
-                return list;
+                var list = context.Perscriptions;
+                FillFields(ref list, fields);
+                return list.ToList<Perscription>();  
             }
         }
 
-        public List<Patient> GetDoctorWithPatients(int doc_id)
+        public List<Patient> GetDoctorWithPatients(int doc_id, string[] fields = null)
         {       
             using (var context = new MedicalSystemEntities())
             {
-                var patients = context.Doctors.Where(d => d.DID == doc_id).SelectMany(p => p.Patients);
-                return patients.ToList<Patient>();              
+                var patients = context.Doctors;
+                FillFields(ref patients, fields);
+                return patients.Where(d => d.DID == doc_id).SelectMany(p => p.Patients).ToList<Patient>();              
             }
         }
 
@@ -109,7 +127,7 @@ namespace Medical_System
             }
         }
 
-        public List<Disease> GetDiseases()
+        public List<Disease> GetDiseases(string[] fields = null)
         {
             using (var context = new MedicalSystemEntities())
             {
@@ -125,14 +143,16 @@ namespace Medical_System
             }
         }
 
-        public List<Perscription> GetPrescriptionsByPatient(int pid)
+
+        public List<Perscription> GetPerscriptionsByPatient(int pid, string[] fields = null)
         {
             using (var context = new MedicalSystemEntities())
             {
-                return context.Perscriptions.Where(p=> p.Patient.PID == pid).ToList<Perscription>();
+                var list = context.Perscriptions;
+                FillFields(ref list, fields);
+                return list.Where(p=> p.Patient.PID == pid).ToList<Perscription>();
             }
         }
-
         public string GetPrescriptionNoteByPrescriptionId(int pid)
         {
             using (var context = new MedicalSystemEntities())
