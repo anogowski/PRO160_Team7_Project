@@ -19,13 +19,11 @@ namespace Medical_System
                 FillFields(ref list, fields);
 
                 return list.ToList<Patient>();
-                var list = context.Patients.Include("BloodType").ToList<Patient>();
-                return list;
             }
 
         }
 
-        private void FillFields<TEntity>(ref DbSet<TEntity> list, string[] fields = null)
+        private void FillFields<T>(ref DbSet<T> list, string[] fields = null) where T : class
         {
             for (int i = 0; fields != null && i < fields.Length; i++)
             {
