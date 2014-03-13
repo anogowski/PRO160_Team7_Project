@@ -50,6 +50,8 @@ create table Patient
 	SSID char(20) not null,
 	FirstName char(50) not null,
 	LastName char(50)not null,
+	Height decimal default(170) not null,
+	BodyWeight decimal default(120) not null,	
 	Gender bit not null,
 	DateOfBirth datetime default('1900-1-1'),
 	DateOfDeath datetime default(null),
