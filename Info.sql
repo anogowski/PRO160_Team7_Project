@@ -7,13 +7,6 @@ Values ('Mental'), ('Physical')
 
 Go
 
-Insert Into Disease_Patient(PID, DISID)
-values
-(1, 8),
-(3, 50)
-
-go
-
 Insert Into Disease (Name,Disease_type)
 Values
 ('Acute stress disorder',1),
@@ -402,7 +395,7 @@ Values
 
 Go
 
-Insert Into Appointment(DateIssued)
+Insert Into Appointment(AppointmentDate)
 Values
 ('4-9-2014'),
 ('7-30-2014'),
@@ -431,12 +424,12 @@ Values
 
 Go
 
-Insert Into Patient (SSID, FirstName, LastName,  Gender,DateOfBirth, DateOfDeath, BloodType_id, HomeAddress, PhoneNumber, Syptoms)
+Insert Into Patient (SSID, FirstName, LastName, Gender, DateOfBirth, Age, DateOfDeath, BloodType_id, CurrentHeight, CurrentWeight, HomeAddress, PhoneNumber, Symptoms)
 Values
 
-('123456789', 'Josh', 'Neubs',  1, '12-01-1990', null, 1, '1 Main St', '1234567890', 'Fever, Headache'),
-('098765432', 'Tetsuya', 'Shiba',1, '12-11-95', null, 2, '100 North', '1234567890', 'Headache, Fatiuge'),
-('143258765','Mary', 'Null', 1, '01-01-00', null, 8, '321 Main St', '0987654321', 'Fever, Stomach Ache, Cramps')
+('123456789', 'Josh', 'Neubs',  1, '12-01-1990', 35, null, 1, 150, 60.0, '1 Main St', '1234567890', 'Fever, Headache'),
+('098765432', 'Tetsuya', 'Shiba',1, '12-11-95',17, null, 2, 175, 50.0, '100 North', '1234567890', 'Headache, Fatiuge'),
+('143258765','Mary', 'Null', 0, '01-01-00', 13, null, 8, 125, 40.3,'321 Main St', '0987654321', 'Fever, Stomach Ache, Cramps')
 Go
 
 
@@ -460,7 +453,12 @@ values
 (1,2, '3-12-2013', 'These are very effective')
 go
 
---Insert Into Perscription_Medicine(PERS_ID, MID)
+Insert Into Disease_Patient(PID, DISID)
+values
+(1, 8),
+(3, 50)
+
+--Insert Into Perscription_Medicine(PRE_ID, MID)
 --values
 
 --go

@@ -223,3 +223,5 @@ Medical_System/packages/EntityFramework.5.0.0/lib/net45/EntityFramework.dll
 Medical_System/packages/EntityFramework.5.0.0/tools/EntityFramework.PowerShell.Utility.dll
 Medical_System/packages/EntityFramework.5.0.0/tools/EntityFramework.PowerShell.dll
 Medical_System/packages/EntityFramework.5.0.0/tools/migrate.exe
+Medical_System/Prescription.cs
+Medical_System/Properties/DataSources/MedicalSystemEntities.datasource

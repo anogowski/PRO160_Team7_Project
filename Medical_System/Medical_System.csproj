@@ -85,14 +85,8 @@
     <Compile Include="Doctor.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditPrescription.xaml.cs">
-      <DependentUpon>EditPrescription.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Field.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GraphWindow.xaml.cs">
-      <DependentUpon>GraphWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MedicalSystemModels.Context.cs">
       <AutoGen>True</AutoGen>
@@ -115,8 +109,14 @@
     <Compile Include="Patient.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Perscription.cs">
+    <Compile Include="Prescription.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditPrescription.xaml.cs">
+      <DependentUpon>EditPrescription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphWindow.xaml.cs">
+      <DependentUpon>GraphWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
@@ -200,6 +200,7 @@
       <LastGenOutput>MedicalSystemModels.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\MedicalSystemEntities.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

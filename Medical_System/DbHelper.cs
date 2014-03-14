@@ -42,13 +42,13 @@ namespace Medical_System
             }
         }
 
-        public List<Perscription> GetPerscriptions(string[] fields = null)
+        public List<Prescription> GetPrescriptions(string[] fields = null)
         {
             using (var context = new MedicalSystemEntities())
             {
-                var list = context.Perscriptions;
+                var list = context.Prescriptions;
                 FillFields(ref list, fields);
-                return list.ToList<Perscription>();  
+                return list.ToList<Prescription>();  
             }
         }
 
@@ -89,11 +89,11 @@ namespace Medical_System
             }
         }
 
-        public void AddPrescription(Perscription pers)
+        public void AddPrescription(Prescription pre)
         {
             using (var context = new MedicalSystemEntities())
             {
-                context.Perscriptions.Add(pers);
+                context.Prescriptions.Add(pre);
                 context.SaveChanges();
             }
         }
@@ -137,7 +137,7 @@ namespace Medical_System
         {
             using (var context = new MedicalSystemEntities())
             {
-                return context.Diseases.Where(d => d.DEAID == disease_id).FirstOrDefault();
+                return context.Diseases.Where(d => d.DISID == disease_id).FirstOrDefault();
             }
         }
 
@@ -153,25 +153,25 @@ namespace Medical_System
                 oldPatient.HomeAddress = updatedPatient.HomeAddress;
                 oldPatient.DateOfBirth = updatedPatient.DateOfBirth;
                 oldPatient.Doctors = updatedPatient.Doctors;
-                oldPatient.Perscriptions = updatedPatient.Perscriptions;
+                oldPatient.Prescriptions = updatedPatient.Prescriptions;
                 context.SaveChanges();
             }
         }
 
-        public List<Perscription> GetPerscriptionsByPatient(int pid, string[] fields = null)
+        public List<Prescription> GetPrescriptionsByPatient(int pid, string[] fields = null)
         {
             using (var context = new MedicalSystemEntities())
             {
-                var list = context.Perscriptions;
+                var list = context.Prescriptions;
                 FillFields(ref list, fields);
-                return list.Where(p=> p.Patient.PID == pid).ToList<Perscription>();
+                return list.Where(p=> p.Patient.PID == pid).ToList<Prescription>();
             }
         }
         public string GetPrescriptionNoteByPrescriptionId(int pid)
         {
             using (var context = new MedicalSystemEntities())
             {
-                var temp = context.Perscriptions.Where(p => p.PERS_ID == pid).FirstOrDefault();
+                var temp = context.Prescriptions.Where(p => p.PRE_ID == pid).FirstOrDefault();
                 return temp == null ? null : temp.Note;
             }
         }

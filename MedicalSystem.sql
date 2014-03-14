@@ -17,9 +17,9 @@ create table Medicine
 	Note text null
 )
 
-create table Perscription
+create table Prescription
 (
-	PERS_ID int identity(1,1) primary key, 
+	PRE_ID int identity(1,1) primary key, 
 	DID int,
 	PID int ,
 	DateIssued datetime default(getdate()) not null,
@@ -27,11 +27,11 @@ create table Perscription
 	Reactions text null
 )
 
-create table Perscription_Medicine
+create table Prescription_Medicine
 (
-	PERS_ID int constraint fk_pers_id
-    foreign key (PERS_ID)
-    references Perscription(pers_id),
+	PRE_ID int constraint fk_pre_id
+    foreign key (PRE_ID)
+    references Prescription(pre_id),
     
     MID int constraint fk_medicine
     foreign key (MID)
@@ -41,7 +41,7 @@ create table Perscription_Medicine
 create table Appointment
 (
 	AID int identity(1,1) primary key,
-	DateIssued datetime default(getDate()),
+	AppointmentDate datetime default(getDate()),
 )
 
 create table Patient
@@ -50,17 +50,18 @@ create table Patient
 	SSID char(20) not null,
 	FirstName char(50) not null,
 	LastName char(50)not null,
-	Height decimal default(170) not null,
-	BodyWeight decimal default(120) not null,	
 	Gender bit not null,
+	Age int not null,
 	DateOfBirth datetime default('1900-1-1'),
 	DateOfDeath datetime default(null),
 	BloodType_id int constraint fk_bloodTpe
     foreign key (BloodType_id)
     references BloodType(BID),
+	CurrentHeight int not null,
+	CurrentWeight float not null,
     HomeAddress nchar(100) null, 
     PhoneNumber nchar(15),
-    Syptoms text, 
+    Symptoms text, 
 )
 
 create table Fields
@@ -88,7 +89,7 @@ create table DiseaseType
 
 create table Disease
 (
-	DEAID int identity(1,1) primary key, 
+	DISID int identity(1,1) primary key, 
 	Name char(50) not null,
 	Disease_type int constraint fk_disease_type 
 		foreign key (Disease_type) references DiseaseType(DTID)
@@ -99,8 +100,8 @@ create table Disease_Patient
 	PID int constraint fk_patient_disease
 	foreign key (PID) references Patient(PID),
 	
-	DEAID int constraint fk_deaid
-	foreign key (PID) references Disease(DEAID),
+	DISID int constraint fk_disid
+	foreign key (PID) references Disease(DISID),
 )
 
 create table Doc_Patient_appointment
@@ -130,12 +131,12 @@ create table Administrator
 	psw char(20) not null
 )
 
--- need to add fk between patient and perscription
-alter table Perscription
-	add constraint fk_perscription
+-- need to add fk between patient and prescription
+alter table Prescription
+	add constraint fk_prescription
 		foreign key (PID)
 		references  patient(PID)
-alter table Perscription
+alter table Prescription
 	add constraint fk_issued_by
 		foreign key (DID)
 		references  Doctor(DID)
