@@ -7,6 +7,13 @@ Values ('Mental'), ('Physical')
 
 Go
 
+Insert Into Disease_Patient(PID, DISID)
+values
+(1, 8),
+(3, 50)
+
+go
+
 Insert Into Disease (Name,Disease_type)
 Values
 ('Acute stress disorder',1),
@@ -395,6 +402,14 @@ Values
 
 Go
 
+Insert Into Appointment(DateIssued)
+Values
+('4-9-2014'),
+('7-30-2014'),
+('11-19-2014')
+
+go
+
 Insert Into Doctor(FID,UserName,psw,HomeAddress,PhoneNumber)
 Values
 (1,'Josh','ucantsuemeifurdead','SLC','8019876783'),
@@ -425,12 +440,30 @@ Values
 Go
 
 
---Insert Into Doc_Patient (DID, PID)
---Values
---(1,1),
---(1,2),
---(2,3)
---Go
+Insert Into Doc_Patient (DID, PID)
+Values
+(1,1),
+(1,2),
+(2,3)
+Go
+
+Insert Into Doc_Patient_appointment(PID, DID, AID)
+values
+(1,2,1),
+(2,1,2),
+(3,3,3)
+Go
+
+Insert into Prescription(DID, PID, DateIssued, Note)
+values
+(3,1, '1-10-2012', 'Be careful using these'),
+(1,2, '3-12-2013', 'These are very effective')
+go
+
+--Insert Into Perscription_Medicine(PERS_ID, MID)
+--values
+
+--go
 
 --Select * from DiseaseType
 
