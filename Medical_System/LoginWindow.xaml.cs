@@ -23,9 +23,6 @@ namespace Medical_System
     /// </summary>
     public partial class LoginWindow : Window
     {
-        //select username, psw from Administrator
-        //select UserName, psw from Doctor
-
         #region(Variables)
         List<Administrator> adminList = new List<Administrator>();
         List<Administrator> tempAdminList;
