@@ -141,6 +141,22 @@ namespace Medical_System
             }
         }
 
+        public void updatePatient(Patient updatedPatient)
+        {
+            using (var context = new MedicalSystemEntities())
+            {
+                Patient oldPatient = (Patient)context.Patients.Where(p => p.PID == updatedPatient.PID).First();
+                oldPatient.SSID = updatedPatient.SSID;
+                oldPatient.PhoneNumber = updatedPatient.PhoneNumber;
+                oldPatient.FirstName = updatedPatient.FirstName;
+                oldPatient.LastName = updatedPatient.LastName;
+                oldPatient.HomeAddress = updatedPatient.HomeAddress;
+                oldPatient.DateOfBirth = updatedPatient.DateOfBirth;
+                oldPatient.Doctors = updatedPatient.Doctors;
+                oldPatient.Perscriptions = updatedPatient.Perscriptions;
+                context.SaveChanges();
+            }
+        }
 
         public List<Perscription> GetPerscriptionsByPatient(int pid, string[] fields = null)
         {
