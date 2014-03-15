@@ -55,7 +55,7 @@
                 <Button Name="PatientsListAddButton"
                         Content="Add"/>
                 <Button Name="PatientsListMoveButton"
-                        Content="Move"/>
+                        Content="Remove"/>
             </UniformGrid>
         </StackPanel>
 
@@ -115,13 +115,11 @@
             <UniformGrid>
                 <Button Name="PatientInfoEditButton"
                         Content="Edit"/>
-                <Button Name="PatientInfoRemoveButton"
-                        Content="Remove"/>
             </UniformGrid>
 
             <Label Name="AppointmentsLabel"
                    Content="Appointments:"
-                   Margin="20 0"/>
+                   Margin="20 20 20 0"/>
             <ListBox Name="AppointmentsBox"
                      Height="137"
                      Margin="25 0"/>
@@ -129,7 +127,7 @@
                 <Button Name="AppointmentsAddButton"
                         Content="Add"/>
                 <Button Name="AppointmentsRemoveButton"
-                        Content="Remove"/>
+                        Content="Move"/>
             </UniformGrid>
 
             <Label Name="AppointmentsHistoryLabel"
@@ -139,8 +137,6 @@
                      Height="138"
                      Margin="25 0"/>
             <UniformGrid>
-                <Button Name="AppointmentsHistoryAddButton"
-                            Content="Add"/>
                 <Button Name="AppointmentsHistoryRemoveButton"
                             Content="Remove"/>
             </UniformGrid>
@@ -162,44 +158,41 @@
                         Margin="0 0 0 20"/>
             </UniformGrid>
             
-            <Label Name="PerscriptionsLabel"
-                   Content="Perscriptions:"
+            <Label Name="PrescriptionsLabel"
+                   Content="Prescriptions:"
                    Margin="20 0 20 0"/>
-            <ListBox Name="PerscriptionsBox"
+            <ListBox Name="PrescriptionsBox"
+                     DisplayMemberPath=""
                      Height="180"
                      Margin="25 0"/>
             <UniformGrid>
-                <Button Name="PerscriptionsAddButton"
+                <Button Name="PrescriptionsAddButton"
                         Content="Add"/>
-                <Button Name="PerscriptionsEditButton"
+                <Button Name="PrescriptionsEditButton"
                         Content="Edit"
                         Click="ShowPrescriptionsEditMenu"/>
-                <Button Name="PerscriptionsRemoveButton"
+                <Button Name="PrescriptionsRemoveButton"
                         Content="Remove"/>
             </UniformGrid>
 
             <Label Name="MedicationsLabel"
                    Content="Medications:"
-                   Margin="20 0 20 0"/>
+                   Margin="20 20 20 0"/>
             <ListBox Name="MedicationsBox"
                      Height="180"
                      Margin="25 0"/>
             <UniformGrid>
                 <Button Name="MedicationsAddButton"
                         Content="Add"/>
-                <Button Name="MeddicationsRemoveButton"
-                        Content="Remove"/>
             </UniformGrid>
 
             <Label Name="PastMedicationsLabel"
                    Content="Past Medications:"
-                   Margin="20 0"/>
+                   Margin="20 20 20 0"/>
             <ListBox Name="PastmedicationsBox"
                      Height="185"
                      Margin="25 0"/>
             <UniformGrid>
-                <Button Name="PastMedicationsAddButton"
-                        Content="Add"/>
                 <Button Name="PastMedicationsRemoveButton"
                         Content="Remove"/>
             </UniformGrid>

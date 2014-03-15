@@ -5,10 +5,17 @@
     <StackPanel>
         <!--<Label x:Name="PatientName" HorizontalContentAlignment="Center" Margin="5" Content="{Binding Path=Name}"/>-->
 
-        <TextBox x:Name="PrescriptionInfo" Height="100" Margin="5" Text="{Binding Note}"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="ApplyButton" Margin="5" Click="ApplyButton_Click">Apply</Button>
-            <Button x:Name="CancelButton" Margin="5" Click="CancelButton_Click">Cancel</Button>
+        <TextBox x:Name="PrescriptionInfo" Height="100" 
+                 Margin="5" 
+                 Text="{Binding Note}"/>
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center">
+            <Button x:Name="ApplyButton" 
+                    Margin="5" 
+                    Click="ApplyButton_Click">Apply</Button>
+            <Button x:Name="CancelButton" 
+                    Margin="5" 
+                    Click="CancelButton_Click">Cancel</Button>
         </StackPanel>
         
     </StackPanel>

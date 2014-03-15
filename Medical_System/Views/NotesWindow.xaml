@@ -1,0 +1,25 @@
+﻿<Window x:Class="Medical_System.Views.NotesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NotesWindow" Height="300" Width="300">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="10 2"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel>
+        <TextBox Name="FirstNameBox"
+                 Text="Note"
+                 Height="200"/>
+
+        <UniformGrid>
+            <Button Name="ApplyButton"
+                    Content="Apply"
+                    Margin="30 20 5 20"/>
+            <Button Name="CancelButton"
+                    Content="Cancel"
+                    Margin="5 20 30 20"/>
+        </UniformGrid>
+    </StackPanel>
+</Window>

@@ -112,6 +112,9 @@
     <Compile Include="Prescription.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\AppointmentWindow.xaml.cs">
+      <DependentUpon>AppointmentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditPrescription.xaml.cs">
       <DependentUpon>EditPrescription.xaml</DependentUpon>
     </Compile>
@@ -124,9 +127,25 @@
     <Compile Include="Views\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MedicationWindow.xaml.cs">
+      <DependentUpon>MedicationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotesWindow.xaml.cs">
+      <DependentUpon>NotesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientInfoEdit.xaml.cs">
+      <DependentUpon>PatientInfoEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrescriptionsWindow.xaml.cs">
+      <DependentUpon>PrescriptionsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WebMinerStuff\Bottle.cs" />
     <Compile Include="WebMinerStuff\WebDrug.cs" />
     <Compile Include="WebMinerStuff\WebMiner.cs" />
+    <Page Include="Views\AppointmentWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\EditPrescription.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -159,6 +178,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DoctorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MedicationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\NotesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PatientInfoEdit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PrescriptionsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

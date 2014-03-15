@@ -1,4 +1,3 @@
-
 go
 create Database MedicalSystem
 go

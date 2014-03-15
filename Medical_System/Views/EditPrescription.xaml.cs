@@ -27,9 +27,10 @@ namespace Medical_System
         public EditPrescription(int PreID = 1)
 
         {
-            PrescriptionID = PreID;
-           
             InitializeComponent();
+            PrescriptionID = PreID - 1;
+
+            DataContext = helper.GetPrescriptions()[PrescriptionID];
         }
 
         private void getNote()
@@ -45,9 +46,6 @@ namespace Medical_System
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-           
-           
-
             Close();
         }
     }

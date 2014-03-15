@@ -35,20 +35,22 @@ namespace Medical_System.Views
         private void getListOfPatients()
         {
             ListOfPatients = new ObservableCollection<Patient>(helper.GetPatients());
-            
         }
 
         private void UpdateLists(object sender, SelectionChangedEventArgs e)
         {
-
-            PerscriptionsBox.ItemsSource = helper.GetPrescriptionsByPatient(ListOfPatients[ListOfPatientsBox.SelectedIndex].PID);
-            PerscriptionsBox.Items.Refresh();
+            PrescriptionsBox.ItemsSource = helper.GetPrescriptionsByPatient(ListOfPatients[ListOfPatientsBox.SelectedIndex].PID);
+            PrescriptionsBox.Items.Refresh();
         }
 
         private void ShowPrescriptionsEditMenu(object sender, RoutedEventArgs e)
         {
-            EditPrescription window = new EditPrescription();
-            window.Show();
+            if (PrescriptionsBox.SelectedIndex > -1)
+            {
+                Prescription selectedPrescription = (Prescription)PrescriptionsBox.SelectedValue;
+                EditPrescription window = new EditPrescription(selectedPrescription.PRE_ID);
+                window.Show();
+            }
         }
     }
 }
