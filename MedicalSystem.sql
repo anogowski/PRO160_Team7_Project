@@ -130,6 +130,16 @@ create table Administrator
 	psw char(20) not null
 )
 
+create table Patient_Notes
+(
+	PN_ID int identity (1,1) primary key,
+	DID int constraint fk_did_patient_notes 
+	foreign key (DID) references Doctor(DID) not null,
+	PID int constraint fk_pid_patient_notes
+	foreign key (PID) references Patient(PID) not null,
+	Note text
+)
+
 -- need to add fk between patient and prescription
 alter table Prescription
 	add constraint fk_prescription

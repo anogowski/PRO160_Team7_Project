@@ -158,6 +158,16 @@ namespace Medical_System
             }
         }
 
+        public void updatePrescriptionNote(Prescription updatedPrescription)
+        {
+            using (var context = new MedicalSystemEntities())
+            {
+                Prescription oldPrescription = (Prescription)context.Prescriptions.Where(p => p.PRE_ID == updatedPrescription.PRE_ID).First();
+                oldPrescription.Note = updatedPrescription.Note;
+                context.SaveChanges();
+            }
+        }
+
         public List<Prescription> GetPrescriptionsByPatient(int pid, string[] fields = null)
         {
             using (var context = new MedicalSystemEntities())
@@ -167,11 +177,11 @@ namespace Medical_System
                 return list.Where(p=> p.Patient.PID == pid).ToList<Prescription>();
             }
         }
-        public string GetPrescriptionNoteByPrescriptionId(int pid)
+        public string GetPrescriptionNoteByPrescriptionId(int preid)
         {
             using (var context = new MedicalSystemEntities())
             {
-                var temp = context.Prescriptions.Where(p => p.PRE_ID == pid).FirstOrDefault();
+                var temp = context.Prescriptions.Where(p => p.PRE_ID == preid).FirstOrDefault();
                 return temp == null ? null : temp.Note;
             }
         }

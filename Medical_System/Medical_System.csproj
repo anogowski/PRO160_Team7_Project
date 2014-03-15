@@ -109,6 +109,9 @@
     <Compile Include="Patient.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Patient_Notes.cs">
+      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Prescription.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
@@ -216,11 +219,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.Config" />
     <EntityDeploy Include="MedicalSystemModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MedicalSystemModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="MedicalSystemModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MedicalSystemModels.edmx</DependentUpon>

@@ -23,20 +23,16 @@ namespace Medical_System
         int PrescriptionID { get; set; }
         ObservableCollection<string> Note { get; set; }
         DbHelper helper = new DbHelper();
-        //Perscription pre = new Perscription();
+        Prescription pre = new Prescription();
+        string note = "";
         public EditPrescription(int PreID = 1)
 
         {
             InitializeComponent();
+            pre.PRE_ID = PreID;
             PrescriptionID = PreID - 1;
 
             DataContext = helper.GetPrescriptions()[PrescriptionID];
-        }
-
-        private void getNote()
-        {
-            string notes = helper.GetPrescriptionNoteByPrescriptionId(PrescriptionID);
-            Note.Add(notes);
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -44,9 +40,20 @@ namespace Medical_System
             Close();
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            note = textBox.Text;
+           
+        }
+
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
+                pre.Note = note;
+                helper.updatePrescriptionNote(pre);
             Close();
         }
+
+       
     }
 }

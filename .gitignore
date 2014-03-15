@@ -225,3 +225,4 @@ Medical_System/packages/EntityFramework.5.0.0/tools/EntityFramework.PowerShell.d
 Medical_System/packages/EntityFramework.5.0.0/tools/migrate.exe
 Medical_System/Prescription.cs
 Medical_System/Properties/DataSources/MedicalSystemEntities.datasource
+Medical_System/Patient_Notes.cs

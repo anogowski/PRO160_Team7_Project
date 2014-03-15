@@ -458,6 +458,12 @@ values
 (1, 8),
 (3, 50)
 
+Insert Into Patient_Notes(DID,PID,Note)
+values
+(1,1,'Stress'),
+(1,2,'Lacks Emotions'),
+(2,3, '????')
+
 --Insert Into Perscription_Medicine(PRE_ID, MID)
 --values
 

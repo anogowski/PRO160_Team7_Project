@@ -50,6 +50,7 @@ namespace Medical_System.Views
                 Prescription selectedPrescription = (Prescription)PrescriptionsBox.SelectedValue;
                 EditPrescription window = new EditPrescription(selectedPrescription.PRE_ID);
                 window.Show();
+                PrescriptionsBox.Items.Refresh();
             }
         }
     }
