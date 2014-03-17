@@ -21,10 +21,12 @@
         <UniformGrid>
             <Button Name="ApplyButton"
                     Content="Apply"
-                    Margin="30 20 5 20"/>
+                    Margin="30 20 5 20"
+                    Click="ApplyButton_Click"/>
             <Button Name="CancelButton"
                     Content="Cancel"
-                    Margin="5 20 30 20"/>
+                    Margin="5 20 30 20"
+                    Click="CancelButton_Click"/>
         </UniformGrid>
     </StackPanel>
 </Window>

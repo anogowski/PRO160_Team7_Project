@@ -19,9 +19,28 @@ namespace Medical_System.Views
     /// </summary>
     public partial class PrescriptionsWindow : Window
     {
-        public PrescriptionsWindow()
+        DbHelper helper = new DbHelper();
+        int PID = 0;
+        Patient FoundPatient;
+
+        public PrescriptionsWindow(int _PID)
         {
             InitializeComponent();
+
+            PID = _PID;
+            FoundPatient = helper.GetPatients()[PID];
+            PrescriptionBox.ItemsSource = helper.GetPrescriptions(); ;
+        }
+
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            FoundPatient.Prescriptions.Add((Prescription)PrescriptionBox.SelectedValue);
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

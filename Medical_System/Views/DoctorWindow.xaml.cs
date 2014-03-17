@@ -56,7 +56,8 @@ namespace Medical_System.Views
 
         private void PatientInfoEditButton_Click(object sender, RoutedEventArgs e)
         {
-            PatientInfoEdit window = new PatientInfoEdit();
+            Patient selectedPatient = (Patient)ListOfPatientsBox.SelectedValue;
+            PatientInfoEdit window = new PatientInfoEdit(selectedPatient.PID);
             window.Show();
         }
 
@@ -68,7 +69,8 @@ namespace Medical_System.Views
 
         private void PrescriptionsAddButton_Click(object sender, RoutedEventArgs e)
         {
-            PrescriptionsWindow window = new PrescriptionsWindow();
+            Patient selectedPatient = (Patient)ListOfPatientsBox.SelectedValue;
+            PrescriptionsWindow window = new PrescriptionsWindow(selectedPatient.PID);
             window.Show();
         }
 
@@ -80,8 +82,9 @@ namespace Medical_System.Views
 
         private void NotesAddButton_Click(object sender, RoutedEventArgs e)
         {
-            NotesWindow window = new NotesWindow();
+            EditNotes window = new EditNotes();
             window.Show();
+            
         }
 
         private void CurrentSymptomsEditButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +92,8 @@ namespace Medical_System.Views
             Patient foundPatient = (Patient)ListOfPatientsBox.SelectedValue;
             EditSymptoms window = new EditSymptoms(foundPatient.PID);
             window.Show();
+
+            
         }
     }
 }

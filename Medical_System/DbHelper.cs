@@ -152,8 +152,8 @@ namespace Medical_System
                 oldPatient.LastName = updatedPatient.LastName;
                 oldPatient.HomeAddress = updatedPatient.HomeAddress;
                 oldPatient.DateOfBirth = updatedPatient.DateOfBirth;
-                oldPatient.Doctors = updatedPatient.Doctors;
-                oldPatient.Prescriptions = updatedPatient.Prescriptions;
+                oldPatient.Doctors = GetDoctors();
+                oldPatient.Prescriptions = GetPrescriptionsByPatient(updatedPatient.PID);
                 context.SaveChanges();
             }
         }

@@ -10,26 +10,24 @@
     
     <StackPanel>
         <TextBox Name="FirstNameBox"
-                 Text="First Name"
+                 Text="{Binding FirstName}"
                  Margin="10 4 10 2"/>
         <TextBox Name="LastNameBox"
-                 Text="Last Name"/>
-        <TextBox Name="GenderBox"
-                 Text="Gender"/>
+                 Text="{Binding LastName}"/>
         <TextBox Name="HeightBox"
-                 Text="Height"/>
-        <TextBox Name="AddressBox"
-                 Text="Address"/>
-        <TextBox Name="PhoneNumberBox"
-                 Text="PhoneNumber"/>
+                 Text="{Binding CurrentHeight}"/>
+        <TextBox Name="WeightBox"
+                 Text="{Binding CurrentWeight}"/>
 
         <UniformGrid>
             <Button Name="ApplyButton"
                     Content="Apply"
-                    Margin="30 20 5 20"/>
+                    Margin="30 20 5 20"
+                    Click="ApplyButton_Click"/>
             <Button Name="CancelButton"
                     Content="Cancel"
-                    Margin="5 20 30 20"/>
+                    Margin="5 20 30 20"
+                    Click="CancelButton_Click"/>
         </UniformGrid>
     </StackPanel>
 </Window>

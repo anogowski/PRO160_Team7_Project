@@ -19,9 +19,32 @@ namespace Medical_System.Views
     /// </summary>
     public partial class PatientInfoEdit : Window
     {
-        public PatientInfoEdit()
+        DbHelper helper = new DbHelper();
+        int PID = 0;
+
+        public PatientInfoEdit(int _PID)
         {
             InitializeComponent();
+
+            PID = _PID;
+            DataContext = helper.GetPatients()[PID];
+        }
+
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            Patient tempPatient = helper.GetPatients()[PID];
+            tempPatient.FirstName = FirstNameBox.Text;
+            tempPatient.LastName = LastNameBox.Text;
+            tempPatient.CurrentHeight = Int32.Parse(HeightBox.Text);
+            tempPatient.CurrentWeight = Int32.Parse(WeightBox.Text);
+
+            helper.updatePatient(tempPatient);
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

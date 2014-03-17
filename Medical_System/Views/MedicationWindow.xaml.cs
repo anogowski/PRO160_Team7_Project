@@ -23,5 +23,15 @@ namespace Medical_System.Views
         {
             InitializeComponent();
         }
+
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
