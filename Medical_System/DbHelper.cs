@@ -141,22 +141,33 @@ namespace Medical_System
             }
         }
 
+        public List<Medicine> getMedicine(string[] fields = null)
+        {
+            using (var context = new MedicalSystemEntities())
+            {
+                return context.Medicines.ToList<Medicine>();
+            }
+        }
+
         public void updatePatient(Patient updatedPatient)
         {
             using (var context = new MedicalSystemEntities())
             {
                 Patient oldPatient = (Patient)context.Patients.Where(p => p.PID == updatedPatient.PID).First();
-                oldPatient.SSID = updatedPatient.SSID;
                 oldPatient.PhoneNumber = updatedPatient.PhoneNumber;
                 oldPatient.FirstName = updatedPatient.FirstName;
                 oldPatient.LastName = updatedPatient.LastName;
                 oldPatient.HomeAddress = updatedPatient.HomeAddress;
                 oldPatient.DateOfBirth = updatedPatient.DateOfBirth;
-                oldPatient.Doctors = GetDoctors();
-                oldPatient.Prescriptions = GetPrescriptionsByPatient(updatedPatient.PID);
+                oldPatient.CurrentHeight = updatedPatient.CurrentHeight;
+                oldPatient.CurrentWeight = updatedPatient.CurrentWeight;
+                //oldPatient.Doctors = GetDoctors();
+               // oldPatient.Prescriptions = GetPrescriptionsByPatient(updatedPatient.PID);
                 context.SaveChanges();
             }
         }
+
+
 
         public void updatePatientSymptoms(Patient updatedPatient)
         {
@@ -206,6 +217,19 @@ namespace Medical_System
                 return temp == null ? null : temp.Note;
             }
         }
+
+
+        public void updateMedicine(Medicine updated)
+        {
+            using (var context = new MedicalSystemEntities())
+            {
+                Medicine old = (Medicine)context.Medicines.Where(m => m.MID == updated.MID).First();
+                old.Name = updated.Name;
+                old.Note = updated.Note;
+                context.SaveChanges();
+            }
+        }
+
        
     }
 

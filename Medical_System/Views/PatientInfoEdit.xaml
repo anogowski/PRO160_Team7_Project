@@ -11,13 +11,17 @@
     <StackPanel>
         <TextBox Name="FirstNameBox"
                  Text="{Binding FirstName}"
-                 Margin="10 4 10 2"/>
+                 Margin="10 4 10 2"
+                 TextChanged="FirstNameBox_TextChanged"/>
         <TextBox Name="LastNameBox"
-                 Text="{Binding LastName}"/>
+                 Text="{Binding LastName}"
+                 TextChanged="LastNameBox_TextChanged"/>
         <TextBox Name="HeightBox"
-                 Text="{Binding CurrentHeight}"/>
+                 Text="{Binding CurrentHeight}"
+                 TextChanged="HeightBox_TextChanged"/>
         <TextBox Name="WeightBox"
-                 Text="{Binding CurrentWeight}"/>
+                 Text="{Binding CurrentWeight}"
+                 TextChanged="WeightBox_TextChanged"/>
 
         <UniformGrid>
             <Button Name="ApplyButton"

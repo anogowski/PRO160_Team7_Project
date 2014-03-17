@@ -20,23 +20,29 @@ namespace Medical_System.Views
     public partial class PatientInfoEdit : Window
     {
         DbHelper helper = new DbHelper();
-        int PID = 0;
+        int PatientID { get; set; }
+        string FirstName { get; set; }
+        string LastName { get; set; }
+        int CurrentHeight { get; set; }
+        double CurrentWeight { get; set; }
 
-        public PatientInfoEdit(int _PID)
+        Patient tempPatient = new Patient();
+        public PatientInfoEdit(int PID)
         {
             InitializeComponent();
 
-            PID = _PID;
-            DataContext = helper.GetPatients()[PID];
+            tempPatient.PID = PID;
+            PatientID = PID - 1;
+
+            DataContext = helper.GetPatients()[PatientID];
         }
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            Patient tempPatient = helper.GetPatients()[PID];
-            tempPatient.FirstName = FirstNameBox.Text;
-            tempPatient.LastName = LastNameBox.Text;
-            tempPatient.CurrentHeight = Int32.Parse(HeightBox.Text);
-            tempPatient.CurrentWeight = Int32.Parse(WeightBox.Text);
+            tempPatient.FirstName = FirstName;
+            tempPatient.LastName = LastName;
+            tempPatient.CurrentHeight = CurrentHeight;
+            tempPatient.CurrentWeight = CurrentWeight;
 
             helper.updatePatient(tempPatient);
             Close();
@@ -46,5 +52,39 @@ namespace Medical_System.Views
         {
             Close();
         }
+
+        private void FirstNameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            FirstName = textBox.Text;
+        }
+
+        private void LastNameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            LastName = textBox.Text;
+        }
+
+        private void HeightBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            int height = 0;
+            int.TryParse(textBox.Text, out height);
+            CurrentHeight = height;
+        }
+
+        private void WeightBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            double weight = 0;
+            double.TryParse(textBox.Text, out weight);
+            CurrentWeight = weight;
+            // CurrentWeight = Convert.ToDouble(textBox.Text);
+        }
+
+       
+
+
+
     }
 }

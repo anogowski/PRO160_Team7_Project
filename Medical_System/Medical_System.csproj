@@ -115,6 +115,9 @@
     <Compile Include="Views\AppointmentWindow.xaml.cs">
       <DependentUpon>AppointmentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditMedicine.xaml.cs">
+      <DependentUpon>EditMedicine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditPrescription.xaml.cs">
       <DependentUpon>EditPrescription.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
     <Page Include="Views\AppointmentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EditMedicine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditPrescription.xaml">
       <Generator>MSBuild:Compile</Generator>
