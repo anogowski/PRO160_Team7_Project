@@ -17,9 +17,9 @@ namespace Medical_System.Views
     /// <summary>
     /// Interaction logic for Prescriptions.xaml
     /// </summary>
-    public partial class Prescriptions : Window
+    public partial class PrescriptionsWindow : Window
     {
-        public Prescriptions()
+        public PrescriptionsWindow()
         {
             InitializeComponent();
         }

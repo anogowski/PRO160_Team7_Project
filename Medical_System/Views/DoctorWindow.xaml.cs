@@ -53,5 +53,42 @@ namespace Medical_System.Views
                 PrescriptionsBox.Items.Refresh();
             }
         }
+
+        private void PatientInfoEditButton_Click(object sender, RoutedEventArgs e)
+        {
+            PatientInfoEdit window = new PatientInfoEdit();
+            window.Show();
+        }
+
+        private void AppointmentsAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AppointmentWindow window = new AppointmentWindow();
+            window.Show();
+        }
+
+        private void PrescriptionsAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            PrescriptionsWindow window = new PrescriptionsWindow();
+            window.Show();
+        }
+
+        private void MedicationsAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            MedicationWindow window = new MedicationWindow();
+            window.Show();
+        }
+
+        private void NotesAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            NotesWindow window = new NotesWindow();
+            window.Show();
+        }
+
+        private void CurrentSymptomsEditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Patient foundPatient = (Patient)ListOfPatientsBox.SelectedValue;
+            EditSymptoms window = new EditSymptoms(foundPatient.PID);
+            window.Show();
+        }
     }
 }

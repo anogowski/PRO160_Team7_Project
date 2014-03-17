@@ -114,7 +114,8 @@
             </Grid>
             <UniformGrid>
                 <Button Name="PatientInfoEditButton"
-                        Content="Edit"/>
+                        Content="Edit"
+                        Click="PatientInfoEditButton_Click"/>
             </UniformGrid>
 
             <Label Name="AppointmentsLabel"
@@ -125,7 +126,8 @@
                      Margin="25 0"/>
             <UniformGrid>
                 <Button Name="AppointmentsAddButton"
-                        Content="Add"/>
+                        Content="Add"
+                        Click="AppointmentsAddButton_Click"/>
                 <Button Name="AppointmentsRemoveButton"
                         Content="Remove"/>
             </UniformGrid>
@@ -144,6 +146,7 @@
             <UniformGrid>
                 <Button Name="CurrentSymptomsEditButton"
                         Content="Edit"
+                        Click="CurrentSymptomsEditButton_Click"
                         Margin="0 0 0 20"/>
             </UniformGrid>
             
@@ -156,7 +159,8 @@
                      Margin="25 0"/>
             <UniformGrid>
                 <Button Name="PrescriptionsAddButton"
-                        Content="Add"/>
+                        Content="Add"
+                        Click="PrescriptionsAddButton_Click"/>
                 <Button Name="PrescriptionsEditButton"
                         Content="Edit"
                         Click="ShowPrescriptionsEditMenu"/>
@@ -172,7 +176,8 @@
                      Margin="25 0"/>
             <UniformGrid>
                 <Button Name="MedicationsAddButton"
-                        Content="Add"/>
+                        Content="Add"
+                        Click="MedicationsAddButton_Click"/>
                 <Button Name="MedicationsRemoveButton"
                         Content="Remove"/>
             </UniformGrid>
@@ -187,7 +192,8 @@
                      Margin="25 0"/>
             <UniformGrid>
                 <Button Name="NotesAddButton"
-                        Content="Add"/>
+                        Content="Add"
+                        Click="NotesAddButton_Click"/>
                 <Button Name="NotesRemoveButton"
                         Content="Remove"/>
             </UniformGrid>
