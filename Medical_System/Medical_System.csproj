@@ -130,6 +130,9 @@
     <Compile Include="Views\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditSymptoms.xaml.cs">
+      <DependentUpon>EditSymptoms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MedicationWindow.xaml.cs">
       <DependentUpon>MedicationWindow.xaml</DependentUpon>
     </Compile>
@@ -184,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\EditSymptoms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MedicationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -219,11 +226,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.Config" />
     <EntityDeploy Include="MedicalSystemModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MedicalSystemModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="MedicalSystemModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MedicalSystemModels.edmx</DependentUpon>
