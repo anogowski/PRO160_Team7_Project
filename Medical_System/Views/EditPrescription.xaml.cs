@@ -21,17 +21,14 @@ namespace Medical_System
     public partial class EditPrescription : Window
     {
         int PrescriptionID { get; set; }
-        ObservableCollection<string> Note { get; set; }
+        string Note { get; set; }
         DbHelper helper = new DbHelper();
         Prescription pre = new Prescription();
-        string note = "";
         public EditPrescription(int PreID = 1)
-
         {
             InitializeComponent();
             pre.PRE_ID = PreID;
             PrescriptionID = PreID - 1;
-
             DataContext = helper.GetPrescriptions()[PrescriptionID];
         }
 
@@ -43,17 +40,15 @@ namespace Medical_System
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var textBox = sender as TextBox;
-            note = textBox.Text;
+            Note = textBox.Text;
            
         }
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-                pre.Note = note;
+                pre.Note = Note;
                 helper.updatePrescriptionNote(pre);
             Close();
         }
-
-       
     }
 }

@@ -20,19 +20,16 @@ namespace Medical_System.Views
     /// </summary>
     public partial class EditSymptoms : Window
     {
-         int PatientID { get; set; }
-        ObservableCollection<string> Note { get; set; }
+        int PatientID { get; set; }
+        string Symptoms { get; set; }
         DbHelper helper = new DbHelper();
         Patient pat = new Patient();
-        string note = "";
         public EditSymptoms(int PID = 1)
-
         {
             InitializeComponent();
             pat.PID = PID;
-            PatientID = PID - 1;
-
-            DataContext = helper.GetPatientSymptomsByPatientID(PatientID);
+            PatientID = PID - 1; 
+           DataContext = helper.GetPatients()[PatientID];
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
@@ -43,13 +40,13 @@ namespace Medical_System.Views
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var textBox = sender as TextBox;
-            note = textBox.Text;
+            Symptoms = textBox.Text;
            
         }
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-                pat.Symptoms = note;
+            pat.Symptoms = Symptoms;
                 helper.updatePatientSymptoms(pat);
             Close();
         }

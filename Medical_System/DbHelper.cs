@@ -141,24 +141,6 @@ namespace Medical_System
             }
         }
 
-        public string GetPatientSymptomsByPatientID(int pid)
-        {
-            using (var context = new MedicalSystemEntities())
-            {
-                var temp =  context.Patients.Where(p => p.PID == pid).FirstOrDefault();
-                return temp == null ? null : temp.Symptoms;
-            }
-        }
-
-        public Patient GetPatientByPatientID(int pid)
-        {
-            using (var context = new MedicalSystemEntities())
-            {
-                return context.Patients.Where(p => p.PID == pid).FirstOrDefault();
-            }
-        }
-
-
         public void updatePatient(Patient updatedPatient)
         {
             using (var context = new MedicalSystemEntities())
