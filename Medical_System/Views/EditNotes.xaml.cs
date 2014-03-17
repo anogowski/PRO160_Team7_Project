@@ -49,7 +49,7 @@ namespace Medical_System.Views
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
             pat.Note = Note;
-            helper.updatePatientSymptoms(pat);
+            helper.updatePatientNote(pat);
             Close();
         }
 

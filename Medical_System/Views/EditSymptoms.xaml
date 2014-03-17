@@ -6,7 +6,9 @@
         <TextBox x:Name="PrescriptionInfo" Height="100" 
                  Margin="5" 
                  Text="{Binding Symptoms}"
-                 TextChanged="TextBox_TextChanged"/>
+                 TextChanged="TextBox_TextChanged"
+                  AcceptsTab="True"
+                 AcceptsReturn="True"/>
         <StackPanel Orientation="Horizontal" 
                     HorizontalAlignment="Center">
             <Button x:Name="ApplyButton" 

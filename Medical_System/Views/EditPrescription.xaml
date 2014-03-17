@@ -7,12 +7,16 @@
         <TextBox x:Name="PrescriptionNote" Height="50" 
                  Margin="5" 
                  Text="{Binding Note}"
-                 TextChanged="NoteTextBox_TextChanged"/>
+                 TextChanged="NoteTextBox_TextChanged"
+                 AcceptsTab="True"
+                 AcceptsReturn="True"/>
         <TextBlock Text="Reactions"/>
         <TextBox x:Name="PrescriptionReaction" Height="50" 
                  Margin="5" 
                  Text="{Binding Reactions}"
-                 TextChanged="PrescriptionReaction_TextChanged"/>
+                 TextChanged="PrescriptionReaction_TextChanged"
+                  AcceptsTab="True"
+                 AcceptsReturn="True"/>
         <TextBlock Text="Date Issued"/>
         <Label Content="{Binding DateIssued}"></Label>
             <StackPanel Orientation="Horizontal" 

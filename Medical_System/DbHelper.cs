@@ -179,6 +179,16 @@ namespace Medical_System
             }
         }
 
+        public void updatePatientNote(Patient updatedPatient)
+        {
+            using (var context = new MedicalSystemEntities())
+            {
+                Patient oldPatient = (Patient)context.Patients.Where(p => p.PID == updatedPatient.PID).First();
+                oldPatient.Note= updatedPatient.Note;
+                context.SaveChanges();
+            }
+        }
+
         public List<Prescription> GetPrescriptionsByPatient(int pid, string[] fields = null)
         {
             using (var context = new MedicalSystemEntities())
