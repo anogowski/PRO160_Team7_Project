@@ -112,9 +112,6 @@
     <Compile Include="Prescription.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>MedicalSystemModels.tt</DependentUpon>
-    </Compile>
     <Compile Include="Views\AppointmentWindow.xaml.cs">
       <DependentUpon>AppointmentWindow.xaml</DependentUpon>
     </Compile>
@@ -136,8 +133,8 @@
     <Compile Include="Views\MedicationWindow.xaml.cs">
       <DependentUpon>MedicationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NotesWindow.xaml.cs">
-      <DependentUpon>NotesWindow.xaml</DependentUpon>
+    <Compile Include="Views\EditNotes.xaml.cs">
+      <DependentUpon>EditNotes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PatientInfoEdit.xaml.cs">
       <DependentUpon>PatientInfoEdit.xaml</DependentUpon>
@@ -195,7 +192,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\NotesWindow.xaml">
+    <Page Include="Views\EditNotes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

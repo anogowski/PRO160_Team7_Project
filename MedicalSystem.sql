@@ -78,6 +78,12 @@ create table Disease_Patient
 	foreign key (PID) references Disease(DISID),
 )
 
+create table Appointment
+(
+	AID int identity(1,1) primary key,
+	AppointmentDate Date not null 
+)
+
 create table Doc_Patient_appointment
 (
 	PID int constraint fk_pid 
