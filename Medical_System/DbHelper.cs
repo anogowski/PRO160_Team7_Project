@@ -174,6 +174,7 @@ namespace Medical_System
             {
                 Prescription oldPrescription = (Prescription)context.Prescriptions.Where(p => p.PRE_ID == updatedPrescription.PRE_ID).First();
                 oldPrescription.Note = updatedPrescription.Note;
+                oldPrescription.Reactions = updatedPrescription.Reactions;
                 context.SaveChanges();
             }
         }

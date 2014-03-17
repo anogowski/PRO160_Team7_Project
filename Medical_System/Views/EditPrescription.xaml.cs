@@ -22,6 +22,8 @@ namespace Medical_System
     {
         int PrescriptionID { get; set; }
         string Note { get; set; }
+        string Reactions { get; set; }
+        System.DateTime DateIssued { get; set; }
         DbHelper helper = new DbHelper();
         Prescription pre = new Prescription();
         public EditPrescription(int PreID = 1)
@@ -37,7 +39,7 @@ namespace Medical_System
             Close();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void NoteTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var textBox = sender as TextBox;
             Note = textBox.Text;
@@ -47,8 +49,15 @@ namespace Medical_System
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
                 pre.Note = Note;
+                pre.Reactions = Reactions;
                 helper.updatePrescriptionNote(pre);
             Close();
+        }
+
+        private void PrescriptionReaction_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            Reactions = textBox.Text;
         }
     }
 }

@@ -109,10 +109,10 @@
     <Compile Include="Patient.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Patient_Notes.cs">
+    <Compile Include="Prescription.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Prescription.cs">
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>MedicalSystemModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Views\AppointmentWindow.xaml.cs">

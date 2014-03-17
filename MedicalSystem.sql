@@ -3,6 +3,7 @@ create Database MedicalSystem
 go
 
 use MedicalSystem
+
 create table BloodType
 (
 	BID int identity(1,1) primary key,
@@ -14,33 +15,6 @@ create table Medicine
 	MID int identity(1,1) primary key,
 	Name nchar(100) not null,
 	Note text null
-)
-
-create table Prescription
-(
-	PRE_ID int identity(1,1) primary key, 
-	DID int,
-	PID int ,
-	DateIssued datetime default(getdate()) not null,
-	Note text null,
-	Reactions text null
-)
-
-create table Prescription_Medicine
-(
-	PRE_ID int constraint fk_pre_id
-    foreign key (PRE_ID)
-    references Prescription(pre_id),
-    
-    MID int constraint fk_medicine
-    foreign key (MID)
-    references Medicine(MID),
-)
-
-create table Appointment
-(
-	AID int identity(1,1) primary key,
-	AppointmentDate datetime default(getDate()),
 )
 
 create table Patient
@@ -61,6 +35,7 @@ create table Patient
     HomeAddress nchar(100) null, 
     PhoneNumber nchar(15),
     Symptoms text, 
+	Note text
 )
 
 create table Fields
@@ -130,15 +105,29 @@ create table Administrator
 	psw char(20) not null
 )
 
-create table Patient_Notes
+create table Prescription
 (
-	PN_ID int identity (1,1) primary key,
-	DID int constraint fk_did_patient_notes 
+	PRE_ID int identity(1,1) primary key, 
+	DID int constraint fk_doc_prescription
 	foreign key (DID) references Doctor(DID) not null,
-	PID int constraint fk_pid_patient_notes
+	PID int constraint fk_patient_prescription
 	foreign key (PID) references Patient(PID) not null,
-	Note text
+	DateIssued datetime default(getdate()) not null,
+	Note text null,
+	Reactions text null
 )
+
+create table Prescription_Medicine
+(
+	PRE_ID int constraint fk_pre_id
+    foreign key (PRE_ID)
+    references Prescription(pre_id),
+    
+    MID int constraint fk_medicine
+    foreign key (MID)
+    references Medicine(MID),
+)
+
 
 -- need to add fk between patient and prescription
 alter table Prescription

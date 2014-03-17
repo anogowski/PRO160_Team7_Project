@@ -424,12 +424,12 @@ Values
 
 Go
 
-Insert Into Patient (SSID, FirstName, LastName, Gender, DateOfBirth, Age, DateOfDeath, BloodType_id, CurrentHeight, CurrentWeight, HomeAddress, PhoneNumber, Symptoms)
+Insert Into Patient (SSID, FirstName, LastName, Gender, DateOfBirth, Age, DateOfDeath, BloodType_id, CurrentHeight, CurrentWeight, HomeAddress, PhoneNumber, Symptoms, Note)
 Values
 
-('123456789', 'Josh', 'Neubs',  1, '12-01-1990', 35, null, 1, 150, 60.0, '1 Main St', '1234567890', 'Fever, Headache'),
-('098765432', 'Tetsuya', 'Shiba',1, '12-11-95',17, null, 2, 175, 50.0, '100 North', '1234567890', 'Headache, Fatiuge'),
-('143258765','Mary', 'Null', 0, '01-01-00', 13, null, 8, 125, 40.3,'321 Main St', '0987654321', 'Fever, Stomach Ache, Cramps')
+('123456789', 'Josh', 'Neubs',  1, '12-01-1990', 35, null, 1, 150, 60.0, '1 Main St', '1234567890', 'Fever, Headache', 'Stress'),
+('098765432', 'Tetsuya', 'Shiba',1, '12-11-95',17, null, 2, 175, 50.0, '100 North', '1234567890', 'Headache, Fatiuge', 'Lacks Emotion'),
+('143258765','Mary', 'Null', 0, '01-01-00', 13, null, 8, 125, 40.3,'321 Main St', '0987654321', 'Fever, Stomach Ache, Cramps', '?????')
 Go
 
 
@@ -447,10 +447,10 @@ values
 (3,3,3)
 Go
 
-Insert into Prescription(DID, PID, DateIssued, Note)
+Insert into Prescription(DID, PID, DateIssued, Note, Reactions)
 values
-(3,1, '1-10-2012', 'Be careful using these'),
-(1,2, '3-12-2013', 'These are very effective')
+(3,1, '1-10-2012', 'Be careful using these', 'sleepiness'),
+(1,2, '3-12-2013', 'These are very effective', 'none')
 go
 
 Insert Into Disease_Patient(PID, DISID)
@@ -458,11 +458,6 @@ values
 (1, 8),
 (3, 50)
 
-Insert Into Patient_Notes(DID,PID,Note)
-values
-(1,1,'Stress'),
-(1,2,'Lacks Emotions'),
-(2,3, '????')
 
 --Insert Into Perscription_Medicine(PRE_ID, MID)
 --values
