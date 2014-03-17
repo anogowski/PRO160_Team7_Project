@@ -224,7 +224,7 @@ namespace Medical_System
             using (var context = new MedicalSystemEntities())
             {
                 Medicine old = (Medicine)context.Medicines.Where(m => m.MID == updated.MID).First();
-                old.Name = updated.Name;
+                //old.Name = updated.Name;
                 old.Note = updated.Note;
                 context.SaveChanges();
             }

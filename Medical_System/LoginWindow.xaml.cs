@@ -166,6 +166,8 @@ namespace Medical_System
             if (db.CanAdminLogin(user, pswd, out returnAdmin))
             {
                 SaveAdminInfoToXml(adminList);
+                AdminWindow window = new AdminWindow();
+                window.Show();
                 mMain.Close();
                 this.Close();
             }

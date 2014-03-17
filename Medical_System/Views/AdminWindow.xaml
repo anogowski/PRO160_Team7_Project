@@ -10,5 +10,25 @@
                 <GradientStop Color="#AFC0C9" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+
+
+        <StackPanel Name="ListOfPatientsPanel">
+            <Label Name="ListOfPatientsLabel"
+                   Content="List of Patients:"
+                   Margin="15 10 15 0"/>
+            <ListBox Name="ListOfPatientsBox"
+                     Height="870"
+                     Width="400"
+                     Margin="20 0"
+                     BorderThickness="1"
+                     BorderBrush="Black"
+                     DisplayMemberPath="UserName"/>
+            <UniformGrid>
+                <Button Name="PatientsListAddButton"
+                        Content="Add"/>
+                <Button Name="PatientsListMoveButton"
+                        Content="Remove"/>
+            </UniformGrid>
+        </StackPanel>
     </Grid>
 </Window>

@@ -30,6 +30,10 @@ namespace Medical_System.Views
             getListOfPatients();
             ListOfPatientsBox.ItemsSource = ListOfPatients;
             ListOfPatientsBox.Items.Refresh();
+
+            MedicationsBox.ItemsSource = helper.getMedicine();
+            MedicationsBox.DisplayMemberPath = "Name";
+
         }
 
         private void getListOfPatients()
@@ -39,8 +43,10 @@ namespace Medical_System.Views
 
         private void UpdateLists(object sender, SelectionChangedEventArgs e)
         {
+            Patient SelectedPatient = (Patient)helper.GetPatients()[ListOfPatientsBox.SelectedIndex];
             PrescriptionsBox.ItemsSource = helper.GetPrescriptionsByPatient(ListOfPatients[ListOfPatientsBox.SelectedIndex].PID);
             PrescriptionsBox.Items.Refresh();
+            NotesBox.Content = SelectedPatient.Note;
         }
 
         private void ShowPrescriptionsEditMenu(object sender, RoutedEventArgs e)
@@ -76,24 +82,45 @@ namespace Medical_System.Views
 
         private void MedicationsAddButton_Click(object sender, RoutedEventArgs e)
         {
-            MedicationWindow window = new MedicationWindow();
+            EditMedicine window = new EditMedicine(MedicationsBox.SelectedIndex);
             window.Show();
+            MedicationsBox.Items.Refresh();
         }
 
         private void NotesAddButton_Click(object sender, RoutedEventArgs e)
         {
+
+            Patient SelectedPatient = (Patient)helper.GetPatients()[ListOfPatientsBox.SelectedIndex];
             EditNotes window = new EditNotes();
             window.Show();
+            NotesBox.Content = SelectedPatient.Note;
             
         }
 
         private void CurrentSymptomsEditButton_Click(object sender, RoutedEventArgs e)
         {
-            Patient foundPatient = (Patient)ListOfPatientsBox.SelectedValue;
-            EditSymptoms window = new EditSymptoms(foundPatient.PID);
+            Patient selectedPatient = (Patient)ListOfPatientsBox.SelectedValue;
+            EditSymptoms window = new EditSymptoms(selectedPatient.PID);
             window.Show();
 
             
+        }
+
+        private void ViewPatientGraphButton_Click(object sender, RoutedEventArgs e)
+        {
+            Patient selectedPatient = (Patient)ListOfPatientsBox.SelectedValue;
+            double[] numberList = {
+                                   selectedPatient.CurrentHeight,
+                                   selectedPatient.CurrentHeight * .2,
+                                   selectedPatient.CurrentHeight * .4,
+                                   selectedPatient.CurrentHeight * .6,
+                                   selectedPatient.CurrentHeight * .8,
+                                   selectedPatient.CurrentHeight * 1
+                               };
+
+            GraphWindow window = new GraphWindow();
+            window.GraphData(numberList);
+            window.Show();
         }
     }
 }

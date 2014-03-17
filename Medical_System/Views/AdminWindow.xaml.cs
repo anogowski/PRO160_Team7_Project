@@ -19,9 +19,13 @@ namespace Medical_System.Views
     /// </summary>
     public partial class AdminWindow : Window
     {
+
+        DbHelper helper = new DbHelper();
         public AdminWindow()
         {
             InitializeComponent();
+
+            ListOfPatientsBox.ItemsSource = helper.GetDoctors();
         }
     }
 }

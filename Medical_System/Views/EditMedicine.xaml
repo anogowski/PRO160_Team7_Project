@@ -4,10 +4,9 @@
         Title="EditMedicine" Height="250" Width="300">
     <StackPanel>
         <TextBlock Text="Name"/>
-        <TextBox x:Name="MedicineName" 
+        <TextBlock x:Name="MedicineName" 
                  Margin="5" 
-                 Text="{Binding Name}"
-                 TextChanged="MedicineName_TextChanged"/>
+                 Text="{Binding Name}"/>
         <TextBlock Text="Note"/>
         <TextBox x:Name="MedicineNote" Height="100" 
                  Margin="5" 

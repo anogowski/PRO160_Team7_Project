@@ -28,8 +28,8 @@ namespace Medical_System.Views
         public EditMedicine(int MID)
         {
             InitializeComponent();
-             med.MID = MID;
-            MedicineID = MID - 1;
+             med.MID = MID +1;
+            MedicineID = MID;
             DataContext = helper.getMedicine()[MedicineID];
         }
          
@@ -38,13 +38,6 @@ namespace Medical_System.Views
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
-        }
-
-        private void MedicineName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            var textBox = sender as TextBox;
-            Name = textBox.Text;
-
         }
 
         private void MedicineNote_TextChanged(object sender, TextChangedEventArgs e)
@@ -56,7 +49,7 @@ namespace Medical_System.Views
 
         private void ApplyButton_Click(object sender, RoutedEventArgs e)
         {
-            med.Name = Name;
+           med.Name = Name;
             med.Note = Note;
             helper.updateMedicine(med);
             Close();
