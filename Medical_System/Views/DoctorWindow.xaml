@@ -121,24 +121,13 @@
                    Content="Appointments:"
                    Margin="20 20 20 0"/>
             <ListBox Name="AppointmentsBox"
-                     Height="137"
+                     Height="300"
                      Margin="25 0"/>
             <UniformGrid>
                 <Button Name="AppointmentsAddButton"
                         Content="Add"/>
                 <Button Name="AppointmentsRemoveButton"
-                        Content="Move"/>
-            </UniformGrid>
-
-            <Label Name="AppointmentsHistoryLabel"
-                   Content="Appointments History:"
-                   Margin="20 0"/>
-            <ListBox Name="AppointmentsHistoryBox"
-                     Height="138"
-                     Margin="25 0"/>
-            <UniformGrid>
-                <Button Name="AppointmentsHistoryRemoveButton"
-                            Content="Remove"/>
+                        Content="Remove"/>
             </UniformGrid>
         </StackPanel>
 
@@ -148,7 +137,7 @@
                    Content="Current Symptoms:"
                    Margin="20 20 20 0"/>
             <Label Name="CurrentSymptomsLabel2"
-                   Content="{Binding Syptoms}"
+                   Content="{Binding Symptoms}"
                    Background="#FAFAE3"
                    FontSize="15"
                    Margin="25 0"/>
@@ -179,21 +168,12 @@
                    Content="Medications:"
                    Margin="20 20 20 0"/>
             <ListBox Name="MedicationsBox"
-                     Height="180"
+                     Height="300"
                      Margin="25 0"/>
             <UniformGrid>
                 <Button Name="MedicationsAddButton"
                         Content="Add"/>
-            </UniformGrid>
-
-            <Label Name="PastMedicationsLabel"
-                   Content="Past Medications:"
-                   Margin="20 20 20 0"/>
-            <ListBox Name="PastmedicationsBox"
-                     Height="185"
-                     Margin="25 0"/>
-            <UniformGrid>
-                <Button Name="PastMedicationsRemoveButton"
+                <Button Name="MedicationsRemoveButton"
                         Content="Remove"/>
             </UniformGrid>
         </StackPanel>
